@@ -5,7 +5,7 @@ import Navbar from "./Navbar/Navbar";
 import PageLayout from "./pagelayout";
 
 const Container = styled.div`
-  padding-top: 4rem;
+  padding-top: var(--height-navbar);
   min-height: 100vh;
 `;
 
