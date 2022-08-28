@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { TabsUl, TabLi } from "./tabs.style";
+import { useRecoilState } from "recoil";
+import { tabsState } from "../../context/state";
 
 const tabTypes = [
   { name: "Home", to: "/" },
@@ -15,11 +17,9 @@ interface Props {
 }
 
 const Tabs: React.FC<Props> = ({ mobile, onClose }) => {
-  const [activeTab, setActiveTab] = useState(0);
-  console.log(`the state ${activeTab}`);
+  const [activeTab, setActiveTab] = useRecoilState(tabsState);
 
   const handleTabClick = (index) => {
-    console.log(`the index is ${index}`);
     setActiveTab(index);
     if (onClose) {
       onClose();

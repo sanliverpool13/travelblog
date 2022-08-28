@@ -17,15 +17,6 @@ interface Props {
 
 const Layout: React.FC<Props> = ({ children }) => {
   const [menuOpen, setMenuOpen] = useState(false);
-  // const [activeTab, setActiveTab] = useState(0)
-
-  // const handleTabClick = (index) => {
-  //   console.log(`the index is ${index}`);
-  //   setActiveTab(index);
-  //   if (onClose) {
-  //     onClose();
-  //   }
-  // };
 
   const handleMenuToggle = () => {
     setMenuOpen((prevState) => !prevState);
