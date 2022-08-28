@@ -2,19 +2,24 @@ import styled from "styled-components";
 
 export const TabsUl = styled.ul`
   display: flex;
-  justify-content: center;
+  flex-direction: ${(props) => (props.mobile ? "column" : "row")};
   align-items: center;
   list-style-type: none;
-  width: 60%;
+  flex: 70%;
   height: 100%;
+
+  @media (max-width: 700px) {
+    display: ${(props) => (props.mobile ? "flex" : "none")};
+  }
 `;
 
-export const TabLink = styled.li`
-  font-size: 1rem;
+export const TabLi = styled.li`
+  font-size: ${(props) => (props.mobile ? "1.5rem" : "1rem")};
   padding: 0.5rem 1rem;
   box-sizing: border-box;
   margin-right: 1rem;
   transition: all 0.2s ease;
+  margin-bottom: ${(props) => (props.mobile ? "1rem" : "none")};
 
   & a {
     color: ${(props) =>
@@ -26,5 +31,9 @@ export const TabLink = styled.li`
     &:hover {
       color: var(--color-text-black, black);
     }
+  }
+
+  @media (max-width: 700px) {
+    display: ${(props) => (props.mobile ? "flex" : "none")};
   }
 `;

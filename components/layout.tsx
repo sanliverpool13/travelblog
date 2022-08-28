@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Footer from "./Footer/Footer";
 import Navbar from "./Navbar/Navbar";
+import { NavMenuContainer } from "./Navbar/navmenu.style";
+import NavMenu from "./Navbar/NavMenu";
 import PageLayout from "./pagelayout";
 
 const Container = styled.div`
@@ -14,9 +16,33 @@ interface Props {
 }
 
 const Layout: React.FC<Props> = ({ children }) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  // const [activeTab, setActiveTab] = useState(0)
+
+  // const handleTabClick = (index) => {
+  //   console.log(`the index is ${index}`);
+  //   setActiveTab(index);
+  //   if (onClose) {
+  //     onClose();
+  //   }
+  // };
+
+  const handleMenuToggle = () => {
+    setMenuOpen((prevState) => !prevState);
+  };
+
+  const handleMenuClose = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <Container>
-      <Navbar />
+      <Navbar handleMenuToggle={handleMenuToggle} />
+      {menuOpen && (
+        <NavMenuContainer>
+          <NavMenu onClose={handleMenuClose} />
+        </NavMenuContainer>
+      )}
       <PageLayout>{children}</PageLayout>
       <Footer />
     </Container>

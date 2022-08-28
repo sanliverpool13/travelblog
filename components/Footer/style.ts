@@ -10,4 +10,5 @@ export const FooterContainer = styled.div`
   font-size: 0.75rem;
   background-color: #595857;
   color: white;
+  margin-bottom: 0;
 `;

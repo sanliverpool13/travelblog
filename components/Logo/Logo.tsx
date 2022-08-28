@@ -1,8 +1,12 @@
 import React from "react";
 import { LogoContainer } from "./style";
 
-const Logo: React.FC = () => {
-  return <LogoContainer>The Jelet Setters</LogoContainer>;
+interface Props {
+  mobile?: boolean;
+}
+
+const Logo: React.FC<Props> = ({ mobile }) => {
+  return <LogoContainer mobile={mobile}>The Jelet Setters</LogoContainer>;
 };
 
 export default Logo;
