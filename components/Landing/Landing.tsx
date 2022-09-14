@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import { LandingContainer } from "./style";
 
@@ -10,6 +11,7 @@ const Landing: React.FC = () => {
         <p>Always on the hunt for good coffee and cafes. &#9749;</p>
         <p>Join us on our journey! </p>
       </div>
+      <Image src="/images/us.jpg" alt="us" width="200" height="355.56" />
     </LandingContainer>
   );
 };

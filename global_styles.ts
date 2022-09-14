@@ -29,6 +29,10 @@ export default GlobalStyle`
         --height-footer: 2rem;
         --logo-style: 'Hurricane', cursive;
 
+        --max-width-content: 1170px;
+
+        --border-default: 1px solid black;
+
         
     }
     * {

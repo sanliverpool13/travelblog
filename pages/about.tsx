@@ -1,7 +1,8 @@
 import React from "react";
+import About from "../components/About/about";
 
 const about: React.FC = () => {
-  return <div>about</div>;
+  return <About />;
 };
 
 export default about;
