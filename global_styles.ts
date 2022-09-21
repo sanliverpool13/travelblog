@@ -33,6 +33,15 @@ export default GlobalStyle`
 
         --border-default: 1px solid black;
 
+        --bg-color-error-alert: #fdeded;
+        --bg-color-success-alert: #edf7ed;
+        --color-error-alert: #5f2120;
+        --color-success-alert: #1e4620;
+        --color-error-icon: #ef5350;
+
+        --bg-clr-snackbar-success: #2e7d32;
+        --bg-clr-snackbar-error: #d32f2f;
+
         
     }
     * {

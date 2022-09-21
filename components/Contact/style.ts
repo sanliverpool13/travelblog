@@ -1,25 +1,14 @@
 import styled from "styled-components";
 
 export const ContactContainer = styled.div`
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-areas: "form details";
-  /* background-color: #f1f1f1; */
-  border-radius: 1px;
-  /* offset-x | offset-y | blur-radius | spread-radius | color */
-  /* box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.14); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 3rem;
   width: 100%;
-
-  @media (max-width: 700px) {
-    display: flex;
-    flex-direction: column;
-  }
 `;
 
 export const ContactFormSection = styled.section`
-  grid-area: form;
-
   & h3 {
     margin-bottom: 0.5rem;
     font-size: 2rem;
@@ -30,13 +19,6 @@ export const ContactFormSection = styled.section`
     font-size: 1rem;
     color: #939393;
   }
-`;
-
-export const ContactDetailSection = styled.section`
-  grid-area: details;
-
-  display: flex;
-  flex-direction: column;
 `;
 
 export const FormGroup = styled.div`
@@ -53,12 +35,21 @@ export const FormGroup = styled.div`
 
   & input,
   textarea {
-    margin-bottom: 1rem;
     width: 70%;
     outline: none;
     border: 1px solid #dedede;
     padding: 0.75rem 1rem;
     border-radius: 5px;
+  }
+
+  & #name,
+  #email,
+  #message {
+    margin-bottom: ${(props) => (props.error ? "0.2rem" : "1rem")};
+  }
+
+  & #subject {
+    margin-bottom: 1rem;
   }
 `;
 
@@ -77,6 +68,7 @@ export const ContactButton = styled.button`
   transition: all 0.3s ease-out;
   padding: 0.5rem 0.3rem;
   width: 100px;
+  margin-bottom: 1rem;
 
   &:hover {
     background-color: #36a444;
@@ -84,15 +76,89 @@ export const ContactButton = styled.button`
   }
 `;
 
-export const DetailArticle = styled.article``;
-
-export const DetailHeader = styled.h4`
-  color: #cc240e;
-  margin-bottom: 1rem;
+// Error Message
+export const ErrorMessage = styled.div`
+  display: flex;
+  padding: 3px 16px;
+  border-radius: 4px;
+  background-color: var(--bg-color-error-alert);
+  color: var(--color-error-alert);
+  width: 70%;
+  height: 30px;
 `;
 
-export const Detail = styled.p`
-  margin-bottom: 3rem;
-  font-size: 0.8rem;
-  color: #939393;
+export const ErrorIconContainer = styled.div`
+  color: var(--color-error-icon);
+  margin-right: 12px;
+  padding: 4px 0px;
+  display: flex;
+  font-size: 1rem;
+  opacity: 0.9;
+`;
+
+export const ErrorTextContainer = styled.div`
+  padding: 4px 0px;
+  min-width: 0px;
+  overflow: auto;
+  font-size: 0.7rem;
+`;
+
+// Form On Submit Message
+export const OnSubmitMessage = styled.div`
+  display: flex;
+  padding: 3px 16px;
+  border-radius: 4px;
+  background-color: ${(props) =>
+    props.error
+      ? "var(--bg-color-error-alert)"
+      : "var(--bg-color-success-alert)"};
+  color: ${(props) =>
+    props.error ? "var(--color-error-alert)" : "var(--color-success-alert)"};
+  width: 70%;
+  height: 30px;
+`;
+
+export const SnackBarContainer = styled.div`
+  position: fixed;
+  z-index: 1000;
+  bottom: 2rem;
+  left: 50%auto;
+  height: auto;
+  padding: 0.625rem 1rem;
+  border-radius: 0.75rem;
+  border: transparent;
+  background-color: ${(props) =>
+    props.state
+      ? "var(--bg-clr-snackbar-success)"
+      : "var(--bg-clr-snackbar-error)"};
+  color: white;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const SnackBarTextSpan = styled.span`
+  margin-right: 1rem;
+`;
+
+export const SnackBarCloseButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 1.75rem;
+  width: 1.75rem;
+  padding: 0;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  color: white;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+  }
 `;

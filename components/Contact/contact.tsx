@@ -1,13 +1,11 @@
 import React from "react";
 import ContactForm from "./contactform";
-import ContactDetails from "./contactdetails";
 import { ContactContainer } from "./style";
 
-const Contact = () => {
+const Contact: React.FC = () => {
   return (
     <ContactContainer>
       <ContactForm />
-      <ContactDetails />
     </ContactContainer>
   );
 };
