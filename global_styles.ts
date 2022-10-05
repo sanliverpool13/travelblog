@@ -30,6 +30,7 @@ export default GlobalStyle`
         --logo-style: 'Hurricane', cursive;
 
         --max-width-content: 1170px;
+        --landing-section-widths: 90%;
 
         --border-default: 1px solid black;
 
@@ -41,6 +42,10 @@ export default GlobalStyle`
 
         --bg-clr-snackbar-success: #2e7d32;
         --bg-clr-snackbar-error: #d32f2f;
+
+        --bg-clr-navbar: #274c77;
+
+        --post-content-height: 280px;
 
         
     }

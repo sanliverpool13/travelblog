@@ -13,7 +13,7 @@ export const SocialLinksContainer = styled.div`
 `;
 
 export const SocialLink = styled.a`
-  color: grey;
+  color: white;
   text-decoration: none;
   margin-right: 1rem;
 

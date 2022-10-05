@@ -4,12 +4,13 @@ import styled from "styled-components";
 export const Section = styled.section`
   width: 100%;
   /* top | horizontal | bottom */
-  padding: 6rem 0 4rem;
+  padding: 2rem 0 4rem;
   min-height: calc(100vh - var(--height-navbar) - var(--height-footer));
+  position: relative;
 `;
 
 export const SectionCenter = styled.section`
-  width: 90%;
+  width: 90vw;
   margin: 0 auto;
   max-width: var(--max-width-content);
 `;

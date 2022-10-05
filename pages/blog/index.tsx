@@ -1,7 +1,8 @@
 import React from "react";
+import Blog from "../../components/Blog/Blog";
 
 const index: React.FC = () => {
-  return <div>Blog home page</div>;
+  return <Blog />;
 };
 
 export default index;

@@ -22,8 +22,9 @@ export const TabLi = styled.li`
   margin-bottom: ${(props) => (props.mobile ? "1rem" : "none")};
 
   & a {
-    color: ${(props) =>
-      props.active ? "var(--color-text-black)" : "var(--color-nav-tabs)"};
+    /* color: ${(props) =>
+      props.active ? "var(--color-text-black)" : "var(--color-nav-tabs)"}; */
+    color: white;
     font-weight: 700;
     text-decoration: none;
     transition: all 0.2s ease;

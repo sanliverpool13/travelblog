@@ -4,7 +4,7 @@ export const LogoContainer = styled.div`
   text-align: center;
   font-size: 3rem;
   font-style: bold;
-  padding-left: 2rem;
+  /* padding-left: 2rem; */
   font-family: var(--logo-style) !important;
   display: flex;
   align-items: center;

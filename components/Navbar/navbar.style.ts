@@ -9,7 +9,10 @@ export const NavContainer = styled.div`
   justify-content: center;
   width: 100%;
   height: var(--height-navbar);
-  box-shadow: 0 3px 3px 0px rgba(0, 0, 0, 0.14);
+  /* box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.14); */
+  z-index: 1000;
+  background-color: var(--bg-clr-navbar);
+  color: white;
 `;
 
 export const NavInnerContainer = styled.div`
