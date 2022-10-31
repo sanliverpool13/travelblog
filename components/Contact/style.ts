@@ -4,11 +4,21 @@ export const ContactContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 3rem;
+  padding: 2rem 3rem 3rem;
   width: 100%;
+  color: var(--bg-clr-footer);
+
+  @media (max-width: 700px) {
+    padding: 2rem 0 3rem;
+  }
 `;
 
 export const ContactFormSection = styled.section`
+  max-width: var(--max-width-content);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   & h3 {
     margin-bottom: 0.5rem;
     font-size: 2rem;
@@ -17,7 +27,13 @@ export const ContactFormSection = styled.section`
   & h6 {
     margin-bottom: 2rem;
     font-size: 1rem;
-    color: #939393;
+    color: var(--bg-clr-footer);
+  }
+
+  @media (max-width: 700px) {
+    & h3 {
+      text-align: center;
+    }
   }
 `;
 
@@ -26,6 +42,7 @@ export const FormGroup = styled.div`
   justify-content: center;
   align-items: start;
   flex-direction: column;
+  width: 100%;
 
   & label {
     font-size: 0.7rem;
@@ -35,7 +52,7 @@ export const FormGroup = styled.div`
 
   & input,
   textarea {
-    width: 70%;
+    width: 100%;
     outline: none;
     border: 1px solid #dedede;
     padding: 0.75rem 1rem;
@@ -51,6 +68,13 @@ export const FormGroup = styled.div`
   & #subject {
     margin-bottom: 1rem;
   }
+
+  @media (max-width: 700px) {
+    & input,
+    textarea {
+      width: 100%;
+    }
+  }
 `;
 
 export const FormHelperText = styled.p`
@@ -65,14 +89,14 @@ export const ContactButton = styled.button`
   border-radius: 5px;
   border-width: 0;
   background-color: #dedede;
+  color: var(--bg-clr-footer);
   transition: all 0.3s ease-out;
   padding: 0.5rem 0.3rem;
   width: 100px;
   margin-bottom: 1rem;
 
   &:hover {
-    background-color: #36a444;
-    color: white;
+    background-color: var(--clr-trqse);
   }
 `;
 
@@ -85,6 +109,10 @@ export const ErrorMessage = styled.div`
   color: var(--color-error-alert);
   width: 70%;
   height: 30px;
+
+  @media (max-width: 700px) {
+    width: 100%;
+  }
 `;
 
 export const ErrorIconContainer = styled.div`

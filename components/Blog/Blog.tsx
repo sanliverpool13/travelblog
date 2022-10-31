@@ -11,7 +11,7 @@ const Blog = () => {
     return <Post key={post.id} post={post} />;
   });
 
-  return <PostsContainer>{blogPostElements}</PostsContainer>;
+  return <PostsContainer>Coming Soon!</PostsContainer>;
 };
 
 export default Blog;

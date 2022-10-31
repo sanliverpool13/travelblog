@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Footer from "./Footer/Footer";
 import Navbar from "./Navbar/Navbar";
-import { NavMenuContainer } from "./Navbar/navmenu.style";
-import NavMenu from "./Navbar/NavMenu";
+import MobileNavMenu from "./Navbar/MobileNavMenu";
 import PageLayout from "./pagelayout";
 
 const Container = styled.div`
@@ -26,14 +25,13 @@ const Layout: React.FC<Props> = ({ children }) => {
     setMenuOpen(false);
   };
 
+  if (menuOpen) {
+    return <MobileNavMenu onClose={handleMenuClose} />;
+  }
+
   return (
-    <Container>
+    <Container isMobile={menuOpen}>
       <Navbar handleMenuToggle={handleMenuToggle} />
-      {menuOpen && (
-        <NavMenuContainer>
-          <NavMenu onClose={handleMenuClose} />
-        </NavMenuContainer>
-      )}
       <PageLayout>{children}</PageLayout>
       <Footer />
     </Container>

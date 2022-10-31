@@ -6,6 +6,7 @@ import { FaBars } from "react-icons/fa";
 
 import {
   LeftContainer,
+  MiddleContainer,
   NavContainer,
   NavInnerContainer,
   NavMenuToggleButton,
@@ -23,11 +24,13 @@ const Navbar: React.FC<Props> = ({ handleMenuToggle }) => {
     <NavContainer>
       <NavInnerContainer>
         <LeftContainer>
-          <Logo />
+          <Logo isNavbar={true} />
         </LeftContainer>
-        <RightContainer>
+        <MiddleContainer>
           <Tabs mobile={false} />
-          <SocialLinks />
+        </MiddleContainer>
+        <RightContainer>
+          <SocialLinks isNavbar={true} />
           <MenuToggleButton handleClick={handleMenuToggle} />
         </RightContainer>
       </NavInnerContainer>

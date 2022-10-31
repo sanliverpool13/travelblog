@@ -2,14 +2,14 @@ import styled from "styled-components";
 
 export const LogoContainer = styled.div`
   text-align: center;
-  font-size: 3rem;
+  font-size: ${(props) => (props.isNavbar ? "3.5rem" : "4rem")};
+  color: ${(props) => (props.isNavbar ? "inherit" : "#31708e")};
   font-style: bold;
-  /* padding-left: 2rem; */
   font-family: var(--logo-style) !important;
   display: flex;
   align-items: center;
-  flex: ${(props) => (props.mobile ? "70%" : "none")};
-  @media (max-width: 890px) {
+  cursor: pointer;
+  @media (max-width: 905px) {
     font-size: 2rem;
   }
 `;

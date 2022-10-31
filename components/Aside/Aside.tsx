@@ -4,7 +4,7 @@ import { AsideContainer, AsideHeader } from "./style";
 const Aside: React.FC = () => {
   return (
     <AsideContainer>
-      <AsideHeader>Buy Us A Coffee</AsideHeader>
+      <AsideHeader></AsideHeader>
     </AsideContainer>
   );
 };

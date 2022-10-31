@@ -3,25 +3,30 @@ import React from "react";
 
 import {
   AboutUsGrid,
+  AboutUsHeader,
   AboutUsImageSection,
   AboutUsMoreButton,
+  AboutUsSubHeader,
   AboutUsTextSection,
   FeaturedPosts,
   FeaturedPostsGrid,
   LandingContainer,
   LandingImageCaption,
   LandingImageContainer,
+  LandingLogoContainer,
   SectionTitle,
 } from "./style";
 
-import LakeLouiseUs from "../../public/images/LakeLouiseSunny.jpg";
+import LakeLouiseUs from "../../public/images/UsLouise.jpg";
 import LakeLouisePortrait from "../../public/images/LakeLouisePortrait.jpg";
+import BowLake from "../../public/images/HorViewCirquePeak.jpg";
 import Logo from "../Logo/Logo";
 import Post from "../Blog/FeaturedPost";
 import { PostsContainer } from "../Blog/style";
 import Aside from "../Aside/Aside";
 import { useRecoilState } from "recoil";
 import { blogPostsState } from "../../context/state";
+import Link from "next/link";
 
 const Landing: React.FC = () => {
   const [blogPosts, setBlogPosts] = useRecoilState(blogPostsState);
@@ -32,7 +37,6 @@ const Landing: React.FC = () => {
 
   return (
     <LandingContainer>
-      <Logo />
       <LandingImageContainer>
         <Image
           src={LakeLouiseUs.src}
@@ -47,24 +51,19 @@ const Landing: React.FC = () => {
       </LandingImageCaption>
       <AboutUsGrid>
         <AboutUsTextSection>
-          <h4>About Us</h4>
+          <AboutUsHeader>About Us</AboutUsHeader>
+          <AboutUsSubHeader>We are Madison and Sanjar</AboutUsSubHeader>
           <p>
-            We met while working at Starbucks together in 2020. We love
-            exploring new places together. In the mornings you will find us in
-            coffee shops or libraries, working away on our laptops. We enjoy
-            long distance running and reading, and are always up for a hike or
-            visiting a new library.
+            We met while working at Starbucks in 2020. Our first trip together
+            was Mexico Cancun and we have acquired a passion for exploring new
+            parts of the world together ever since. <br />
             <br />
-            <br />
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            We are early risers, coffee drinkers, avid readers and love to run
+            and hike.
           </p>
-          <AboutUsMoreButton>Read More ...</AboutUsMoreButton>
+          <Link href="/about">
+            <AboutUsMoreButton>Our Story</AboutUsMoreButton>
+          </Link>
         </AboutUsTextSection>
         <AboutUsImageSection>
           <Image
@@ -76,13 +75,14 @@ const Landing: React.FC = () => {
         </AboutUsImageSection>
       </AboutUsGrid>
 
-      <FeaturedPosts>
+      {/* Will Add After First Release and a first blog */}
+      {/* <FeaturedPosts>
         <SectionTitle>Featured Posts</SectionTitle>
         <FeaturedPostsGrid>
           <PostsContainer landing={true}>{blogPostElements}</PostsContainer>
           <Aside />
         </FeaturedPostsGrid>
-      </FeaturedPosts>
+      </FeaturedPosts> */}
     </LandingContainer>
   );
 };

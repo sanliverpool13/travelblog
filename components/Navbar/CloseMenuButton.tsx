@@ -1,6 +1,6 @@
 import React from "react";
 import { FaTimes } from "react-icons/fa";
-import { CloseButton } from "./navmenu.style";
+import { CloseButton } from "./mobilenavmenu.style";
 
 interface Props {
   onClose: () => void;

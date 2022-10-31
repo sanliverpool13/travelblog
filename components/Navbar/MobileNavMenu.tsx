@@ -5,9 +5,10 @@ import {
   MenuLinksTabsContainer,
   MenuLinksOuterContainer,
   MenuSocialLinksContainer,
-  NavMenuContainer,
-  NavMenuHeader,
-} from "./navmenu.style";
+  MobileNavMenuContainer,
+  MobileNavMenuHeader,
+  MobileLogoContainer,
+} from "./mobilenavmenu.style";
 import SocialLinks from "./SocialLinks";
 import Tabs from "./Tabs";
 
@@ -15,13 +16,15 @@ interface Props {
   onClose: () => void;
 }
 
-const NavMenu: React.FC<Props> = ({ onClose }) => {
+const MobileNavMenu: React.FC<Props> = ({ onClose }) => {
   return (
-    <NavMenuContainer>
-      <NavMenuHeader>
-        <Logo mobile={true} />
+    <MobileNavMenuContainer>
+      <MobileNavMenuHeader>
+        <MobileLogoContainer>
+          <Logo mobile={true} />
+        </MobileLogoContainer>
         <CloseMenuButton onClose={onClose} />
-      </NavMenuHeader>
+      </MobileNavMenuHeader>
       <MenuLinksOuterContainer>
         <MenuLinksTabsContainer>
           <Tabs mobile={true} onClose={onClose} />
@@ -30,8 +33,8 @@ const NavMenu: React.FC<Props> = ({ onClose }) => {
           <SocialLinks mobile={true} />
         </MenuSocialLinksContainer>
       </MenuLinksOuterContainer>
-    </NavMenuContainer>
+    </MobileNavMenuContainer>
   );
 };
 
-export default NavMenu;
+export default MobileNavMenu;

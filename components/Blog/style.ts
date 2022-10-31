@@ -7,6 +7,8 @@ export const PostsContainer = styled.section`
   align-items: ${(props) => (props.landing ? "none" : "center")};
   justify-content: ${(props) => (props.landing ? "none" : "center")};
   flex-direction: ${(props) => (props.landing ? "none" : "column")};
+  color: var(--bg-clr-footer);
+  font-size: 2rem;
 `;
 
 export const PostContainer = styled.div`
@@ -78,7 +80,7 @@ export const BlogPostContainer = styled.article`
   max-width: 800px;
   display: flex;
   flex-direction: column;
-  padding: 1rem 0.5rem;
+  padding: 2rem 0.5rem;
   margin-bottom: 3rem;
 `;
 

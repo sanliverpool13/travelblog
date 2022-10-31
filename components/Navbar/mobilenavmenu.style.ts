@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const NavMenuContainer = styled.div`
+export const MobileNavMenuContainer = styled.div`
   position: absolute;
   top: 0;
   width: 100%;
@@ -9,24 +9,29 @@ export const NavMenuContainer = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: white;
-
-  @media (min-width: 700px) {
-    display: none;
-  }
+  z-index: 1000;
+  padding-top: 1rem;
 `;
 
-export const NavMenuHeader = styled.div`
+export const MobileNavMenuHeader = styled.div`
   width: 100%;
   display: flex;
   height: var(--height-navbar);
+  padding: 0 2rem;
+`;
+
+export const MobileLogoContainer = styled.div`
+  flex: 90%;
+  height: 100%;
+  display: flex;
 `;
 
 export const CloseButton = styled.button`
   cursor: pointer;
   border: none;
-  font-size: 20px;
+  font-size: 2rem;
   background: none;
-  margin-right: 1rem;
+  flex: 10%;
 `;
 
 export const MenuLinksOuterContainer = styled.div`

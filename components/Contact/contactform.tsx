@@ -84,7 +84,7 @@ const contactform: React.FC = () => {
         validationSchema={formSchema}
       >
         {({ errors }) => (
-          <Form>
+          <Form style={{ width: "90%" }}>
             <FormGroup error={isError(errors)}>
               <label htmlFor="name">Name *</label>
               <Field id="name" type="text" name="name" />

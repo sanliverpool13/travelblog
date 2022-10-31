@@ -4,15 +4,21 @@ import styled from "styled-components";
 export const Section = styled.section`
   width: 100%;
   /* top | horizontal | bottom */
-  padding: 2rem 0 4rem;
+  padding: 0rem 0 4rem;
   min-height: calc(100vh - var(--height-navbar) - var(--height-footer));
   position: relative;
 `;
 
 export const SectionCenter = styled.section`
-  width: 90vw;
-  margin: 0 auto;
-  max-width: var(--max-width-content);
+  width: 100%;
+  /* margin: 0 auto; */
+  /* max-width: var(--max-width-content); */
+
+  @media (max-width: 700px) {
+    margin: 0;
+    padding: 0 1rem;
+    width: 100%;
+  }
 `;
 
 interface Props {

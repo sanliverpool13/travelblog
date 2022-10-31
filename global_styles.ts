@@ -25,12 +25,13 @@ export default GlobalStyle`
     html {
         --color-text-black: black;
         --color-nav-tabs: #838383;
-        --height-navbar: 4rem;
-        --height-footer: 2rem;
+        --height-navbar: 6rem;
+        --height-footer: 10rem;
         --logo-style: 'Hurricane', cursive;
 
-        --max-width-content: 1170px;
+        --max-width-content: 970px;
         --landing-section-widths: 90%;
+        --landing-section-mobile-width: 100%;
 
         --border-default: 1px solid black;
 
@@ -39,13 +40,21 @@ export default GlobalStyle`
         --color-error-alert: #5f2120;
         --color-success-alert: #1e4620;
         --color-error-icon: #ef5350;
+        --clr-trqse: #9ED8DB;
 
         --bg-clr-snackbar-success: #2e7d32;
         --bg-clr-snackbar-error: #d32f2f;
 
         --bg-clr-navbar: #274c77;
+        --bg-clr-footer: #1D3354;
 
         --post-content-height: 280px;
+        background-color: #f7f9fb;
+
+        --test-max-width: 1300px;
+
+        --about-font-size: 1.2rem;
+        --about-line-height: 1.7rem;
 
         
     }
@@ -54,7 +63,7 @@ export default GlobalStyle`
         padding: 0;
         outline:0;
         box-sizing:border-box;
-        font-family: 'Open Sans', sans-serif;
+        font-family: 'Karla', sans-serif;
     }
     
  `;
