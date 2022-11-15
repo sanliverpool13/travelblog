@@ -6,7 +6,6 @@ export const LandingContainer = styled.article`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 100%;
   position: relative;
 
   & h1 {
@@ -20,12 +19,10 @@ export const LandingLogoContainer = styled.div`
 `;
 
 export const LandingImageContainer = styled.div`
-  /* width: var(--landing-section-widths); */
   width: 100%;
   height: 45vw;
   display: block;
   position: relative;
-  /* border: 0.7rem solid #e9e9e9; */
   margin-bottom: 1rem;
 
   @media (max-width: 700px) {
@@ -105,7 +102,7 @@ export const AboutUsHeader = styled.h4`
 
 export const AboutUsSubHeader = styled.h4`
   font-size: 2.3rem;
-
+  margin-bottom: 1rem;
   font-style: bold;
   flex-grow: 1;
 `;
@@ -141,13 +138,15 @@ export const AboutUsImageSection = styled.section`
   display: block;
   position: relative;
 
-  /* border: 0.7rem solid #e9e9e9; */
-
   @media (max-width: 1024px) {
     display: flex;
     flex-direction: column;
     width: var(--landing-section-widths);
     height: 70vw;
+  }
+
+  @media (max-width: 700px) {
+    height: 100vw;
   }
 
   @media (max-width: 700px) {
@@ -205,4 +204,36 @@ export const TextContaienr = styled.div`
 export const TextPrgph = styled.p`
   background-color: black;
   padding: 1rem;
+`;
+
+///// Map //////
+export const MapContainer = styled.section`
+  margin-top: 6rem;
+  width: var(--landing-section-widths);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: var(--max-width-content);
+
+  & svg:hover {
+    box-shadow: 0 4px 4px 2px rgba(0, 0, 0, 0.14);
+  }
+
+  @media (max-width: 700px) {
+    width: var(--landing-section-mobile-width);
+  }
+`;
+
+export const MapHeader = styled.h2`
+  font-size: 3rem;
+  font-weight: 400;
+  color: var(--bg-clr-footer);
+  margin-bottom: 1rem;
+`;
+
+export const MapDestinations = styled.ul`
+  & li {
+    font-size: 1rem;
+    color: var(--bg-clr-footer);
+  }
 `;

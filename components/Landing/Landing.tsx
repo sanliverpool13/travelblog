@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import {
   AboutUsGrid,
@@ -8,25 +8,22 @@ import {
   AboutUsMoreButton,
   AboutUsSubHeader,
   AboutUsTextSection,
-  FeaturedPosts,
-  FeaturedPostsGrid,
   LandingContainer,
   LandingImageCaption,
   LandingImageContainer,
-  LandingLogoContainer,
-  SectionTitle,
+  MapContainer,
+  MapDestinations,
+  MapHeader,
 } from "./style";
 
 import LakeLouiseUs from "../../public/images/UsLouise.jpg";
 import LakeLouisePortrait from "../../public/images/LakeLouisePortrait.jpg";
-import BowLake from "../../public/images/HorViewCirquePeak.jpg";
-import Logo from "../Logo/Logo";
 import Post from "../Blog/FeaturedPost";
-import { PostsContainer } from "../Blog/style";
-import Aside from "../Aside/Aside";
 import { useRecoilState } from "recoil";
 import { blogPostsState } from "../../context/state";
 import Link from "next/link";
+import Map from "../Map/Map";
+import ReactTooltip from "react-tooltip";
 
 const Landing: React.FC = () => {
   const [blogPosts, setBlogPosts] = useRecoilState(blogPostsState);
@@ -35,9 +32,21 @@ const Landing: React.FC = () => {
     return <Post key={post.id} post={post} />;
   });
 
+  const [markerTitle, setMarkerTitle] = useState("");
+
+  const handleScroll = (e: Event) => {};
+
+  useEffect(() => {
+    document.addEventListener("scroll", handleScroll);
+
+    return () => {
+      document.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <LandingContainer>
-      <LandingImageContainer>
+      <LandingImageContainer onScroll={handleScroll}>
         <Image
           src={LakeLouiseUs.src}
           alt="us"
@@ -74,6 +83,12 @@ const Landing: React.FC = () => {
           />
         </AboutUsImageSection>
       </AboutUsGrid>
+      <MapContainer>
+        <MapHeader>Where We Have Been So Far!</MapHeader>
+
+        <Map setMarkerTitle={setMarkerTitle} />
+        <ReactTooltip>{markerTitle}</ReactTooltip>
+      </MapContainer>
 
       {/* Will Add After First Release and a first blog */}
       {/* <FeaturedPosts>

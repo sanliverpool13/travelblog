@@ -1,10 +1,9 @@
 import React from "react";
 import Image from "next/image";
-import { FaEllipsisH } from "react-icons/fa";
+import Link from "next/link";
 import {
   AboutContainer,
   AboutGridSection,
-  AboutHeader,
   AboutImageSection,
   AboutInnerContainer,
   AboutTextParagraph,
@@ -19,18 +18,15 @@ import {
   OurStoryTextContainer,
 } from "./style";
 
-import SanjarProfile from "../../public/images/SanjarWithMountainsInBG.jpg";
-import MadisonProfile from "../../public/images/MadisonOnTrail.jpg";
 import OurStoryImage from "../../public/images/OurStory.jpg";
 import MadisonGreece from "../../public/images/MadisonGreeceView.jpg";
 import SanjarPeak from "../../public/images/SanjarPeak.jpg";
-import Link from "next/link";
 
 const MadisonAboutText =
   "Hi, I am Madison. I am 22, studying to be a nurse. I have a passiong for professional caring. \n\n I love working with kids and hope to work at SickKids one day. I have been vegan since I was 14 years old, \n at the behest of my mother. I love reading books, hiking and exploring new places in the world.";
 
 const SanjarAboutText =
-  "Hi, I am Sanjar, a 28 year old software engineer. I am an avid reader and an avid sports fan. I have played highly competitive soccer my whole life and have lived in 5 countries. I am lucky to be a polygot as I speak English, Russian, Kazakh, Hebrew and some German. Like Madison, I am fascinated with traveling and seeing how people live in different parts of the world. I am also trying to be eat whole food plant based, even though it's hard sometimes.";
+  "Hi, I am Sanjar, a 28 year old software engineer. I am an avid reader and an avid sports fan. I have played highly competitive soccer my whole life and have lived in 5 countries. I am lucky to be a polygot as I speak English, Russian, Kazakh, Hebrew and some German. Like Madison, I am fascinated with traveling and seeing how people live in different parts of the world. I am also trying to eat whole food plant based, even though it's hard sometimes.";
 const About: React.FC = () => {
   return (
     <AboutContainer>
@@ -56,14 +52,6 @@ const About: React.FC = () => {
       </AboutInnerContainer>
     </AboutContainer>
   );
-};
-
-interface HeaderProps {
-  text: string;
-}
-
-const Header: React.FC<HeaderProps> = ({ text }) => {
-  return <AboutHeader>{text}</AboutHeader>;
 };
 
 interface AboutSectionProps {
@@ -125,7 +113,7 @@ const OurStoryText: React.FC = () => {
         <br />
         <br />
         P.S. we love to connect with you and hear your feedback. Feel free to
-        reach out and connect with us{" "}
+        reach out and connect with us{" "}
         <ContactLink>
           <Link href="/contact">here</Link>
         </ContactLink>

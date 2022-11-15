@@ -51,10 +51,12 @@ export default GlobalStyle`
         --post-content-height: 280px;
         background-color: #f7f9fb;
 
-        --test-max-width: 1300px;
+        --navbar-max-width: 1300px;
 
         --about-font-size: 1.2rem;
         --about-line-height: 1.7rem;
+
+        --mobile-side-padding: 1rem;
 
         
     }

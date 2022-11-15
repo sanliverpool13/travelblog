@@ -13,11 +13,15 @@ export const NavContainer = styled.div`
   z-index: 1000;
   background-color: #f7f9fb;
   color: var(--bg-clr-footer);
+
+  @media (max-width: 700px) {
+    padding: 0 var(--mobile-side-padding);
+  }
 `;
 
 export const NavInnerContainer = styled.div`
   width: 100%;
-  max-width: var(--test-max-width);
+  max-width: var(--navbar-max-width);
   display: flex;
   align-items: center;
   justify-content: center;

@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Section = styled.section`
   width: 100%;
   /* top | horizontal | bottom */
-  padding: 0rem 0 4rem;
+  padding: 0 0 4rem;
   min-height: calc(100vh - var(--height-navbar) - var(--height-footer));
   position: relative;
 `;
@@ -16,7 +16,7 @@ export const SectionCenter = styled.section`
 
   @media (max-width: 700px) {
     margin: 0;
-    padding: 0 1rem;
+    padding: 0 var(--mobile-side-padding);
     width: 100%;
   }
 `;

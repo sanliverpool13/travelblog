@@ -1,9 +1,7 @@
 import styled from "styled-components";
-import link from "next/link";
 
 export const AboutContainer = styled.div`
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,20 +9,16 @@ export const AboutContainer = styled.div`
 
 export const AboutInnerContainer = styled.section`
   width: 100%;
-  max-width: var(--test-max-width);
+  max-width: var(--navbar-max-width);
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   color: var(--bg-clr-footer);
-`;
 
-export const AboutHeader = styled.h2`
-  width: 90%;
-  /* text-align: center; */
-  font-size: 2rem;
-  /* top | right | bottom | left */
-  margin: 2rem 0 3rem 0;
+  @media (max-width: 1400px) {
+    width: 90%;
+  }
 `;
 
 export const OurStoryHeader = styled.h2`
@@ -33,25 +27,39 @@ export const OurStoryHeader = styled.h2`
   font-weight: 500;
   font-family: var(--logo-style) !important;
   margin: 0rem 0 1rem 0;
+
+  @media (max-width: 1024px) {
+    width: 100%;
+    text-align: center;
+  }
 `;
 
 export const OurStoryGrid = styled.article`
   margin: 2rem 0 0 0;
   display: grid;
   grid-template-columns: 45% 55%;
-  /* height: 500px; */
-  /* border: 1px solid black; */
+  width: 100%;
+
+  @media (max-width: 1024px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: var(--landing-section-mobile-width);
+  }
 `;
 
 export const OurStoryImageContainer = styled.section`
   display: block;
   position: relative;
   width: 100%;
-  height: 100%;
+
+  @media (max-width: 1024px) {
+    height: 100vw;
+  }
 `;
 
 export const OurStoryTextContainer = styled.section`
-  height: 100%;
+  /* height: 100%; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -59,19 +67,36 @@ export const OurStoryTextContainer = styled.section`
   padding: 0 0 0 4rem;
   text-align: left;
   width: 100%;
+
+  @media (max-width: 1024px) {
+    order: -1;
+    padding: 0;
+    margin-bottom: 1rem;
+  }
 `;
 
 export const OurStoryParagraph = styled.p`
   width: 90%;
   line-height: var(--about-line-height);
   font-size: var(--about-font-size);
+
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
 `;
 
 export const OurStorySubHeader = styled.h2`
   width: 90%;
   font-size: 2rem;
   margin: 0rem 0 3rem 0;
+
+  @media (max-width: 1024px) {
+    width: 100%;
+    text-align: center;
+  }
 `;
+
+/// Individual About Us Sections ////////////////
 
 export const AboutGridSection = styled.section`
   /* display: flex;
@@ -82,21 +107,23 @@ export const AboutGridSection = styled.section`
   grid-template-areas: "first second";
   width: 70%;
 
-  @media (max-width: 700px) {
-    width: 100%;
+  @media (max-width: 800px) {
+    width: 90%;
+    display: flex;
     flex-direction: column;
+    align-items: center;
   }
 `;
 
 export const AboutTextSection = styled.section`
   width: 100%;
-  padding: ${(props) => (props.isMadison ? "1rem 2rem 1rem 0" : "1rem 2rem")};
+  padding: ${(props) =>
+    props.isMadison ? "0 2rem 1rem 0" : " 0 2rem 1rem 2rem"};
   grid-area: ${(props) => (props.isMadison ? "first" : "second")};
-  /* order: ${(props) => (props.isMadison ? "1" : "-1")}; */
 
-  @media (max-width: 700px) {
+  @media (max-width: 800px) {
     width: 100%;
-    /* order: -1; */
+    order: -1;
     padding: 1rem 2rem 1rem 0;
   }
 `;
@@ -109,12 +136,10 @@ export const AboutTextParagraph = styled.p`
 export const AboutImageSection = styled.section`
   display: block;
   position: relative;
-  height: 400px;
   width: 100%;
   grid-area: ${(props) => (props.isMadison ? "second" : "first")};
-  /* border: 0.7rem solid #e9e9e9; */
 
-  @media (max-width: 700px) {
+  @media (max-width: 800px) {
     width: 100%;
     height: 100vw;
   }

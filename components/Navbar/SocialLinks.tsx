@@ -1,42 +1,67 @@
 import React from "react";
-import { SocialLinksContainer, SocialLink } from "./socialinks.style";
+import {
+  SocialLinksContainer,
+  SocialLink,
+  SocialLinkContainer,
+} from "./socialinks.style";
 
 import { FaInstagram, FaYoutube, FaTiktok } from "react-icons/fa";
+import { IconType } from "react-icons/lib";
 
 interface Props {
-  mobile?: boolean;
+  isMobile?: boolean;
   isNavbar: boolean;
 }
 
-const SocialLinks: React.FC<Props> = ({ mobile, isNavbar }) => {
-  console.log(`is navbar ${isNavbar}`);
+const SocialLinks: React.FC<Props> = ({ isMobile, isNavbar }) => {
   return (
-    <SocialLinksContainer mobile={mobile}>
-      <SocialLink
-        href="https://www.instagram.com/thejeletsetters/"
-        target="_blank"
-        mobile={mobile}
+    <SocialLinksContainer isMobile={isMobile} isNavbar={isNavbar}>
+      <SocialLinkComponent
+        href="https://www.instagram.com/beyondustwo/"
+        isMobile={isMobile}
         isNavbar={isNavbar}
-      >
-        <FaInstagram />
-      </SocialLink>
-      <SocialLink
+        Icon={FaInstagram}
+      />
+      <SocialLinkComponent
         href="https://www.youtube.com/channel/UCn_pog_Wkk8CF-g9uDWVwXQ"
-        target="_blank"
-        mobile={mobile}
+        isMobile={isMobile}
         isNavbar={isNavbar}
-      >
-        <FaYoutube />
-      </SocialLink>
-      <SocialLink
+        Icon={FaYoutube}
+      />
+      <SocialLinkComponent
         href="https://www.tiktok.com/@thejeletsetters"
+        isMobile={isMobile}
+        isNavbar={isNavbar}
+        Icon={FaTiktok}
+      />
+    </SocialLinksContainer>
+  );
+};
+
+interface LinkProps {
+  href: string;
+  isMobile?: boolean;
+  isNavbar?: boolean;
+  Icon: IconType;
+}
+
+const SocialLinkComponent: React.FC<LinkProps> = ({
+  href,
+  isMobile,
+  isNavbar,
+  Icon,
+}) => {
+  return (
+    <SocialLinkContainer>
+      <SocialLink
+        href={href}
         target="_blank"
-        mobile={mobile}
+        isMobile={isMobile}
         isNavbar={isNavbar}
       >
-        <FaTiktok />
+        <Icon />
       </SocialLink>
-    </SocialLinksContainer>
+    </SocialLinkContainer>
   );
 };
 

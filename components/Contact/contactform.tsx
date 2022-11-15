@@ -39,7 +39,7 @@ const contactform: React.FC = () => {
     setShowSnackBar(true);
     axios({
       method: "POST",
-      url: "https://formspree.io/f/xqkjerzv",
+      url: "https://formspree.io/f/mjvzjjyk",
       data: values,
     })
       .then((respo) => {
@@ -84,7 +84,7 @@ const contactform: React.FC = () => {
         validationSchema={formSchema}
       >
         {({ errors }) => (
-          <Form style={{ width: "90%" }}>
+          <Form style={{ width: "100%" }}>
             <FormGroup error={isError(errors)}>
               <label htmlFor="name">Name *</label>
               <Field id="name" type="text" name="name" />

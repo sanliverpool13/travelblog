@@ -16,7 +16,7 @@ export const TabLi = styled.li`
   font-size: ${(props) => (props.mobile ? "1.5rem" : "1rem")};
 
   box-sizing: border-box;
-  margin-right: 1rem;
+  margin-right: ${(props) => (props.mobile ? "0" : "1rem")};
   transition: all 0.2s ease;
   margin-bottom: ${(props) => (props.mobile ? "1rem" : "none")};
 
@@ -40,7 +40,7 @@ export const TabLi = styled.li`
 
   // Due to tight space between logo and Tabs
   @media (max-width: 905px) {
-    margin-right: 0.7rem;
+    margin-right: ${(props) => (props.mobile ? "0" : "0.7rem")};
     font-size: ${(props) => (props.mobile ? "1.5rem" : "0.8rem")};
   }
 `;

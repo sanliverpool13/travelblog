@@ -30,7 +30,7 @@ const MobileNavMenu: React.FC<Props> = ({ onClose }) => {
           <Tabs mobile={true} onClose={onClose} />
         </MenuLinksTabsContainer>
         <MenuSocialLinksContainer>
-          <SocialLinks mobile={true} />
+          <SocialLinks isMobile={true} isNavbar={false} />
         </MenuSocialLinksContainer>
       </MenuLinksOuterContainer>
     </MobileNavMenuContainer>

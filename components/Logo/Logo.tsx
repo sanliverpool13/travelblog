@@ -4,18 +4,13 @@ import { LogoContainer } from "./style";
 
 interface Props {
   mobile?: boolean;
-  isNavbar: boolean;
 }
 
-const Logo: React.FC<Props> = ({ mobile, isNavbar }) => {
+const Logo: React.FC<Props> = ({ mobile }) => {
   const router = useRouter();
 
   return (
-    <LogoContainer
-      mobile={mobile}
-      isNavbar={isNavbar}
-      onClick={() => router.push("/")}
-    >
+    <LogoContainer mobile={mobile} onClick={() => router.push("/")}>
       Beyond Us Two
     </LogoContainer>
   );
