@@ -24,7 +24,7 @@ const Navbar: React.FC<Props> = ({ handleMenuToggle }) => {
     <NavContainer>
       <NavInnerContainer>
         <LeftContainer>
-          <Logo isNavbar={true} />
+          <Logo />
         </LeftContainer>
         <MiddleContainer>
           <Tabs mobile={false} />
