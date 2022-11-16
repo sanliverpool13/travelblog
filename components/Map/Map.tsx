@@ -69,8 +69,6 @@ const Map: React.FC<Props> = ({ setMarkerTitle }) => {
                 stroke="black"
                 style={{
                   default: { fill: "#1D3354" },
-                  hover: { fill: "#04D" },
-                  pressed: { fill: "#02A" },
                 }}
               />
             ))
