@@ -106,7 +106,7 @@ export const ContactButton = styled.button`
     background-color: #dedede;
   }
 
-  &:hover {
+  &:hover:not(:disabled) {
     box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.14);
   }
 `;
