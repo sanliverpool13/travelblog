@@ -6,29 +6,22 @@ import Document, {
   DocumentContext,
   DocumentInitialProps,
 } from "next/document";
+import { ServerStyleSheet } from "styled-components";
 
 class MyDocument extends Document {
-  static async getInitialProps(
-    ctx: DocumentContext
-  ): Promise<DocumentInitialProps> {
-    const originalRenderPage = ctx.renderPage;
+  static getInitialProps({ renderPage }) {
+    const sheet = new ServerStyleSheet();
 
-    // Run the React rendering logic synchronously
-    ctx.renderPage = () =>
-      originalRenderPage({
-        // Useful for wrapping the whole react tree
-        enhanceApp: (App) => App,
-        // Useful for wrapping in a per-page basis
-        enhanceComponent: (Component) => Component,
-      });
+    const page = renderPage(
+      (App) => (props) => sheet.collectStyles(<App {...props} />)
+    );
 
-    // Run the parent `getInitialProps`, it now includes the custom `renderPage`
-    const initialProps = await Document.getInitialProps(ctx);
+    const styleTags = sheet.getStyleElement();
 
-    return initialProps;
+    return { ...page, styleTags };
   }
 
-  render(): JSX.Element {
+  render() {
     return (
       <Html>
         <Head>
