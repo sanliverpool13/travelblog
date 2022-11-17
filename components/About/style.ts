@@ -15,10 +15,6 @@ export const AboutInnerContainer = styled.section`
   flex-direction: column;
   align-items: center;
   color: var(--bg-clr-footer);
-
-  @media (max-width: 1400px) {
-    width: 90%;
-  }
 `;
 
 export const OurStoryHeader = styled.h2`
@@ -31,6 +27,7 @@ export const OurStoryHeader = styled.h2`
   @media (max-width: 1024px) {
     width: 100%;
     text-align: center;
+    font-size: 3rem;
   }
 `;
 
@@ -93,6 +90,7 @@ export const OurStorySubHeader = styled.h2`
   @media (max-width: 1024px) {
     width: 100%;
     text-align: center;
+    font-size: 1rem;
   }
 `;
 
@@ -108,7 +106,7 @@ export const AboutGridSection = styled.section`
   width: 70%;
 
   @media (max-width: 800px) {
-    width: 90%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -122,9 +120,8 @@ export const AboutTextSection = styled.section`
   grid-area: ${(props) => (props.isMadison ? "first" : "second")};
 
   @media (max-width: 800px) {
-    width: 100%;
     order: -1;
-    padding: 1rem 2rem 1rem 0;
+    padding: 0 0 1rem 0;
   }
 `;
 
@@ -171,6 +168,10 @@ export const Divider = styled.hr`
   border-top: 2px solid var(--bg-clr-footer);
   width: 100px;
   margin: 5rem 0;
+
+  @media (max-width: 700px) {
+    margin: 3rem 0 2rem 0;
+  }
 `;
 
 export const ContactLink = styled.span`
