@@ -74,6 +74,12 @@ export const FormGroup = styled.div`
     textarea {
       width: 100%;
     }
+
+    & label {
+      width: 100%;
+    }
+
+    align-items: center;
   }
 `;
 
@@ -88,15 +94,20 @@ export const ContactButton = styled.button`
   cursor: pointer;
   border-radius: 5px;
   border-width: 0;
-  background-color: #dedede;
+  background-color: var(--clr-trqse);
   color: var(--bg-clr-footer);
   transition: all 0.3s ease-out;
   padding: 0.5rem 0.3rem;
   width: 100px;
   margin-bottom: 1rem;
 
+  &:disabled {
+    cursor: not-allowed;
+    background-color: #dedede;
+  }
+
   &:hover {
-    background-color: var(--clr-trqse);
+    box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.14);
   }
 `;
 

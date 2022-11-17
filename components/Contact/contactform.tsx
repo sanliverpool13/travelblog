@@ -81,6 +81,7 @@ const contactform: React.FC = () => {
       <Formik
         initialValues={{ name: "", email: "", subject: "", message: "" }}
         onSubmit={handleSubmit}
+        validateOnMount
         validationSchema={formSchema}
       >
         {({ errors }) => (
@@ -98,7 +99,9 @@ const contactform: React.FC = () => {
               <Field id="message" name="message" component="textarea" />
               <FormikErrorMessage name="message" component={ErrorMessage} />
               <FormHelperText>* Required</FormHelperText>
-              <ContactButton type="submit">Send</ContactButton>
+              <ContactButton type="submit" disabled={isError(errors)}>
+                Send
+              </ContactButton>
               <SubmitSnackbar
                 show={showSnackBar}
                 state={snackBarState}
