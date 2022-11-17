@@ -6,19 +6,37 @@ import Document, {
   DocumentContext,
   DocumentInitialProps,
 } from "next/document";
+import { Fragment } from "react";
 import { ServerStyleSheet } from "styled-components";
 
 class MyDocument extends Document {
-  static getInitialProps({ renderPage }) {
+  static async getInitialProps(
+    ctx: DocumentContext
+  ): Promise<DocumentInitialProps> {
     const sheet = new ServerStyleSheet();
+    const originalRenderPage = ctx.renderPage;
 
-    const page = renderPage(
-      (App) => (props) => sheet.collectStyles(<App {...props} />)
-    );
+    try {
+      ctx.renderPage = () =>
+        originalRenderPage({
+          enhanceApp: (App) => (props) =>
+            sheet.collectStyles(<App {...props} />),
+        });
 
-    const styleTags = sheet.getStyleElement();
+      const initialProps = await Document.getInitialProps(ctx);
 
-    return { ...page, styleTags };
+      return {
+        ...initialProps,
+        styles: [
+          <Fragment key="1">
+            {initialProps.styles}
+            {sheet.getStyleElement()}
+          </Fragment>,
+        ],
+      };
+    } finally {
+      sheet.seal();
+    }
   }
 
   render() {
