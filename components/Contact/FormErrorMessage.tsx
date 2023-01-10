@@ -3,13 +3,17 @@ import { ErrorIconContainer, ErrorMessage, ErrorTextContainer } from "./style";
 
 import { BsExclamationCircle } from "react-icons/bs";
 
-const FormErrorMessage: React.FC = () => {
+interface Props {
+  msg: string;
+}
+
+const FormErrorMessage: React.FC<Props> = ({ msg }) => {
   return (
     <ErrorMessage>
       <ErrorIconContainer>
         <BsExclamationCircle />
       </ErrorIconContainer>
-      <ErrorTextContainer>This field is required.</ErrorTextContainer>
+      <ErrorTextContainer>{msg}</ErrorTextContainer>
     </ErrorMessage>
   );
 };

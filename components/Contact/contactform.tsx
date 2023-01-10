@@ -19,11 +19,14 @@ import * as Yup from "yup";
 import { isError } from "./helpers";
 import SubmitSnackbar from "./SubmitSnackbar";
 import { setTimeout } from "timers/promises";
+import FormInputGroup from "./FormInputGroup";
 
 const formSchema = Yup.object().shape({
-  name: Yup.string().required("Required"),
-  email: Yup.string().email("Invalid email").required("Required"),
-  message: Yup.string().required("Required"),
+  name: Yup.string().required("Please enter a name."),
+  email: Yup.string()
+    .email("Please enter a valid email.")
+    .required("Please enter a valid email."),
+  message: Yup.string().required("Please enter a message."),
 });
 
 const contactform: React.FC = () => {
@@ -73,10 +76,10 @@ const contactform: React.FC = () => {
 
   return (
     <ContactFormSection>
-      <h3>Contact Us</h3>
+      <h3>Get In Touch!</h3>
       <h6>
         We are happy to respond to any thoughts or questions you have! Just send
-        us <br /> a message and we will be sure to get back to you!
+        us a message and we will try our best to get back to you asap!
       </h6>
       <Formik
         initialValues={{ name: "", email: "", subject: "", message: "" }}
@@ -87,17 +90,37 @@ const contactform: React.FC = () => {
         {({ errors }) => (
           <Form style={{ width: "100%" }}>
             <FormGroup error={isError(errors)}>
-              <label htmlFor="name">Name *</label>
-              <Field id="name" type="text" name="name" />
-              <FormikErrorMessage name="name" component={ErrorMessage} />
-              <label htmlFor="email">Email *</label>
-              <Field id="email" type="email" name="email" />
-              <FormikErrorMessage name="email" component={ErrorMessage} />
-              <label htmlFor="subject">Subject</label>
-              <Field id="subject" type="text" name="subject" />
-              <label htmlFor="message">Message *</label>
-              <Field id="message" name="message" component="textarea" />
-              <FormikErrorMessage name="message" component={ErrorMessage} />
+              <FormInputGroup
+                htmlFor="name"
+                labelTitle="Name *"
+                fieldId="name"
+                fieldName="name"
+                fieldType="text"
+                errorName="name"
+              />
+              <FormInputGroup
+                htmlFor="email"
+                labelTitle="Email *"
+                fieldId="email"
+                fieldName="email"
+                fieldType="text"
+                errorName="email"
+              />
+              <FormInputGroup
+                htmlFor="subject"
+                labelTitle="Subject"
+                fieldId="subject"
+                fieldName="subject"
+                fieldType="text"
+              />
+              <FormInputGroup
+                htmlFor="message"
+                labelTitle="Message *"
+                fieldId="message"
+                fieldName="message"
+                fieldType="textarea"
+                errorName="message"
+              />
               <FormHelperText>* Required</FormHelperText>
               <ContactButton type="submit" disabled={isError(errors)}>
                 Send

@@ -64,7 +64,7 @@ const Landing: React.FC = () => {
           <AboutUsSubHeader>We are Madison and Sanjar</AboutUsSubHeader>
           <p>
             We met while working at Starbucks in 2020. Our first trip together
-            was Mexico Cancun and we have acquired a passion for exploring new
+            was Cancun, Mexico and we have acquired a passion for exploring new
             parts of the world together ever since. <br />
             <br />
             We are early risers, coffee drinkers, avid readers and love to run

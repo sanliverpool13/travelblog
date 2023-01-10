@@ -17,17 +17,18 @@ export const ContactFormSection = styled.section`
   max-width: var(--max-width-content);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
 
   & h3 {
     margin-bottom: 0.5rem;
-    font-size: 2rem;
+    font-size: 28px;
   }
 
   & h6 {
     margin-bottom: 2rem;
-    font-size: 1rem;
+    font-size: 20px;
     color: var(--bg-clr-footer);
+    font-weight: normal;
   }
 
   @media (max-width: 700px) {
@@ -45,18 +46,19 @@ export const FormGroup = styled.div`
   width: 100%;
 
   & label {
-    font-size: 0.7rem;
+    font-size: 14px;
     margin-bottom: 0.5rem;
-    color: #939393;
+    color: #1d3354;
   }
 
   & input,
   textarea {
     width: 100%;
     outline: none;
-    border: 1px solid #dedede;
+    border: 2px solid #1d3354;
     padding: 0.75rem 1rem;
-    border-radius: 5px;
+    border-radius: 15px;
+    background-color: transparent;
   }
 
   & #name,
@@ -83,27 +85,40 @@ export const FormGroup = styled.div`
   }
 `;
 
-export const FormHelperText = styled.p`
-  font-size: 0.7rem;
+export const FormInputGroupContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   margin-bottom: 1rem;
-  color: #939393;
+`;
+
+export const SubjectEmptySpace = styled.div`
+  height: 30px;
+`;
+
+export const FormHelperText = styled.p`
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #1d3354;
 `;
 
 export const ContactButton = styled.button`
   text-transform: uppercase;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 15px;
   border-width: 0;
   background-color: var(--clr-trqse);
   color: var(--bg-clr-footer);
   transition: all 0.3s ease-out;
   padding: 0.5rem 0.3rem;
-  width: 100px;
+  width: 100%;
+  height: 60px;
   margin-bottom: 1rem;
+  font-size: 24px;
 
   &:disabled {
-    cursor: not-allowed;
-    background-color: #dedede;
+    cursor: default;
+    background-color: #e9e9e9;
   }
 
   &:hover:not(:disabled) {
@@ -114,11 +129,11 @@ export const ContactButton = styled.button`
 // Error Message
 export const ErrorMessage = styled.div`
   display: flex;
-  padding: 3px 16px;
+  padding: 3px 16px 3px 0;
   border-radius: 4px;
-  background-color: var(--bg-color-error-alert);
-  color: var(--color-error-alert);
-  width: 70%;
+  align-items: center;
+  color: #eb3223;
+  /* font-size: 1rem; */
   height: 30px;
 
   @media (max-width: 700px) {
@@ -127,11 +142,11 @@ export const ErrorMessage = styled.div`
 `;
 
 export const ErrorIconContainer = styled.div`
-  color: var(--color-error-icon);
-  margin-right: 12px;
+  color: #eb3223;
+  margin-right: 6px;
   padding: 4px 0px;
   display: flex;
-  font-size: 1rem;
+  font-size: 0.7rem;
   opacity: 0.9;
 `;
 
