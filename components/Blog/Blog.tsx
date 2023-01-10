@@ -1,6 +1,6 @@
 import React from "react";
 import { useRecoilState } from "recoil";
-import { PostsContainer } from "./style";
+import { PostsContainer, ComingSoonContainer } from "./style";
 import { blogPostsState } from "../../context/state";
 import Post from "./BlogPost";
 
@@ -11,7 +11,11 @@ const Blog = () => {
     return <Post key={post.id} post={post} />;
   });
 
-  return <PostsContainer>Coming Soon!</PostsContainer>;
+  return (
+    <ComingSoonContainer>
+      Work In Progress. Excited to share some blog posts with you soon!
+    </ComingSoonContainer>
+  );
 };
 
 export default Blog;

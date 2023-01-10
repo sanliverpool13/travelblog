@@ -11,6 +11,16 @@ export const PostsContainer = styled.section`
   font-size: 2rem;
 `;
 
+export const ComingSoonContainer = styled.div`
+  width: 100%;
+  min-height: calc(100vh - var(--height-navbar) - var(--height-footer));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bg-clr-footer);
+  font-size: 2rem;
+`;
+
 export const PostContainer = styled.div`
   height: 300px;
   display: flex;
