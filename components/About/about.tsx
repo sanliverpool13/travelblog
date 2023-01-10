@@ -23,10 +23,10 @@ import MadisonGreece from "../../public/images/MadisonGreeceView.jpg";
 import SanjarPeak from "../../public/images/SanjarPeak.jpg";
 
 const MadisonAboutText =
-  "Hi, I am Madison. I am 22, studying to be a nurse. I have a passiong for professional caring. \n\n I love working with kids and hope to work at SickKids one day. I have been vegan since I was 14 years old, \n at the behest of my mother. I love reading books, hiking and exploring new places in the world.";
-
+  "Hey, I’m Madison! I’m a 22 year old nursing student, expected to graduate in 2024. I am passionate about working with people and providing compassionate care. I currently work as a paediatric support worker and hope to continue working with children as a paediatric nurse in the future. I have been vegan since I was 14 years old and love discovering new plant based food spots where-ever we go (I’m working on converting Sanjar to the plant based life too). I also love to read, run, hike, and explore new places in the world. I’m always looking forward to our next adventure!";
 const SanjarAboutText =
-  "Hi, I am Sanjar, a 28 year old software engineer. I am an avid reader and an avid sports fan. I have played highly competitive soccer my whole life and have lived in 5 countries. I am lucky to be a polygot as I speak English, Russian, Kazakh, Hebrew and some German. Like Madison, I am fascinated with traveling and seeing how people live in different parts of the world. I am also trying to eat whole food plant based, even though it's hard sometimes.";
+  "Hi, I am Sanjar, a 28 year old software engineer. In my free time I love to read, run, play sports, hike, and hang out with friends. I have played competitive soccer my whole life and am a Liverpool supporter. I also like working out, combining Calisthenics and Weight-lifting. I have lived in 5 countries and I speak fluent English, Russian, Kazakh, Hebrew, and some German. Like Madison, I have become fascinated with traveling and seeing how people live in different parts of the world. And yes, as Madison mentioned above 😂 I am trying to establish a whole foods plant based diet.";
+
 const About: React.FC = () => {
   return (
     <AboutContainer>
@@ -102,18 +102,18 @@ const OurStoryText: React.FC = () => {
         and free time from work or school allowed us!
         <br />
         <br />
-        We share a passion for reading, drinking coffee, adventures, and of
-        course each other. We hope to inspire others to get out and experience
-        the world in a similar way, as this is something we all took for granted
-        prior to 2020.
+        We share a passion for reading, drinking coffee, adventures, and
+        fitness. We hope to inspire others to get out and experience the world
+        in a similar way, as this is something we all took for granted prior to
+        2020!
         <br />
         <br />
         Through our blog and social media platforms we will share our tips,
-        tricks, and authentic experiences! Hope you follow along our adventures!
+        tricks, and authentic experiences! Hope you follow along our journey!
         <br />
         <br />
-        P.S. we love to connect with you and hear your feedback. Feel free to
-        reach out and connect with us{" "}
+        P.S. We would love to connect with you and hear your feedback. Feel free
+        to reach out and contact us{" "}
         <ContactLink>
           <Link href="/contact">here</Link>
         </ContactLink>

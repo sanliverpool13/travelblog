@@ -76,15 +76,6 @@ const Map: React.FC<Props> = ({ setMarkerTitle }) => {
         </Geographies>
         {tripDestinations.map((route, index) => (
           <g key={route.name}>
-            {/* <Line
-              key={index}
-              from={route.from.coord}
-              to={route.to.coord}
-              stroke="#9ED8DB"
-              strokeWidth={1.5}
-              strokeLinecap="round"
-            /> */}
-
             <Marker key={route.name} coordinates={route.to.coord}>
               <circle
                 r="2"
