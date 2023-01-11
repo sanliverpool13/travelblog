@@ -29,7 +29,7 @@ export default GlobalStyle`
         --height-footer: 10rem;
         --logo-style: 'Hurricane', cursive;
 
-        --max-width-content: 450px;
+        --max-width-content: 970x;
         --landing-section-widths: 90%;
         --landing-section-mobile-width: 100%;
 

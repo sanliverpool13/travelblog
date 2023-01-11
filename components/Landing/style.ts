@@ -40,7 +40,7 @@ export const AboutUsGrid = styled.section`
   margin-top: 6rem;
   display: grid;
   width: var(--landing-section-widths);
-  max-width: var(--max-width-content);
+  max-width: var(--navbar-max-width);
   grid-template-columns: 60% 40%;
 
   @media (max-width: 1024px) {

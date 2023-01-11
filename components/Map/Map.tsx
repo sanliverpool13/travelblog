@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaMapMarkerAlt } from "react-icons/fa";
+import { useZoomPan } from "react-simple-maps";
 import {
   ComposableMap,
   Geographies,
@@ -49,15 +49,22 @@ interface Props {
 
 const Map: React.FC<Props> = ({ setMarkerTitle }) => {
   const [markersState, setMarkersState] = useState(markers);
+  const [mapZoom, setMapZoom] = useState<number>(1);
 
   const toggleCircleName = (name: string) => {
     let oldMarkersState = markersState;
     setMarkersState(oldMarkersState);
   };
 
+  const handleEvent = (object) => {
+    console.log(object);
+  };
+
   return (
     <ComposableMap>
-      <ZoomableGroup>
+      <ZoomableGroup
+        
+      >
         <Geographies geography={geoUrl}>
           {({ geographies }) =>
             geographies.map((geo) => (
