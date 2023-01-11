@@ -33,7 +33,12 @@ const About: React.FC = () => {
       <AboutInnerContainer>
         <OurStoryGrid>
           <OurStoryImageContainer>
-            <Image src={OurStoryImage.src} layout="fill" objectFit="cover" />
+            <Image
+              src={OurStoryImage.src}
+              layout="fill"
+              objectFit="cover"
+              priority
+            />
           </OurStoryImageContainer>
           <OurStoryText />
         </OurStoryGrid>
@@ -70,7 +75,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({
   return (
     <AboutGridSection isMadison={isMadison}>
       <AboutImageSection isMadison={isMadison}>
-        <Image src={imagePath} layout="fill" objectFit="cover" />
+        <Image src={imagePath} layout="fill" objectFit="cover" priority />
       </AboutImageSection>
       <AboutTextSection isMadison={isMadison}>
         <OurStoryHeader>{title}</OurStoryHeader>

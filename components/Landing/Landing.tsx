@@ -81,6 +81,7 @@ const Landing: React.FC = () => {
             alt="Us in Lake Louise Portrait"
             layout="fill"
             objectFit="cover"
+            priority
           />
         </AboutUsImageSection>
       </AboutUsGrid>
