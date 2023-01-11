@@ -52,6 +52,7 @@ const Landing: React.FC = () => {
           alt="us"
           layout="fill"
           objectFit="cover"
+          priority
         />
       </LandingImageContainer>
       <LandingImageCaption>
