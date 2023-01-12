@@ -23,13 +23,13 @@ const SocialLinks: React.FC<Props> = ({ isMobile, isNavbar }) => {
         Icon={FaInstagram}
       />
       <SocialLinkComponent
-        href="https://www.youtube.com/channel/UCn_pog_Wkk8CF-g9uDWVwXQ"
+        href="https://www.youtube.com/channel/UCvFJMtOUBiQcmJ_cxsjeNXg"
         isMobile={isMobile}
         isNavbar={isNavbar}
         Icon={FaYoutube}
       />
       <SocialLinkComponent
-        href="https://www.tiktok.com/@thejeletsetters"
+        href="https://www.tiktok.com/@beyondustwo"
         isMobile={isMobile}
         isNavbar={isNavbar}
         Icon={FaTiktok}
