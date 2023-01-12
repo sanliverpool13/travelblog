@@ -215,9 +215,9 @@ export const MapContainer = styled.section`
   align-items: center;
   max-width: var(--max-width-content);
 
-  & svg:hover {
+  /* & svg:hover {
     box-shadow: 0 4px 4px 2px rgba(0, 0, 0, 0.14);
-  }
+  } */
 
   @media (max-width: 700px) {
     width: var(--landing-section-mobile-width);

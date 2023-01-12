@@ -62,66 +62,66 @@ const Map: React.FC<Props> = ({ setMarkerTitle }) => {
 
   return (
     <ComposableMap>
-      <ZoomableGroup
+      {/* <ZoomableGroup
         
-      >
-        <Geographies geography={geoUrl}>
-          {({ geographies }) =>
-            geographies.map((geo) => (
-              <Geography
-                key={geo.rsmKey}
-                geography={geo}
-                fill="#1D3354"
-                strokeWidth={0.5}
-                stroke="black"
-                style={{
-                  default: { fill: "#1D3354" },
-                }}
-              />
-            ))
-          }
-        </Geographies>
-        {tripDestinations.map((route, index) => (
-          <g key={route.name}>
-            <Marker key={route.name} coordinates={route.to.coord}>
-              <circle
-                r="2"
-                fill="#9ED8DB"
-                onMouseEnter={() => setMarkerTitle(route.to.name)}
-              />
-              <text
-                textAnchor="middle"
-                y={route.to.markerOffset}
-                style={{
-                  fontFamily: "system-ui",
-                  fill: "#9ED8DB",
-                  fontSize: "0.5rem",
-                }}
-              >
-                {route.to.name}
-              </text>
-            </Marker>
-          </g>
-        ))}
-        <Marker coordinates={[-79.3832, 43.6532]}>
-          <circle
-            r={2}
-            fill="#9ED8DB"
-            onMouseEnter={() => setMarkerTitle("Toronto")}
-          />
-          <text
-            textAnchor="middle"
-            y={-5}
-            style={{
-              fontFamily: "system-ui",
-              fill: "#9ED8DB",
-              fontSize: "0.5rem",
-            }}
-          >
-            Toronto
-          </text>
-        </Marker>
-      </ZoomableGroup>
+      > */}
+      <Geographies geography={geoUrl}>
+        {({ geographies }) =>
+          geographies.map((geo) => (
+            <Geography
+              key={geo.rsmKey}
+              geography={geo}
+              fill="#1D3354"
+              strokeWidth={0.5}
+              stroke="black"
+              style={{
+                default: { fill: "#1D3354" },
+              }}
+            />
+          ))
+        }
+      </Geographies>
+      {tripDestinations.map((route, index) => (
+        <g key={route.name}>
+          <Marker key={route.name} coordinates={route.to.coord}>
+            <circle
+              r="1"
+              fill="#9ED8DB"
+              onMouseEnter={() => setMarkerTitle(route.to.name)}
+            />
+            <text
+              textAnchor="middle"
+              y={route.to.markerOffset}
+              style={{
+                fontFamily: "system-ui",
+                fill: "#9ED8DB",
+                fontSize: "0.5rem",
+              }}
+            >
+              {route.to.name}
+            </text>
+          </Marker>
+        </g>
+      ))}
+      <Marker coordinates={[-79.3832, 43.6532]}>
+        <circle
+          r={1}
+          fill="#9ED8DB"
+          onMouseEnter={() => setMarkerTitle("Toronto")}
+        />
+        <text
+          textAnchor="middle"
+          y={-5}
+          style={{
+            fontFamily: "system-ui",
+            fill: "#9ED8DB",
+            fontSize: "0.5rem",
+          }}
+        >
+          Toronto
+        </text>
+      </Marker>
+      {/* </ZoomableGroup> */}
     </ComposableMap>
   );
 };
