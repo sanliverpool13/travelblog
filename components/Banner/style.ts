@@ -44,6 +44,7 @@ export const Count = styled.p`
   font-weight: bold;
   color: white;
   font-size: 30px;
+  margin-bottom: 0.5rem;
 `;
 
 export const Subject = styled.p`
