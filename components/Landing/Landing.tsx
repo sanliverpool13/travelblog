@@ -24,6 +24,7 @@ import { blogPostsState } from "../../context/state";
 import Link from "next/link";
 import Map from "../Map/Map";
 import ReactTooltip from "react-tooltip";
+import Banner from "../Banner/banner";
 
 const Landing: React.FC = () => {
   const [blogPosts, setBlogPosts] = useRecoilState(blogPostsState);
@@ -85,8 +86,9 @@ const Landing: React.FC = () => {
           />
         </AboutUsImageSection>
       </AboutUsGrid>
+      <Banner />
       <MapContainer>
-        <MapHeader>Where We Have Been So Far!</MapHeader>
+        {/* <MapHeader>Where We Have Been So Far!</MapHeader> */}
 
         <Map setMarkerTitle={setMarkerTitle} />
         <ReactTooltip>{markerTitle}</ReactTooltip>

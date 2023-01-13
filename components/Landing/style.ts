@@ -37,7 +37,7 @@ export const LandingImageCaption = styled.p`
 
 // About Us Grid
 export const AboutUsGrid = styled.section`
-  margin-top: 6rem;
+  margin: 6rem 0;
   display: grid;
   width: var(--landing-section-widths);
   max-width: var(--navbar-max-width);
@@ -208,7 +208,7 @@ export const TextPrgph = styled.p`
 
 ///// Map //////
 export const MapContainer = styled.section`
-  margin-top: 6rem;
+  /* margin-top: 6rem; */
   width: var(--landing-section-widths);
   display: flex;
   flex-direction: column;
