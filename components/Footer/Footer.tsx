@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
     <FooterContainer>
       <p>Connect With Us!</p>
       <SocialLinks isNavbar={false} />
-      <span>Copyright &copy; Thejeletsetters - All Rights Reserved.</span>
+      <span>Designed & Built by Madison and Sanjar.</span>
     </FooterContainer>
   );
 };

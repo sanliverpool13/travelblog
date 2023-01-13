@@ -32,24 +32,26 @@ const TextOverlay: React.FC = () => {
   return (
     <TextOverlayContainer>
       <TextOverlayInnerContainer>
-        <TextBlock>
-          <Count>23</Count>
-          <Subject>NATIONAL PARKS</Subject>
-        </TextBlock>
-        <TextBlock>
-          <Count>1</Count>
-          <Subject>STATES VISITED</Subject>
-        </TextBlock>
-        <TextBlock>
-          <Count>2</Count>
-          <Subject>COUNTRIES TRAVELED</Subject>
-        </TextBlock>
-        <TextBlock>
-          <Count>2</Count>
-          <Subject>YEARS TOGETHER</Subject>
-        </TextBlock>
+        <TextBlockComponent count="1" subject="NATIONAL PARKS" />
+        <TextBlockComponent count="2" subject="PROVINCES VISITED" />
+        <TextBlockComponent count="2" subject="COUNTRIES TRAVELED" />
+        <TextBlockComponent count="2.5" subject="YEARS TOGETHER" />
       </TextOverlayInnerContainer>
     </TextOverlayContainer>
+  );
+};
+
+interface BlockProps {
+  count: string;
+  subject: string;
+}
+
+const TextBlockComponent: React.FC<BlockProps> = ({ count, subject }) => {
+  return (
+    <TextBlock>
+      <Count>{count}</Count>
+      <Subject>{subject}</Subject>
+    </TextBlock>
   );
 };
 
