@@ -8,6 +8,7 @@ import PageLayout from "./pagelayout";
 const Container = styled.div`
   padding-top: var(--height-navbar);
   min-height: 100vh;
+  background-color: #fafafa;
 `;
 
 interface Props {

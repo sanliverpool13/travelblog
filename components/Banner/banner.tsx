@@ -15,7 +15,7 @@ import {
 const Banner: React.FC = () => {
   return (
     <BannerContainer>
-      <ColorOverlay />
+      {/* <ColorOverlay /> */}
       <TextOverlay />
       <Image
         src={ViewFromCirquePeak.src}

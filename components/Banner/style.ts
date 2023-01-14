@@ -4,6 +4,10 @@ export const BannerContainer = styled.div`
   width: 100%;
   position: relative;
   height: 180px;
+
+  @media (max-width: 700px) {
+    height: 400px;
+  }
 `;
 
 export const ColorOverlay = styled.div`
@@ -27,10 +31,17 @@ export const TextOverlayContainer = styled.div`
 `;
 
 export const TextOverlayInnerContainer = styled.div`
-  width: 70%;
+  width: 80%;
+  max-width: var(--landing-section-widths);
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+    height: 100%;
+    padding: 1rem 0;
+  }
 `;
 
 export const TextBlock = styled.div`
@@ -38,17 +49,19 @@ export const TextBlock = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  color: #fafafa;
 `;
 
 export const Count = styled.p`
   font-weight: bold;
-  color: white;
   font-size: 30px;
   margin-bottom: 0.5rem;
+  @media (max-width: 700px) {
+    font-size: 24px;
+  }
 `;
 
 export const Subject = styled.p`
   font-weight: bold;
-  color: white;
-  font-size: 24px;
+  font-size: 16px;
 `;

@@ -48,6 +48,7 @@ export const AboutUsGrid = styled.section`
     flex-direction: column;
     align-items: center;
     width: var(--landing-section-mobile-width);
+    margin: 3rem 0;
   }
 `;
 
