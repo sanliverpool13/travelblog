@@ -50,6 +50,10 @@ export const OurStoryImageContainer = styled.section`
   position: relative;
   width: 100%;
 
+  & img {
+    border-radius: var(--img-border-radius);
+  }
+
   @media (max-width: 1024px) {
     height: 100vw;
   }
@@ -135,6 +139,9 @@ export const AboutImageSection = styled.section`
   position: relative;
   width: 100%;
   grid-area: ${(props) => (props.isMadison ? "second" : "first")};
+  & img {
+    border-radius: var(--img-border-radius);
+  }
 
   @media (max-width: 800px) {
     width: 100%;

@@ -58,6 +58,8 @@ export default GlobalStyle`
 
         --mobile-side-padding: 1rem;
 
+        --img-border-radius: 15px;
+
         
     }
     * {

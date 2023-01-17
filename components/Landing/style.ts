@@ -139,6 +139,10 @@ export const AboutUsImageSection = styled.section`
   display: block;
   position: relative;
 
+  & img {
+    border-radius: var(--img-border-radius);
+  }
+
   @media (max-width: 1024px) {
     display: flex;
     flex-direction: column;
