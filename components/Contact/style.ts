@@ -80,8 +80,6 @@ export const FormGroup = styled.div`
     & label {
       width: 100%;
     }
-
-    align-items: center;
   }
 `;
 

@@ -13,7 +13,7 @@ const Blog = () => {
 
   return (
     <ComingSoonContainer>
-      Work In Progress. Excited to share some blog posts with you soon!
+      <p>Work In Progress. Excited to share some blog posts with you soon!</p>
     </ComingSoonContainer>
   );
 };

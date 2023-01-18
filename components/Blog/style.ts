@@ -19,6 +19,12 @@ export const ComingSoonContainer = styled.div`
   justify-content: center;
   color: var(--bg-clr-footer);
   font-size: 2rem;
+
+  @media (max-width: 1024px) {
+    & p {
+      width: 90%;
+    }
+  }
 `;
 
 export const PostContainer = styled.div`

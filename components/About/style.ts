@@ -41,7 +41,7 @@ export const OurStoryGrid = styled.article`
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: var(--landing-section-mobile-width);
+    width: 90%;
   }
 `;
 
@@ -109,8 +109,11 @@ export const AboutGridSection = styled.section`
   grid-template-areas: "first second";
   width: 70%;
 
+  @media (max-width: 1024px) {
+    width: 90%;
+  }
+
   @media (max-width: 800px) {
-    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
