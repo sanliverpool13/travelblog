@@ -4,7 +4,7 @@ import Link from "next/link";
 import { TabsUl, TabLi } from "./tabs.style";
 import { useRecoilState } from "recoil";
 import { tabsState } from "../../context/state";
-import { updateActiveTabFromURL } from "./helpers";
+import { updateActiveTabFromURL } from "../helpers";
 
 const tabTypes = [
   { name: "Home", to: "/" },

@@ -1,5 +1,5 @@
 import React from "react";
-import SocialLinks from "../Navbar/SocialLinks";
+import SocialLinks from "../SocialLinks/SocialLinks";
 import { FooterContainer } from "./style";
 
 const Footer: React.FC = () => {

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Footer from "./Footer/Footer";
 import Navbar from "./Navbar/Navbar";
-import MobileNavMenu from "./Navbar/MobileNavMenu";
+import MobileNavMenu from "./MobileMenu/MobileNavMenu";
 import PageLayout from "./pagelayout";
 
 const Container = styled.div`

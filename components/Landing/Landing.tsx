@@ -12,12 +12,10 @@ import {
   LandingImageCaption,
   LandingImageContainer,
   MapContainer,
-  MapDestinations,
-  MapHeader,
 } from "./style";
 
 import LakeLouiseUs from "../../public/images/UsLouise.jpg";
-import LakeLouisePortrait from "../../public/images/LakeLouisePortrait.jpg";
+import LakeLouiseUsBlue from "../../public/images/UsLakeLouiseBlue.jpg";
 import Post from "../Blog/FeaturedPost";
 import { useRecoilState } from "recoil";
 import { blogPostsState } from "../../context/state";
@@ -78,7 +76,7 @@ const Landing: React.FC = () => {
         </AboutUsTextSection>
         <AboutUsImageSection>
           <Image
-            src={LakeLouisePortrait.src}
+            src={LakeLouiseUsBlue.src}
             alt="Us in Lake Louise Portrait"
             layout="fill"
             objectFit="cover"
@@ -88,8 +86,6 @@ const Landing: React.FC = () => {
       </AboutUsGrid>
       <Banner />
       <MapContainer>
-        {/* <MapHeader>Where We Have Been So Far!</MapHeader> */}
-
         <Map setMarkerTitle={setMarkerTitle} />
         <ReactTooltip>{markerTitle}</ReactTooltip>
       </MapContainer>

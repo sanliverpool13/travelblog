@@ -9,8 +9,8 @@ import {
   MobileNavMenuHeader,
   MobileLogoContainer,
 } from "./mobilenavmenu.style";
-import SocialLinks from "./SocialLinks";
-import Tabs from "./Tabs";
+import SocialLinks from "../SocialLinks/SocialLinks";
+import Tabs from "../NavigationTabs/Tabs";
 
 interface Props {
   onClose: () => void;

@@ -8,7 +8,7 @@ export const AboutContainer = styled.div`
 `;
 
 export const AboutInnerContainer = styled.section`
-  width: 100%;
+  width: var(--navbar-content-width);
   max-width: var(--navbar-max-width);
   height: 100%;
   display: flex;
@@ -18,15 +18,13 @@ export const AboutInnerContainer = styled.section`
 `;
 
 export const OurStoryHeader = styled.h2`
-  width: 90%;
+  width: 100%;
   font-size: 4rem;
   font-weight: 500;
   font-family: var(--logo-style) !important;
   margin: 0rem 0 1rem 0;
 
-  @media (max-width: 1024px) {
-    width: 100%;
-    text-align: center;
+  @media (max-width: 800px) {
     font-size: 3rem;
   }
 `;
@@ -35,13 +33,12 @@ export const OurStoryGrid = styled.article`
   margin: 2rem 0 0 0;
   display: grid;
   grid-template-columns: 45% 55%;
-  width: 100%;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 800px) {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 90%;
+    width: 100%;
   }
 `;
 
@@ -54,13 +51,12 @@ export const OurStoryImageContainer = styled.section`
     border-radius: var(--img-border-radius);
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 800px) {
     height: 100vw;
   }
 `;
 
 export const OurStoryTextContainer = styled.section`
-  /* height: 100%; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -69,7 +65,7 @@ export const OurStoryTextContainer = styled.section`
   text-align: left;
   width: 100%;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 800px) {
     order: -1;
     padding: 0;
     margin-bottom: 1rem;
@@ -77,41 +73,30 @@ export const OurStoryTextContainer = styled.section`
 `;
 
 export const OurStoryParagraph = styled.p`
-  width: 90%;
+  width: 100%;
   line-height: var(--about-line-height);
   font-size: var(--about-font-size);
-
-  @media (max-width: 1024px) {
-    width: 100%;
-  }
 `;
 
 export const OurStorySubHeader = styled.h2`
-  width: 90%;
+  width: 100%;
   font-size: 2rem;
   margin: 0rem 0 3rem 0;
 
-  @media (max-width: 1024px) {
-    width: 100%;
-    text-align: center;
-    font-size: 1rem;
+  @media (max-width: 800px) {
+    font-size: 1.5rem;
   }
 `;
 
 /// Individual About Us Sections ////////////////
 
 export const AboutGridSection = styled.section`
-  /* display: flex;
-  justify-content: center; */
   display: grid;
   grid-template-columns: ${(props) =>
     props.isMadison ? "60% 40%" : "40% 60%"};
   grid-template-areas: "first second";
-  width: 70%;
-
-  @media (max-width: 1024px) {
-    width: 90%;
-  }
+  width: 100%;
+  max-width: 1000px;
 
   @media (max-width: 800px) {
     display: flex;
@@ -156,19 +141,8 @@ export const AboutUsParagContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* align-items: center; */
   margin-bottom: 4rem;
-  width: 90%;
-
-  & p {
-    width: 80%;
-  }
-
-  @media (max-width: 700px) {
-    & p {
-      width: 100%;
-    }
-  }
+  width: 100%;
 `;
 
 export const Divider = styled.hr`

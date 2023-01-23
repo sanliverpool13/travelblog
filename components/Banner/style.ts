@@ -7,10 +7,6 @@ export const BannerContainer = styled.div`
 
   @media (max-width: 700px) {
     height: 400px;
-
-    & img {
-      border-radius: var(--img-border-radius);
-    }
   }
 `;
 

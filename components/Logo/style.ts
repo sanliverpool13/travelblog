@@ -9,7 +9,7 @@ export const LogoContainer = styled.div`
   align-items: center;
   cursor: pointer;
   @media (max-width: 905px) {
-    font-size: 1.8rem;
+    font-size: 2.1rem;
   }
 
   @media (max-width: 1100px) and (min-width: 905px) {

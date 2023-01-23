@@ -11,14 +11,6 @@ export const Section = styled.section`
 
 export const SectionCenter = styled.section`
   width: 100%;
-  /* margin: 0 auto; */
-  /* max-width: var(--max-width-content); */
-
-  @media (max-width: 700px) {
-    margin: 0;
-    padding: 0 var(--mobile-side-padding);
-    width: 100%;
-  }
 `;
 
 interface Props {

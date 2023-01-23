@@ -1,6 +1,6 @@
 import React from "react";
 import Logo from "../Logo/Logo";
-import Tabs from "./Tabs";
+import Tabs from "../NavigationTabs/Tabs";
 
 import { FaBars } from "react-icons/fa";
 
@@ -13,7 +13,7 @@ import {
   NavMenuToggleButtonContainer,
   RightContainer,
 } from "./navbar.style";
-import SocialLinks from "./SocialLinks";
+import SocialLinks from "../SocialLinks/SocialLinks";
 
 interface Props {
   handleMenuToggle: () => void;

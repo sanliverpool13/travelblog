@@ -15,6 +15,7 @@ export const ContactContainer = styled.div`
 
 export const ContactFormSection = styled.section`
   max-width: 500px;
+  width: 90%;
   display: flex;
   flex-direction: column;
   align-items: left;

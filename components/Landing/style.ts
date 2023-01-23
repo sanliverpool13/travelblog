@@ -7,15 +7,6 @@ export const LandingContainer = styled.article`
   align-items: center;
   width: 100%;
   position: relative;
-
-  & h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-`;
-
-export const LandingLogoContainer = styled.div`
-  margin: 2rem 0;
 `;
 
 export const LandingImageContainer = styled.div`
@@ -24,30 +15,29 @@ export const LandingImageContainer = styled.div`
   display: block;
   position: relative;
   margin-bottom: 1rem;
-
-  @media (max-width: 700px) {
-    width: var(--landing-section-mobile-width);
-  }
 `;
 
 export const LandingImageCaption = styled.p`
   font-size: 0.8rem;
   color: grey;
+  text-align: center;
+  padding: 1rem;
+  width: var(--navbar-content-width);
+  max-width: var(--navbar-max-width);
 `;
 
 // About Us Grid
 export const AboutUsGrid = styled.section`
   margin: 6rem 0;
   display: grid;
-  width: var(--landing-section-widths);
+  width: var(--navbar-content-width);
   max-width: var(--navbar-max-width);
   grid-template-columns: 60% 40%;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 700px) {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: var(--landing-section-mobile-width);
     margin: 3rem 0;
   }
 `;
@@ -57,6 +47,7 @@ export const AboutUsTextSection = styled.section`
   padding: 0 2rem 0 0;
   text-align: left;
   display: flex;
+  align-items: left;
   flex-direction: column;
   color: var(--bg-clr-footer);
 
@@ -68,24 +59,13 @@ export const AboutUsTextSection = styled.section`
     margin-bottom: 1rem;
   }
 
-  @media (max-width: 1024px) {
-    margin-bottom: 2rem;
-    align-items: center;
-    padding: 0;
-
-    p {
-      flex-grow: 0;
-    }
-
-    & p {
-      width: 90%;
-      overflow-y: none;
-    }
-  }
-
   @media (max-width: 700px) {
+    margin-bottom: 2rem;
+    padding: 0;
     & p {
+      flex-grow: 0;
       width: 100%;
+      overflow-y: none;
     }
   }
 `;
@@ -106,11 +86,16 @@ export const AboutUsSubHeader = styled.h4`
   margin-bottom: 1rem;
   font-style: bold;
   flex-grow: 1;
+
+  @media (max-width: 700px) {
+    font-size: 1.75rem;
+  }
 `;
 
 export const AboutUsMoreButton = styled.button`
   background-color: #9ed8db;
   color: var(--bg-clr-footer);
+  border-radius: 15px;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -144,18 +129,13 @@ export const AboutUsImageSection = styled.section`
   }
 
   @media (max-width: 1024px) {
+    height: 50vw;
+  }
+
+  @media (max-width: 700px) {
     display: flex;
     flex-direction: column;
-    width: var(--landing-section-widths);
-    height: 70vw;
-  }
-
-  @media (max-width: 700px) {
     height: 100vw;
-  }
-
-  @media (max-width: 700px) {
-    width: 100%;
   }
 `;
 
@@ -214,31 +194,14 @@ export const TextPrgph = styled.p`
 ///// Map //////
 export const MapContainer = styled.section`
   /* margin-top: 6rem; */
-  width: var(--landing-section-widths);
+  width: var(--navbar-content-width);
+  /* width: 100%; */
   display: flex;
   flex-direction: column;
   align-items: center;
   max-width: var(--max-width-content);
 
-  /* & svg:hover {
-    box-shadow: 0 4px 4px 2px rgba(0, 0, 0, 0.14);
-  } */
-
-  @media (max-width: 700px) {
+  /* @media (max-width: 700px) {
     width: var(--landing-section-mobile-width);
-  }
-`;
-
-export const MapHeader = styled.h2`
-  font-size: 3rem;
-  font-weight: 400;
-  color: var(--bg-clr-footer);
-  margin-bottom: 1rem;
-`;
-
-export const MapDestinations = styled.ul`
-  & li {
-    font-size: 1rem;
-    color: var(--bg-clr-footer);
-  }
+  } */
 `;

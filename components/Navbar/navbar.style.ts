@@ -5,7 +5,6 @@ export const NavContainer = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  padding: 0 3rem;
   height: var(--height-navbar);
   display: flex;
   align-items: center;
@@ -13,14 +12,10 @@ export const NavContainer = styled.div`
   z-index: 1000;
   background-color: #f7f9fb;
   color: var(--bg-clr-footer);
-
-  @media (max-width: 700px) {
-    padding: 0 var(--mobile-side-padding);
-  }
 `;
 
 export const NavInnerContainer = styled.div`
-  width: 100%;
+  width: var(--navbar-content-width);
   max-width: var(--navbar-max-width);
   display: flex;
   align-items: center;
