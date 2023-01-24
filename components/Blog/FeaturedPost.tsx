@@ -12,7 +12,6 @@ import {
   SubHeaderDate,
   SubHeaderReadTime,
 } from "./style";
-import cirquepeak from "../../public/images/HorViewCirquePeak.jpg";
 import { BlogPost } from "../../context/types";
 
 interface Props {

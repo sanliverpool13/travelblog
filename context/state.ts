@@ -2,7 +2,7 @@ import { atom } from "recoil";
 import { BlogPost } from "./types";
 import cirquepeak from "../public/images/HorViewCirquePeak.jpg";
 import calgaryLibrary from "../public/images/CalgaryLibrary.jpg";
-import lakeLouiseSanjar from "../public/images/LakeLouiseSanjarBack.jpg";
+import lakeLouiseSanjar from "../public/images/CalgaryLibrary.jpg";
 
 const tabsState = atom({
   key: "tabsActive",

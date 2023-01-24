@@ -11,28 +11,16 @@ import {
   LandingContainer,
   LandingImageCaption,
   LandingImageContainer,
-  MapContainer,
 } from "./style";
 
 import LakeLouiseUs from "../../public/images/UsLouise.jpg";
 import LakeLouiseUsBlue from "../../public/images/UsLakeLouiseBlue.jpg";
-import Post from "../Blog/FeaturedPost";
-import { useRecoilState } from "recoil";
-import { blogPostsState } from "../../context/state";
+
 import Link from "next/link";
 import Map from "../Map/Map";
-import ReactTooltip from "react-tooltip";
 import Banner from "../Banner/banner";
 
 const Landing: React.FC = () => {
-  const [blogPosts, setBlogPosts] = useRecoilState(blogPostsState);
-
-  const blogPostElements = blogPosts.map((post) => {
-    return <Post key={post.id} post={post} />;
-  });
-
-  const [markerTitle, setMarkerTitle] = useState("");
-
   const handleScroll = (e: Event) => {};
 
   useEffect(() => {
@@ -85,10 +73,8 @@ const Landing: React.FC = () => {
         </AboutUsImageSection>
       </AboutUsGrid>
       <Banner />
-      <MapContainer>
-        <Map setMarkerTitle={setMarkerTitle} />
-        <ReactTooltip>{markerTitle}</ReactTooltip>
-      </MapContainer>
+
+      <Map />
 
       {/* Will Add After First Release and a first blog */}
       {/* <FeaturedPosts>

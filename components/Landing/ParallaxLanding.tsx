@@ -8,11 +8,8 @@ import {
   TextContaienr,
   TextPrgph,
 } from "./style";
-import together from "../../public/images/Together.jpg";
-import forestinbg from "../../public/images/ForestInBg.jpg";
-import bowlakepose from "../../public/images/BowLakemountainsPose.jpg";
+
 import Navbar from "../Navbar/Navbar";
-console.log(together);
 
 const ParallaxLanding: React.FC = () => {
   const ref = useRef();
@@ -28,9 +25,7 @@ const ParallaxLanding: React.FC = () => {
   });
 
   return (
-    <ParallaxLandingContainer
-      style={{ backgroundImage: `url(${together.src})` }}
-    >
+    <ParallaxLandingContainer>
       <Parallax pages={2} ref={ref}>
         <ParallaxLayer
           speed={0}

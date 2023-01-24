@@ -32,7 +32,7 @@ export const TextOverlayContainer = styled.div`
 
 export const TextOverlayInnerContainer = styled.div`
   width: 80%;
-  max-width: var(--landing-section-widths);
+  max-width: var(--navbar-max-width);
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -29,19 +29,14 @@ export default GlobalStyle`
         --height-footer: 10rem;
         --logo-style: 'Hurricane', cursive;
 
-        --max-width-content: 970x;
-        --landing-section-widths: 90%;
-        --landing-section-mobile-width: 100%;
         --navbar-content-width: 90%;
         --navbar-max-width: 1300px;
 
-        --border-default: 1px solid black;
 
         --bg-color-error-alert: #fdeded;
         --bg-color-success-alert: #edf7ed;
         --color-error-alert: #5f2120;
         --color-success-alert: #1e4620;
-        --color-error-icon: #ef5350;
         --clr-trqse: #9ED8DB;
         --bg-clr-snackbar-success: #2e7d32;
         --bg-clr-snackbar-error: #d32f2f;
@@ -56,7 +51,6 @@ export default GlobalStyle`
         --about-font-size: 1.2rem;
         --about-line-height: 1.7rem;
 
-        --mobile-side-padding: 2rem;
 
         --img-border-radius: 15px;
 

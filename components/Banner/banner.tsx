@@ -4,7 +4,6 @@ import ViewFromCirquePeak from "../../public/images/HorViewCirquePeak.jpg";
 
 import {
   BannerContainer,
-  ColorOverlay,
   TextOverlayContainer,
   TextBlock,
   Count,
@@ -15,7 +14,6 @@ import {
 const Banner: React.FC = () => {
   return (
     <BannerContainer>
-      {/* <ColorOverlay /> */}
       <TextOverlay />
       <Image
         src={ViewFromCirquePeak.src}

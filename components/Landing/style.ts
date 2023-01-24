@@ -95,7 +95,7 @@ export const AboutUsSubHeader = styled.h4`
 export const AboutUsMoreButton = styled.button`
   background-color: #9ed8db;
   color: var(--bg-clr-footer);
-  border-radius: 15px;
+  border-radius: var(--img-border-radius);
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -142,7 +142,8 @@ export const AboutUsImageSection = styled.section`
 // Featured Posts Section
 
 export const FeaturedPosts = styled.section`
-  width: var(--landing-section-widths);
+  width: var(--navbar-content-width);
+  max-width: var(--navbar-max-width);
   margin-top: 6rem;
 `;
 
@@ -192,16 +193,3 @@ export const TextPrgph = styled.p`
 `;
 
 ///// Map //////
-export const MapContainer = styled.section`
-  /* margin-top: 6rem; */
-  width: var(--navbar-content-width);
-  /* width: 100%; */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: var(--max-width-content);
-
-  /* @media (max-width: 700px) {
-    width: var(--landing-section-mobile-width);
-  } */
-`;
