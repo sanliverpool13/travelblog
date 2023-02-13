@@ -1,12 +1,27 @@
 import styled from "styled-components";
 
-export const LandingContainer = styled.article`
+export const LandingSection = styled.section`
+  width: 100%;
+  padding-bottom: 14rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  @media (max-width: 800px) {
+    padding-bottom: 4rem;
+  }
+`;
+
+export const LandingContainer = styled.section`
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   width: 100%;
   position: relative;
+  margin-top: -4rem; // To offset the padding-top in page-layout, since the landing image is right below Navbar
 `;
 
 export const LandingImageContainer = styled.div`
@@ -21,14 +36,13 @@ export const LandingImageCaption = styled.p`
   font-size: 0.8rem;
   color: grey;
   text-align: center;
-  padding: 1rem;
   width: var(--navbar-content-width);
   max-width: var(--navbar-max-width);
 `;
 
 // About Us Grid
 export const AboutUsGrid = styled.section`
-  margin: 6rem 0;
+  /* margin: 6rem 0; */
   display: grid;
   width: var(--navbar-content-width);
   max-width: var(--navbar-max-width);
@@ -138,58 +152,3 @@ export const AboutUsImageSection = styled.section`
     height: 100vw;
   }
 `;
-
-// Featured Posts Section
-
-export const FeaturedPosts = styled.section`
-  width: var(--navbar-content-width);
-  max-width: var(--navbar-max-width);
-  margin-top: 6rem;
-`;
-
-export const SectionTitle = styled.h2`
-  font-size: 2rem;
-  margin-bottom: 6rem;
-`;
-
-export const FeaturedPostsGrid = styled.div`
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(4, 25%);
-  grid-template-areas: "posts posts posts aside";
-  box-sizing: border-box;
-`;
-
-/////////////////////
-
-export const ParallaxLandingContainer = styled.div`
-  width: 100vw;
-  height: 100vh;
-  background-size: cover;
-`;
-
-export const ParallaxPageOneContainer = styled.div`
-  display: grid;
-  grid-template-columns: 25% 75%;
-  grid-template-areas: "text .";
-  height: 100%;
-  width: 100%;
-`;
-
-export const TextContaienr = styled.div`
-  grid-area: text;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 1rem;
-  color: white;
-  z-index: -10;
-`;
-
-export const TextPrgph = styled.p`
-  background-color: black;
-  padding: 1rem;
-`;
-
-///// Map //////

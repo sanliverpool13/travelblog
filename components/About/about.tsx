@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
   AboutContainer,
   AboutGridSection,
+  AboutSection,
   AboutImageSection,
   AboutInnerContainer,
   AboutTextParagraph,
@@ -21,6 +22,7 @@ import {
 import OurStoryImage from "../../public/images/OurStory.jpg";
 import MadisonGreece from "../../public/images/MadisonGreeceView.jpg";
 import SanjarPeak from "../../public/images/SanjarPeak.jpg";
+import { useInView } from "react-intersection-observer";
 
 const MadisonAboutText =
   "Hey, I’m Madison! I’m a 22 year old nursing student, expected to graduate in 2024. I am passionate about working with people and providing compassionate care. I currently work as a paediatric support worker and hope to continue working with children as a paediatric nurse in the future. I have been vegan since I was 14 years old and love discovering new plant based food spots where-ever we go (I’m working on converting Sanjar to the plant based life too). I also love to read, run, hike, and explore new places in the world. I’m always looking forward to our next adventure!";
@@ -28,32 +30,51 @@ const SanjarAboutText =
   "Hi, I am Sanjar, a 28 year old software engineer. In my free time I love to read, run, play sports, hike, and hang out with friends. I have played competitive soccer my whole life and am a Liverpool supporter. I also like working out, combining Calisthenics and Weight-lifting. I have lived in 5 countries and I speak fluent English, Russian, Kazakh, Hebrew, and some German. Like Madison, I have become fascinated with traveling and seeing how people live in different parts of the world. And yes, as Madison mentioned above I am trying to establish a whole foods plant based diet.";
 
 const About: React.FC = () => {
+  const { ref, inView, entry } = useInView({
+    /* Optional options */
+    threshold: 0,
+  });
+
+  useEffect(() => {
+    if (inView) {
+      entry.target.classList.add();
+    }
+  }, [inView]);
+
   return (
     <AboutContainer>
       <AboutInnerContainer>
-        <OurStoryGrid>
-          <OurStoryImageContainer>
-            <Image
-              src={OurStoryImage.src}
-              layout="fill"
-              objectFit="cover"
-              priority
-            />
-          </OurStoryImageContainer>
-          <OurStoryText />
-        </OurStoryGrid>
-        <Divider />
-        <AboutSection
-          isMadison={true}
-          text={MadisonAboutText}
-          imagePath={MadisonGreece.src}
-        />
-        <Divider />
-        <AboutSection
-          isMadison={false}
-          text={SanjarAboutText}
-          imagePath={SanjarPeak.src}
-        />
+        <AboutSection>
+          <OurStoryGrid>
+            <OurStoryImageContainer>
+              <Image
+                src={OurStoryImage.src}
+                layout="fill"
+                objectFit="cover"
+                priority
+              />
+            </OurStoryImageContainer>
+            <OurStoryText />
+          </OurStoryGrid>
+        </AboutSection>
+        {/* <Divider /> */}
+        <AboutSection>
+          <PersonalAbout
+            observerRef={ref}
+            isMadison={true}
+            text={MadisonAboutText}
+            imagePath={MadisonGreece.src}
+          />
+        </AboutSection>
+        {/* <Divider /> */}
+        <AboutSection>
+          <PersonalAbout
+            observerRef={ref}
+            isMadison={false}
+            text={SanjarAboutText}
+            imagePath={SanjarPeak.src}
+          />
+        </AboutSection>
       </AboutInnerContainer>
     </AboutContainer>
   );
@@ -63,17 +84,19 @@ interface AboutSectionProps {
   isMadison: boolean;
   text: string;
   imagePath: string;
+  observerRef: (node?: Element) => void;
 }
 
-const AboutSection: React.FC<AboutSectionProps> = ({
+const PersonalAbout: React.FC<AboutSectionProps> = ({
   isMadison,
   text,
   imagePath,
+  observerRef,
 }) => {
   const title: string = isMadison ? "Madison" : "Sanjar";
 
   return (
-    <AboutGridSection isMadison={isMadison}>
+    <AboutGridSection isMadison={isMadison} ref={observerRef}>
       <AboutImageSection isMadison={isMadison}>
         <Image src={imagePath} layout="fill" objectFit="cover" priority />
       </AboutImageSection>

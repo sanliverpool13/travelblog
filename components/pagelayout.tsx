@@ -11,6 +11,7 @@ export const Section = styled.section`
 
 export const SectionCenter = styled.section`
   width: 100%;
+  padding-top: 4rem;
 `;
 
 interface Props {

@@ -1,10 +1,22 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const AboutContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+
+export const AboutSection = styled.section`
+  width: 100%;
+  padding-bottom: 14rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 800px) {
+    padding-bottom: 6rem;
+  }
 `;
 
 export const AboutInnerContainer = styled.section`
@@ -30,7 +42,6 @@ export const OurStoryHeader = styled.h2`
 `;
 
 export const OurStoryGrid = styled.article`
-  margin: 2rem 0 0 0;
   display: grid;
   grid-template-columns: 45% 55%;
 
@@ -163,4 +174,16 @@ export const ContactLink = styled.span`
     color: var(--clr-trqse);
     text-decoration: none;
   }
+`;
+
+// Animation for Personal About Sections
+export const transform = keyframes`
+  
+	0% {
+		transform: scale(0, .025);
+	}
+	50% {
+		transform: scale(1, .025);
+	}
+
 `;

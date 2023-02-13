@@ -4,7 +4,7 @@ export const ContactContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem 3rem 3rem;
+  padding: 0 3rem 3rem;
   width: 100%;
   color: var(--bg-clr-footer);
 
