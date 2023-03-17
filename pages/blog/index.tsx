@@ -1,24 +1,22 @@
 import React, { Suspense } from "react";
 import Skeleton from "react-loading-skeleton";
 import Blog from "../../components/Blog/Blog";
-import axios from "axios";
+import { queryBlogDatabase } from "../../lib/blog";
 
 interface Props {
-  posts: any;
+  posts: string;
 }
 
 const index: React.FC<Props> = ({ posts }) => {
-  return <Blog />;
+  return <Blog posts={posts} />;
 };
 
 export const getStaticProps = async () => {
-  // Call an external api to get posts
-  let url = `https://notion-api-for-blog.vercel.app/api/blog/travelblog`;
-  let results = await axios.post(url, {});
+  const posts = await queryBlogDatabase();
 
   return {
     props: {
-      posts: JSON.stringify(results.data),
+      posts: JSON.stringify(posts),
     },
   };
 };

@@ -13,86 +13,96 @@ import { browserDB } from "../../cache";
 import { BlogPost } from "../../context/types";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { Post as PostType } from "../../types/blog.types";
 
-const Blog = () => {
-  const [blogPosts, setBlogPosts] = useRecoilState(blogPostsState);
-  const [isLoading, setIsLoading] = useState(true);
+interface Props {
+  posts: string;
+  // postContent: string;
+}
 
-  const getPostsFromBrowserDB = async () => {
-    let postsInBroswerDB = await browserDB.posts.toArray();
-    return postsInBroswerDB;
-  };
+const Blog: React.FC<Props> = ({ posts }) => {
+  // const [blogPosts, setBlogPosts] = useRecoilState(blogPostsState);
+  // const [isLoading, setIsLoading] = useState(true);
 
-  const getBlogPostFromNotion = async () => {
-    let url = `https://notion-api-for-blog.vercel.app/api/blog/travelblog`;
-    return await axios.post(url, {});
-  };
+  // const getPostsFromBrowserDB = async () => {
+  //   let postsInBroswerDB = await browserDB.posts.toArray();
+  //   return postsInBroswerDB;
+  // };
 
-  const saveBlogPostToBrowserDB = async (post: BlogPost) => {
-    const { id, title, date, readTime, intro, imageUrl, category } = post;
-    try {
-      const dbId = await browserDB.posts.add({
-        id,
-        title,
-        date,
-        readTime,
-        intro,
-        imageUrl,
-        category,
-      });
-      console.log(`Saved data successfully with id: ${dbId}`);
-    } catch (error) {
-      console.log(`There was an error saving data to dexie db: ${error}`);
-    }
-  };
+  // const getBlogPostFromNotion = async () => {
+  //   let url = `https://notion-api-for-blog.vercel.app/api/blog/travelblog`;
+  //   return await axios.post(url, {});
+  // };
 
-  const saveAllPostsToBrowserDB = (posts: BlogPost[]) => {
-    posts.forEach((post) => {
-      saveBlogPostToBrowserDB(post);
-    });
-  };
+  // const saveBlogPostToBrowserDB = async (post: BlogPost) => {
+  //   const { id, title, date, readTime, intro, imageUrl, category } = post;
+  //   try {
+  //     const dbId = await browserDB.posts.add({
+  //       id,
+  //       title,
+  //       date,
+  //       readTime,
+  //       intro,
+  //       imageUrl,
+  //       category,
+  //     });
+  //     console.log(`Saved data successfully with id: ${dbId}`);
+  //   } catch (error) {
+  //     console.log(`There was an error saving data to dexie db: ${error}`);
+  //   }
+  // };
 
-  useEffect(() => {
-    getPostsFromBrowserDB()
-      .then((resp) => {
-        if (!resp.length) {
-          console.log("making api call since IDB array is empty");
-          getBlogPostFromNotion()
-            .then((resp) => {
-              setBlogPosts(resp.data);
-              // Only time I need to save the data to IndexDB is right after I get it
-              // from the api
-              saveAllPostsToBrowserDB(resp.data);
-              setIsLoading(false);
-            })
-            .catch((err) => console.log(err));
-        } else {
-          setBlogPosts(resp);
-          setIsLoading(false);
-        }
-      })
-      .catch((err) => console.log(err));
-  }, []);
+  // const saveAllPostsToBrowserDB = (posts: BlogPost[]) => {
+  //   posts.forEach((post) => {
+  //     saveBlogPostToBrowserDB(post);
+  //   });
+  // };
 
-  const blogPostElements = blogPosts.map((post) => {
+  // useEffect(() => {
+  //   getPostsFromBrowserDB()
+  //     .then((resp) => {
+  //       if (!resp.length) {
+  //         console.log("making api call since IDB array is empty");
+  //         getBlogPostFromNotion()
+  //           .then((resp) => {
+  //             setBlogPosts(resp.data);
+  //             // Only time I need to save the data to IndexDB is right after I get it
+  //             // from the api
+  //             saveAllPostsToBrowserDB(resp.data);
+  //             setIsLoading(false);
+  //           })
+  //           .catch((err) => console.log(err));
+  //       } else {
+  //         setBlogPosts(resp);
+  //         setIsLoading(false);
+  //       }
+  //     })
+  //     .catch((err) => console.log(err));
+  // }, []);
+
+  // console.log(JSON.parse(postContent));
+  const parsedPosts = JSON.parse(posts);
+
+  const blogPostElements = parsedPosts.map((post) => {
     return <Post key={post.id} post={post} />;
   });
 
-  const generateLoadingSkeletons = () => {
-    let skeletonArray = [];
-    for (let i = 0; i < 3; i++) {
-      skeletonArray.push(<PostSkeleton />);
-    }
+  // const generateLoadingSkeletons = () => {
+  //   let skeletonArray = [];
+  //   for (let i = 0; i < 3; i++) {
+  //     skeletonArray.push(<PostSkeleton />);
+  //   }
 
-    return skeletonArray;
-  };
+  //   return skeletonArray;
+  // };
 
   return (
     <BlogContainer>
       <BlogPostsGrid>
-        {isLoading && !blogPostElements.length
+        {blogPostElements}
+        {/* {isLoading && !blogPostElements.length
           ? generateLoadingSkeletons()
-          : blogPostElements}
+          : blogPostElements} */}
       </BlogPostsGrid>
       {/* <LoadingContainer /> */}
     </BlogContainer>

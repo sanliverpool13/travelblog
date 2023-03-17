@@ -4,12 +4,12 @@ export const PostArticle = styled.article`
   width: var(--navbar-content-width);
   margin: 0 auto;
   max-width: 700px;
-  padding-top: 4rem;
+  /* padding-top: 4rem; */
 `;
 
 export const PostTitle = styled.h2`
   color: var(--bg-clr-footer);
-  font-size: 28px;
+  font-size: 3rem;
   margin-bottom: 1rem;
 `;
 
@@ -33,17 +33,19 @@ export const SubHeaderItem = styled.span`
 
 export const ContentParagraph = styled.p`
   color: var(--bg-clr-footer);
-  font-size: 1rem;
-  line-height: 25px;
-  margin-bottom: 25px;
+  font-size: 1.2rem;
+  line-height: 2rem;
+  margin-bottom: 1.8rem;
 `;
 
 export const PostImageContainer = styled.div`
   display: block;
   position: relative;
   width: 100%;
-  height: 500px;
-
+  /* height: 500px; */
+  height: ${(props) =>
+    props.imageType === "h" ? "500px" : props.columnImage ? "400px" : "800px"};
+  margin-bottom: ${(props) => (props.hasCaption ? "0" : "1.8rem")};
   & img {
     border-radius: var(--img-border-radius);
   }
@@ -57,6 +59,33 @@ export const ImageCaption = styled.p`
   margin: 0.6rem 0 1rem;
   width: 100%;
   text-align: center;
+`;
+
+export const EmptyBlock = styled.div`
+  width: 100%;
+  height: 2rem;
+`;
+
+export const Heading3 = styled.h3`
+  color: var(--bg-clr-footer);
+  font-size: 2rem;
+  margin: 1.5rem 0 1rem 0;
+`;
+
+export const ColumnList = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1rem;
+  grid-template-rows: 1fr;
+`;
+
+// This component should determine the height.
+// It can either be a container of paragraphs,
+// or a container with one image in it.
+export const Column = styled.div`
+  width: 100%;
+  height: 100%;
+  text-align: left;
 `;
 
 export const ReturnButton = styled.button`

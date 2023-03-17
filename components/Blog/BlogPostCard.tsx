@@ -13,22 +13,17 @@ import {
 import { BlogPost } from "../../context/types";
 import Link from "next/link";
 import Skeleton from "react-loading-skeleton";
+import { Post as PostType } from "../../types/blog.types";
 
 interface Props {
-  post: BlogPost;
+  post: PostType;
 }
 
 const Post: React.FC<Props> = ({ post }) => {
   const { id, title, date, readTime, intro, imageUrl, category } = post;
 
   return (
-    <Link
-      href={`/blog/${id}?title=${encodeURIComponent(
-        title
-      )}&date=${encodeURIComponent(date)}&readtime=${encodeURIComponent(
-        readTime
-      )}`}
-    >
+    <Link href={`/blog/${id}`}>
       <BlogPostContainer>
         <BlogPostHeader>{title}</BlogPostHeader>
         <BlogPostSubHeader>
@@ -45,14 +40,12 @@ const Post: React.FC<Props> = ({ post }) => {
             src={imageUrl}
             layout="fill"
             objectFit="cover"
-            onLoad={() => console.log("Next js on load")}
-            onLoadingComplete={() => console.log("Next js image loaded")}
             // placeholder="blur"
           />
         </BlogPostImageContainer>
         <BlogPostExcerpt>{intro}</BlogPostExcerpt>
         <BlogPostTags>
-          <Tag>{category}</Tag>
+          <Tag>{category[0]}</Tag>
         </BlogPostTags>
       </BlogPostContainer>
     </Link>
