@@ -19,8 +19,10 @@ export const queryBlogDatabase = async () => {
 
     // map the results to client page objects - they have only the necessary components
     await blog_database_query.results.reduce(async (promise, page) => {
+      console.log("wer are inside reduce await for each page");
       await promise;
       const clientPage = await getClientPage(page);
+      console.group("got client page inside await");
       mappedForClientPages.push(clientPage);
     }, Promise.resolve());
     console.log(`mapped for client pages`);
@@ -28,6 +30,7 @@ export const queryBlogDatabase = async () => {
 
     return mappedForClientPages;
   } catch (error: unknown) {
+    console.log("query returns error?");
     console.log(error);
   }
 };
