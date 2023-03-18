@@ -1,4 +1,4 @@
-const { Client } = require("@notionhq/client");
+import { Client } from "@notionhq/client";
 import { getClientPage } from "../helpers/blog.helpers";
 
 // Initializing a client
