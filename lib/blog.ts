@@ -10,27 +10,20 @@ export const queryBlogDatabase = async () => {
   let blog_database_query;
   let mappedForClientPages = [];
   try {
-    console.log(notion);
     blog_database_query = await notion.databases.query({
       database_id: process.env.BLOG_DATABASE_ID,
     });
 
-    console.log(blog_database_query);
-
     // map the results to client page objects - they have only the necessary components
     await blog_database_query.results.reduce(async (promise, page) => {
-      console.log("wer are inside reduce await for each page");
       await promise;
       const clientPage = await getClientPage(page);
-      console.group("got client page inside await");
       mappedForClientPages.push(clientPage);
     }, Promise.resolve());
-    console.log(`mapped for client pages`);
     console.log(mappedForClientPages);
 
     return mappedForClientPages;
   } catch (error: unknown) {
-    console.log("query returns error?");
     console.log(error);
   }
 };
