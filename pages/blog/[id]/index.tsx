@@ -24,6 +24,8 @@ const BlogPost: React.FC<Props> = ({ post, clientPage }) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await queryBlogDatabase();
+  console.log("posts inside static paths");
+  console.log(posts);
 
   const paths = posts.map((post) => ({
     params: {

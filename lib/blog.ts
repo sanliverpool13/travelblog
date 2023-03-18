@@ -15,12 +15,16 @@ export const queryBlogDatabase = async () => {
       database_id: process.env.BLOG_DATABASE_ID,
     });
 
+    console.log(blog_database_query);
+
     // map the results to client page objects - they have only the necessary components
     await blog_database_query.results.reduce(async (promise, page) => {
       await promise;
       const clientPage = await getClientPage(page);
       mappedForClientPages.push(clientPage);
     }, Promise.resolve());
+    console.log(`mapped for client pages`);
+    console.log(mappedForClientPages);
 
     return mappedForClientPages;
   } catch (error: unknown) {
