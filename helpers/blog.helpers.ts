@@ -28,6 +28,7 @@ export const getClientPage = async (page: Page): Promise<Post> => {
     intro: page.properties.Intro.rich_text[0].plain_text,
     readTime: page.properties.ReadTime.rich_text[0].plain_text,
     imageUrl: cldImgUrl,
+    slug: page.properties.Slug.rich_text[0].plain_text,
   };
 };
 

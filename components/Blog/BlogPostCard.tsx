@@ -18,7 +18,7 @@ interface Props {
 }
 
 const Post: React.FC<Props> = ({ post }) => {
-  const { id, title, date, readTime, intro, imageUrl, category } = post;
+  const { id, title, date, readTime, intro, imageUrl, category, slug } = post;
 
   return (
     <Link href={`/blog/${id}`} style={{ textDecoration: "none" }}>

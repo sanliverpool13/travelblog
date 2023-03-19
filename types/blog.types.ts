@@ -81,6 +81,7 @@ export interface Page {
     Intro: TextProperty;
     ReadTime: TextProperty;
     Name: TitleProperty;
+    Slug: TextProperty;
   };
   url: string;
 }
@@ -94,6 +95,7 @@ export interface Post {
   intro: string;
   readTime: string;
   imageUrl: string;
+  slug: string;
 }
 
 export interface Block {
