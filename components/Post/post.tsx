@@ -115,7 +115,7 @@ const Post: React.FC<Props> = ({ post, clientPage }) => {
       <PostTitle>{title}</PostTitle>
       <PostSubHeader>
         <SubheaderBlock>
-          <SubHeaderItem>{date}</SubHeaderItem>
+          <SubHeaderItem>Last Updated {date}</SubHeaderItem>
         </SubheaderBlock>
         <SubheaderBlock>
           <SubHeaderItem>&#9679;</SubHeaderItem>
