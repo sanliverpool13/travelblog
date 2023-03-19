@@ -21,6 +21,34 @@ const tripDestinations = [
     to: { coord: [-86.851524, 21.161907], name: "Cancun", markerOffset: -5 },
     name: "Toronto-Cancun",
   },
+  {
+    from: { coord: [-79.3832, 43.6532], name: "Toronto", markerOffset: 5 },
+    to: { coord: [-80.8431, 35.2271], name: "Charlotte", markerOffset: -5 },
+    name: "Toronto-Charlotte",
+  },
+  {
+    from: { coord: [-79.3832, 43.6532], name: "Toronto", markerOffset: 5 },
+    to: { coord: [-81.0912, 32.0809], name: "Savannah", markerOffset: -5 },
+    name: "Toronto-Savannah",
+  },
+  {
+    from: { coord: [-79.3832, 43.6532], name: "Toronto", markerOffset: 5 },
+    to: {
+      coord: [-81.4678, 28.4743],
+      name: "Universal Orlando",
+      markerOffset: -5,
+    },
+    name: "Toronto-Universal Orlando",
+  },
+  {
+    from: { coord: [-79.3832, 43.6532], name: "Toronto", markerOffset: 5 },
+    to: {
+      coord: [-80.13, 25.7907],
+      name: "Miami Beach",
+      markerOffset: -5,
+    },
+    name: "Toronto-Miami Beach",
+  },
 ];
 
 const Map: React.FC = () => {

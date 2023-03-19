@@ -29,8 +29,8 @@ const Landing: React.FC = () => {
           <Image
             src={LakeLouiseUs.src}
             alt="us"
-            layout="fill"
-            objectFit="cover"
+            fill
+            style={{ objectFit: "cover" }}
             priority
           />
         </LandingImageContainer>
@@ -52,7 +52,7 @@ const Landing: React.FC = () => {
               We are early risers, coffee drinkers, avid readers and love to run
               and hike.
             </p>
-            <Link href="/about">
+            <Link href="/about" style={{ textDecoration: "none" }}>
               <AboutUsMoreButton>Our Story</AboutUsMoreButton>
             </Link>
           </AboutUsTextSection>
@@ -60,8 +60,8 @@ const Landing: React.FC = () => {
             <Image
               src={LakeLouiseUsBlue.src}
               alt="Us in Lake Louise Portrait"
-              layout="fill"
-              objectFit="cover"
+              fill
+              style={{ objectFit: "cover" }}
               priority
             />
           </AboutUsImageSection>

@@ -18,8 +18,8 @@ const Banner: React.FC = () => {
       <Image
         src={ViewFromCirquePeak.src}
         alt="us"
-        layout="fill"
-        objectFit="cover"
+        fill
+        style={{ objectFit: "cover" }}
         priority
       />
     </BannerContainer>
@@ -31,8 +31,9 @@ const TextOverlay: React.FC = () => {
     <TextOverlayContainer>
       <TextOverlayInnerContainer>
         <TextBlockComponent count="1" subject="NATIONAL PARKS" />
+        <TextBlockComponent count="6" subject="STATES VISITED" />
         <TextBlockComponent count="2" subject="PROVINCES VISITED" />
-        <TextBlockComponent count="2" subject="COUNTRIES TRAVELED" />
+        <TextBlockComponent count="3" subject="COUNTRIES TRAVELED" />
         <TextBlockComponent count="2.5" subject="YEARS TOGETHER" />
       </TextOverlayInnerContainer>
     </TextOverlayContainer>
