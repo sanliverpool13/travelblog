@@ -43,7 +43,7 @@ interface Annotations {
   color: string;
 }
 
-interface RichText {
+export interface RichText {
   type: string;
   text: { content: string; link: null };
   annotations: Annotations;
@@ -144,4 +144,14 @@ export interface ColumnList extends Block {
 
 export interface Column extends Block {
   column: {};
+}
+
+// Database Query Response Object
+export interface DatabaseQueryResponse {
+  object: string;
+  results: Array<Page>;
+  next_cursor: string;
+  has_more: boolean;
+  type: string;
+  page: {};
 }

@@ -1,5 +1,4 @@
-import React, { Suspense } from "react";
-import Skeleton from "react-loading-skeleton";
+import React from "react";
 import Blog from "../../components/Blog/Blog";
 import { queryBlogDatabase } from "../../lib/blog";
 

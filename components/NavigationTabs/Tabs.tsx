@@ -35,7 +35,7 @@ const Tabs: React.FC<Props> = ({ mobile, onClose }) => {
   useEffect(() => {
     let updatedActiveTabIndex: number = updateActiveTabFromURL(urlPath);
     setActiveTab(updatedActiveTabIndex);
-  }, [urlPath]);
+  }, [urlPath, setActiveTab]);
 
   const tabElements = tabTypes.map((tab, index) => {
     return (

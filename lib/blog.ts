@@ -7,9 +7,9 @@ const notion = new Client({
 });
 
 export const queryBlogDatabase = async () => {
-  let blog_database_query;
-  let mappedForClientPages = [];
   try {
+    let blog_database_query;
+    const mappedForClientPages = [];
     blog_database_query = await notion.databases.query({
       database_id: process.env.BLOG_DATABASE_ID,
     });
@@ -20,11 +20,11 @@ export const queryBlogDatabase = async () => {
       const clientPage = await getClientPage(page);
       mappedForClientPages.push(clientPage);
     }, Promise.resolve());
-    console.log(mappedForClientPages);
 
     return mappedForClientPages;
-  } catch (error: unknown) {
+  } catch (error) {
     console.log(error);
+    return error;
   }
 };
 
@@ -51,7 +51,8 @@ export const retrievePageContent = async (id: string) => {
       block_id: id,
     });
     return response.results;
-  } catch (error: unknown) {
+  } catch (error) {
     console.log(error);
+    return error;
   }
 };

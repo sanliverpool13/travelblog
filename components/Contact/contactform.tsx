@@ -29,7 +29,7 @@ const formSchema = Yup.object().shape({
   message: Yup.string().required("Please enter a message."),
 });
 
-const contactform: React.FC = () => {
+const Contactform: React.FC = () => {
   // Snackbar state
   const [showSnackBar, setShowSnackBar] = useState(false);
   const [snackBarState, setSnackBarState] = useState(true);
@@ -57,14 +57,20 @@ const contactform: React.FC = () => {
     return;
   };
 
-  let Timer;
-  const handleTimeout = () => {
-    Timer = window.setTimeout(() => {
-      setShowSnackBar(false);
-    }, 5000);
-  };
+  // let Timer;
+  // const handleTimeout = () => {
+  //   Timer = window.setTimeout(() => {
+  //     setShowSnackBar(false);
+  //   }, 5000);
+  // };
 
   useEffect(() => {
+    let Timer;
+    const handleTimeout = () => {
+      Timer = window.setTimeout(() => {
+        setShowSnackBar(false);
+      }, 5000);
+    };
     if (showSnackBar) {
       handleTimeout();
     }
@@ -138,4 +144,4 @@ const contactform: React.FC = () => {
   );
 };
 
-export default contactform;
+export default Contactform;

@@ -10,9 +10,7 @@ import {
   SubheaderBlock,
   Tag,
 } from "./style";
-import { BlogPost } from "../../context/types";
 import Link from "next/link";
-import Skeleton from "react-loading-skeleton";
 import { Post as PostType } from "../../types/blog.types";
 
 interface Props {
@@ -38,9 +36,10 @@ const Post: React.FC<Props> = ({ post }) => {
         <BlogPostImageContainer>
           <Image
             src={imageUrl}
-            layout="fill"
-            objectFit="cover"
-            // placeholder="blur"
+            fill
+            style={{ objectFit: "cover" }}
+            alt="img"
+            priority
           />
         </BlogPostImageContainer>
         <BlogPostExcerpt>{intro}</BlogPostExcerpt>

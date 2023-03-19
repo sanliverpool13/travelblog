@@ -1,14 +1,7 @@
-// Some helpers for the blog page
-
 import { retrievePageContent } from "../lib/blog";
-import {
-  ContentBlock,
-  ContentBlocks,
-  Paragraph,
-} from "../types/blog.client_types";
-import { Page, Post, P_Block } from "../types/blog.types";
+import { ContentBlock } from "../types/blog.client_types";
+import { Page, Post, RichText } from "../types/blog.types";
 import { v2 as cloudinary } from "cloudinary";
-import { RichText } from "../context/types";
 
 cloudinary.config({
   cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,

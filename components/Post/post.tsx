@@ -1,12 +1,7 @@
-import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
-import { useRecoilValue } from "recoil";
-import { browserDB } from "../../cache";
-import { currentPostState } from "../../context/state";
-import { Block, Image as ImageType } from "../../context/types";
+import React from "react";
+
 import {
   Column as ColumnType,
   ColumnList as ColumnListType,
@@ -71,8 +66,10 @@ const Post: React.FC<Props> = ({ post, clientPage }) => {
             >
               <Image
                 src={imageBlock.image.imageUrl}
-                layout="fill"
-                objectFit="cover"
+                fill
+                style={{ objectFit: "cover" }}
+                alt="post img"
+                priority
               />
             </PostImageContainer>
             {imageBlock.image.caption && (
