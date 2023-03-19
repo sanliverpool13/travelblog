@@ -21,7 +21,7 @@ const Post: React.FC<Props> = ({ post }) => {
   const { id, title, date, readTime, intro, imageUrl, category } = post;
 
   return (
-    <Link href={`/blog/${id}`}>
+    <Link href={`/blog/${id}`} style={{ textDecoration: "none" }}>
       <BlogPostContainer>
         <BlogPostHeader>{title}</BlogPostHeader>
         <BlogPostSubHeader>

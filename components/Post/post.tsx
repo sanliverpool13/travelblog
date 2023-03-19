@@ -110,94 +110,6 @@ const Post: React.FC<Props> = ({ post, clientPage }) => {
 
   const contentElements = post.length && post.map((block) => getElement(block));
 
-  // const [blocks, setBlocks] = useState<Block[]>([]);
-
-  // const getPostContentFromBrowserDB = async (postId: string) => {
-  //   const DBid = await browserDB.post_content
-  //     .where("id")
-  //     .equalsIgnoreCase(postId)
-  //     .toArray();
-  //   return DBid;
-  // };
-
-  // const savePostContentToBrowserDB = async (
-  //   id,
-  //   title,
-  //   date,
-  //   readTime,
-  //   content_blocks: Block[]
-  // ) => {
-  //   try {
-  //     const BrowserDBId = await browserDB.post_content.add({
-  //       id,
-  //       title,
-  //       date,
-  //       readTime,
-  //       content_blocks,
-  //     });
-  //     console.log(`Post content with id: ${BrowserDBId} saved successfully`);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   if (slug) {
-  //     // First make call to IndexDB to check if there is already data with that id
-  //     getPostContentFromBrowserDB(slug as string)
-  //       .then((resp) => {
-  //         // We have data saved in cache
-  //         if (resp.length) {
-  //           setBlocks(resp[0].content_blocks);
-  //         } else {
-  //           // We have to make the api call since no data in cache
-  //           const url = `https://notion-api-for-blog.vercel.app/api/blog/post/${slug}`;
-  //           axios
-  //             .get(url)
-  //             .then((resp) => {
-  //               setBlocks(resp.data);
-  //               // And save data to cache
-  //               savePostContentToBrowserDB(
-  //                 slug,
-  //                 title,
-  //                 date,
-  //                 readtime,
-  //                 resp.data
-  //               );
-  //             })
-  //             .catch((err) => console.log(err));
-  //         }
-  //       })
-  //       .catch((err) => console.log(err));
-  //   }
-  // }, [slug]);
-
-  // const contentElements = blocks.map((block) => {
-  //   if (!isBlockObjectImage(block.type)) {
-  //     return (
-  //       <ContentParagraph key={block.id}>
-  //         {(block.block_object as Paragraph).rich_text[0].plain_text}
-  //       </ContentParagraph>
-  //     );
-  //   }
-  //   if (isBlockObjectImage(block.type)) {
-  //     return (
-  //       <div key={block.id}>
-  //         <PostImageContainer>
-  //           <Image
-  //             src={(block.block_object as ImageType).file.url}
-  //             layout="fill"
-  //             objectFit="cover"
-  //           />
-  //         </PostImageContainer>
-  //         <ImageCaption>
-  //           {(block.block_object as ImageType).caption[0].plain_text}
-  //         </ImageCaption>
-  //       </div>
-  //     );
-  //   }
-  // });
-
   return (
     <PostArticle>
       <PostTitle>{title}</PostTitle>
@@ -213,7 +125,7 @@ const Post: React.FC<Props> = ({ post, clientPage }) => {
         </SubheaderBlock>
       </PostSubHeader>
       {contentElements}
-      <Link href="/blog">
+      <Link href="/blog" style={{ textDecoration: "none" }}>
         <ReturnButton>Return To Blog</ReturnButton>
       </Link>
     </PostArticle>
