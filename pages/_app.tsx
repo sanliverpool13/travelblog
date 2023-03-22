@@ -4,6 +4,7 @@ import Layout from "../components/layout";
 import { RecoilRoot } from "recoil";
 import Head from "next/head";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -13,7 +14,8 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>Beyond Us Two</title>
       </Head>
-      <Script
+      <Analytics />
+      {/* <Script
         strategy="afterInteractive"
         src="https://www.googletagmanager.com/gtag/js?id=G-JSW1J95JPC"
       />
@@ -28,7 +30,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   
     gtag('config', 'G-JSW1J95JPC');`,
         }}
-      />
+      /> */}
 
       <Layout>
         <Component {...pageProps} />
