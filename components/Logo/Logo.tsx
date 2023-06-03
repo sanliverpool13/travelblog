@@ -11,7 +11,7 @@ const Logo: React.FC<Props> = ({ mobile }) => {
 
   return (
     <LogoContainer mobile={mobile} onClick={() => router.push('/')}>
-      Madison And Sanjar
+      Madison and Sanjar
     </LogoContainer>
   );
 };
