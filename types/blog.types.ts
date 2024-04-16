@@ -10,14 +10,18 @@ interface PageProperty {
   type: string;
 }
 
-interface MultiSelectOption {
+interface SelectOption {
   id: string;
   name: string;
   color: string;
 }
 
 interface MultiSelect extends PageProperty {
-  multi_select: Array<MultiSelectOption>;
+  multi_select: Array<SelectOption>;
+}
+
+interface Select extends PageProperty {
+  select: SelectOption;
 }
 
 interface CreatedTime extends PageProperty {
@@ -82,6 +86,7 @@ export interface Page {
     ReadTime: TextProperty;
     Name: TitleProperty;
     Slug: TextProperty;
+    Status: Select;
   };
   url: string;
 }
@@ -96,6 +101,7 @@ export interface Post {
   readTime: string;
   imageUrl: string;
   slug: string;
+  status: string;
 }
 
 export interface Block {

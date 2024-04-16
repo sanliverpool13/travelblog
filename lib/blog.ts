@@ -12,6 +12,12 @@ export const queryBlogDatabase = async () => {
     const mappedForClientPages = [];
     blog_database_query = await notion.databases.query({
       database_id: process.env.BLOG_DATABASE_ID,
+      filter: {
+        property: "Status",
+        select: {
+          does_not_equal: "Draft",
+        },
+      },
     });
 
     // map the results to client page objects - they have only the necessary components
