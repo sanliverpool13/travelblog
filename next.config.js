@@ -1,5 +1,8 @@
 module.exports = {
   images: {
-    domains: ["s3.us-west-2.amazonaws.com", "res.cloudinary.com"],
+    domains: [
+      "prod-files-secure.s3.us-west-2.amazonaws.com",
+      "res.cloudinary.com",
+    ],
   },
 };

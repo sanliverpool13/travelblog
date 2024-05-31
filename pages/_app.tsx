@@ -12,7 +12,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       <GlobalStyle />
 
       <Head>
-        <title>Beyond Us Two</title>
+        <title>Madison And Sanjar</title>
       </Head>
       <Analytics />
       {/* <Script
