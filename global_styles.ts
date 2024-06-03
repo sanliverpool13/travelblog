@@ -63,5 +63,15 @@ export default GlobalStyle`
         box-sizing:border-box;
         font-family: 'Karla', sans-serif;
     }
+
+    .custom-map {
+      background: linear-gradient(to bottom, #3a1c71, #d76d77, #ffaf7b); /* Gradient background */
+      border: 2px solid #fff; /* Optional: Border around the map */
+      border-radius: 8px; /* Optional: Rounded corners */
+    }
+    
+    .leaflet-container {
+      background-color: transparent !important; /* Ensures the map tiles have a transparent background */
+    }
     
  `;

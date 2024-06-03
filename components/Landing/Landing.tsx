@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 
 import {
   AboutUsGrid,
@@ -18,8 +19,10 @@ import LakeLouiseUs from "../../public/images/UsLouise.jpg";
 import LakeLouiseUsBlue from "../../public/images/UsLakeLouiseBlue.jpg";
 
 import Link from "next/link";
-import Map from "../Map/Map";
 import Banner from "../Banner/banner";
+const DynamicMap = dynamic(() => import("../Map/Map"), {
+  ssr: false,
+});
 
 const Landing: React.FC = () => {
   return (
@@ -69,7 +72,7 @@ const Landing: React.FC = () => {
       </LandingSection>
       <LandingSection>
         <Banner />
-        <Map />
+        <DynamicMap />
       </LandingSection>
     </LandingContainer>
   );

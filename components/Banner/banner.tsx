@@ -31,10 +31,10 @@ const TextOverlay: React.FC = () => {
     <TextOverlayContainer>
       <TextOverlayInnerContainer>
         <TextBlockComponent count="1" subject="NATIONAL PARKS" />
-        <TextBlockComponent count="6" subject="STATES VISITED" />
+        <TextBlockComponent count="8" subject="STATES VISITED" />
         <TextBlockComponent count="2" subject="PROVINCES VISITED" />
-        <TextBlockComponent count="3" subject="COUNTRIES TRAVELED" />
-        <TextBlockComponent count="2.5" subject="YEARS TOGETHER" />
+        <TextBlockComponent count="5" subject="COUNTRIES TRAVELED" />
+        <TextBlockComponent count="4" subject="YEARS TOGETHER" />
       </TextOverlayInnerContainer>
     </TextOverlayContainer>
   );

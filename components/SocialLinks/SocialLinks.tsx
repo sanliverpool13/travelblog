@@ -17,22 +17,16 @@ const SocialLinks: React.FC<Props> = ({ isMobile, isNavbar }) => {
   return (
     <SocialLinksContainer isMobile={isMobile} isNavbar={isNavbar}>
       <SocialLinkComponent
-        href="https://www.instagram.com/beyondustwo/"
+        href="https://www.instagram.com/madisonandsanjar/"
         isMobile={isMobile}
         isNavbar={isNavbar}
         Icon={FaInstagram}
       />
       <SocialLinkComponent
-        href="https://www.youtube.com/channel/UCvFJMtOUBiQcmJ_cxsjeNXg"
+        href="https://www.youtube.com/@MadisonandSanjar"
         isMobile={isMobile}
         isNavbar={isNavbar}
         Icon={FaYoutube}
-      />
-      <SocialLinkComponent
-        href="https://www.tiktok.com/@beyondustwo"
-        isMobile={isMobile}
-        isNavbar={isNavbar}
-        Icon={FaTiktok}
       />
     </SocialLinksContainer>
   );
