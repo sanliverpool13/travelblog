@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Hurricane&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Karla&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (min-width: 768px) {
+  .md-grid-madison {
+    display: grid;
+    grid-template-columns: 58% 4% 38%;
+    grid-template-areas: "text gap image";
+  }
+
+  .md-grid-not-madison {
+    display: grid;
+    grid-template-columns: 38% 4% 58%;
+    grid-template-areas: "image gap text";
+  }
+
+  .md-order-image {
+    grid-area: image;
+  }
+
+  .md-order-text {
+    grid-area: text;
+  }
+
+  .md-order-gap {
+    grid-area: gap;
+  }
+}
+
+/* Grid Of Images */
+.masonry {
+  column-count: 1; /* Adjust the number of columns */
+  column-gap: 1rem; /* Adjust the gap between columns */
+}
+
+@media (min-width: 500px) {
+  .masonry {
+    column-count: 2; /* Adjust the number of columns */
+    column-gap: 1rem; /* Adjust the gap between columns */
+  }
+}
+
+@media (min-width: 768px) {
+  .masonry {
+    column-count: 3; /* Adjust the number of columns */
+    column-gap: 1rem; /* Adjust the gap between columns */
+  }
+}
+
+@media (min-width: 1024px) {
+  .masonry {
+    column-count: 4; /* Adjust the number of columns */
+    column-gap: 1rem; /* Adjust the gap between columns */
+  }
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+}

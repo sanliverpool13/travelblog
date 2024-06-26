@@ -1,80 +1,36 @@
+"use client";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import dynamic from "next/dynamic";
 
-import {
-  AboutUsGrid,
-  AboutUsHeader,
-  AboutUsImageSection,
-  AboutUsMoreButton,
-  AboutUsSubHeader,
-  AboutUsTextSection,
-  LandingContainer,
-  LandingImageCaption,
-  LandingImageContainer,
-  LandingSection,
-} from "./style";
-
 import LakeLouiseUs from "../../public/images/UsLouise.jpg";
-import LakeLouiseUsBlue from "../../public/images/UsLakeLouiseBlue.jpg";
-
-import Link from "next/link";
-import Banner from "../Banner/banner";
+import AboutSection from "./AboutSection";
 const DynamicMap = dynamic(() => import("../Map/Map"), {
   ssr: false,
 });
 
 const Landing: React.FC = () => {
   return (
-    <LandingContainer>
-      <LandingSection>
-        <LandingImageContainer>
+    <div className="flex flex-col gap-y-64 items-center w-full relative">
+      <section className="w-full flex flex-col gap-y-4 justify-center items-center relative">
+        <div className="relative w-full md:h-[70vw] lg:h-[60vw] h-[90vh]">
           <Image
             src={LakeLouiseUs.src}
             alt="us"
             fill
-            style={{ objectFit: "cover" }}
+            className="object-cover"
             priority
           />
-        </LandingImageContainer>
-        <LandingImageCaption>
+        </div>
+        <p className="text-sm text-gray-500 text-center w-[90%] max-w-[1300px]">
           Lake Louise in the evening, after a long day of hiking &nbsp;
           (September 2nd, 2022)
-        </LandingImageCaption>
-      </LandingSection>
-      <LandingSection>
-        <AboutUsGrid>
-          <AboutUsTextSection>
-            <AboutUsHeader>About Us</AboutUsHeader>
-            <AboutUsSubHeader>We are Madison and Sanjar</AboutUsSubHeader>
-            <p>
-              We met while working at Starbucks in 2020. Our first trip together
-              was Cancun, Mexico and we have acquired a passion for exploring
-              new parts of the world together ever since. <br />
-              <br />
-              We are early risers, coffee drinkers, avid readers and love to run
-              and hike.
-            </p>
-            <Link href="/about" style={{ textDecoration: "none" }}>
-              <AboutUsMoreButton>Our Story</AboutUsMoreButton>
-            </Link>
-          </AboutUsTextSection>
-          <AboutUsImageSection>
-            <Image
-              src={LakeLouiseUsBlue.src}
-              alt="Us in Lake Louise Portrait"
-              fill
-              style={{ objectFit: "cover" }}
-              priority
-            />
-          </AboutUsImageSection>
-        </AboutUsGrid>
-      </LandingSection>
-      <LandingSection>
-        <Banner />
-        <DynamicMap />
-      </LandingSection>
-    </LandingContainer>
+        </p>
+      </section>
+      <AboutSection />
+      {/* <Banner /> */}
+      <DynamicMap />
+    </div>
   );
 };
 

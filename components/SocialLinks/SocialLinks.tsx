@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  SocialLinksContainer,
-  SocialLink,
-  SocialLinkContainer,
-} from "./socialinks.style";
-
-import { FaInstagram, FaYoutube, FaTiktok } from "react-icons/fa";
+import { FaInstagram, FaYoutube } from "react-icons/fa";
 import { IconType } from "react-icons/lib";
 
 interface Props {
@@ -15,20 +9,24 @@ interface Props {
 
 const SocialLinks: React.FC<Props> = ({ isMobile, isNavbar }) => {
   return (
-    <SocialLinksContainer isMobile={isMobile} isNavbar={isNavbar}>
+    <div
+      className={`flex items-center justify-evenly h-full ${
+        isMobile || !isNavbar ? "flex" : "hidden"
+      } md:flex`}
+    >
       <SocialLinkComponent
-        href="https://www.instagram.com/madisonandsanjar/"
+        href="https://www.instagram.com/jeletadventures/"
         isMobile={isMobile}
         isNavbar={isNavbar}
         Icon={FaInstagram}
       />
       <SocialLinkComponent
-        href="https://www.youtube.com/@MadisonandSanjar"
+        href="https://www.youtube.com/@JeletAdventures"
         isMobile={isMobile}
         isNavbar={isNavbar}
         Icon={FaYoutube}
       />
-    </SocialLinksContainer>
+    </div>
   );
 };
 
@@ -46,16 +44,16 @@ const SocialLinkComponent: React.FC<LinkProps> = ({
   Icon,
 }) => {
   return (
-    <SocialLinkContainer>
-      <SocialLink
+    <div className="w-10 flex justify-center items-center">
+      <a
         href={href}
         target="_blank"
-        isMobile={isMobile}
-        isNavbar={isNavbar}
+        rel="noopener noreferrer"
+        className={`flex justify-center items-center hover:text-teal-400 transition-colors duration-100`}
       >
-        <Icon />
-      </SocialLink>
-    </SocialLinkContainer>
+        <Icon className="text-2xl" />
+      </a>
+    </div>
   );
 };
 

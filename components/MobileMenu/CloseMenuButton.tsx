@@ -1,6 +1,6 @@
 import React from "react";
 import { FaTimes } from "react-icons/fa";
-import { CloseButton } from "./mobilenavmenu.style";
+// import { CloseButton } from "./mobilenavmenu.style";
 
 interface Props {
   onClose: () => void;
@@ -8,9 +8,15 @@ interface Props {
 
 const CloseMenuButton: React.FC<Props> = ({ onClose }) => {
   return (
-    <CloseButton onClick={onClose}>
+    // <CloseButton onClick={onClose}>
+    //   <FaTimes />
+    // </CloseButton>
+    <button
+      className="cursor-pointer border-none text-2xl bg-none flex-shrink-0"
+      onClick={onClose}
+    >
       <FaTimes />
-    </CloseButton>
+    </button>
   );
 };
 

@@ -1,16 +1,9 @@
-import React, { useEffect, useState } from "react";
-import {
-  ComposableMap,
-  Geographies,
-  Geography,
-  Marker,
-} from "react-simple-maps";
-import { MapContainer } from "./style";
-import L, { LatLngExpression } from "leaflet";
+"use client";
+import React, { useEffect } from "react";
+import { motion } from "framer-motion";
+import L from "leaflet";
 import "./leafletConfig";
-
-const geoUrl =
-  "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json";
+import "leaflet/dist/leaflet.css";
 
 const tripDestinations = [
   {
@@ -76,6 +69,18 @@ const markers: MarkerType[] = [
   { location: "Berlin", coordinates: [52.52, 13.405] },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      staggerChildren: 0.3,
+      duration: 0.5,
+    },
+  },
+};
+
 // const Map: React.FC = () => {
 //   return (
 //     <MapContainer>
@@ -135,7 +140,7 @@ const markers: MarkerType[] = [
 const Map: React.FC = () => {
   useEffect(() => {
     if (document.getElementById("map") !== null) {
-      const map = L.map("map").setView([43.6532, -79.3832], 10);
+      const map = L.map("map").setView([43.6532, -79.3832], 3);
 
       const openStreetMap = L.tileLayer(
         "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
@@ -146,10 +151,17 @@ const Map: React.FC = () => {
       ).addTo(map);
 
       markers.forEach((marker) => {
-        L.marker(marker.coordinates).addTo(map);
-      });
+        const leafletMarker = L.marker(marker.coordinates)
+          .addTo(map)
+          .bindPopup(marker.location);
 
-      console.log("icon default", L.Icon.Default);
+        leafletMarker.on("mouseover", function () {
+          this.openPopup();
+        });
+        leafletMarker.on("mouseout", function () {
+          this.closePopup();
+        });
+      });
 
       // Cleanup function to remove the map
       return () => {
@@ -159,10 +171,15 @@ const Map: React.FC = () => {
   }, []);
 
   return (
-    <div
-      id="map"
-      style={{ height: "600px", width: "100%", marginTop: "10rem" }}
-    ></div>
+    <section className="w-full flex flex-col justify-center items-center relative border">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        variants={containerVariants}
+        id="map"
+        className="h-[600px] w-full"
+      />
+    </section>
   );
 };
 

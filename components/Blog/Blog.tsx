@@ -1,7 +1,8 @@
+"use client";
 import React from "react";
-import { BlogContainer, BlogPostsGrid, SkeletonPostContainer } from "./style";
-
 import Post from "./BlogPostCard";
+import { motion } from "framer-motion";
+import { containerVariants } from "../../lib/framer-motion";
 
 // import Skeleton from "react-loading-skeleton";
 // import "react-loading-skeleton/dist/skeleton.css";
@@ -18,9 +19,16 @@ const Blog: React.FC<Props> = ({ posts }) => {
   });
 
   return (
-    <BlogContainer>
-      <BlogPostsGrid>{blogPostElements}</BlogPostsGrid>
-    </BlogContainer>
+    <div className="flex justify-center items-center w-full relative">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        variants={containerVariants}
+        className="grid w-[90%] max-w-[1300px] grid-cols-3 gap-16 md:grid-cols-2 sm:grid-cols-1"
+      >
+        {blogPostElements}
+      </motion.div>
+    </div>
   );
 };
 

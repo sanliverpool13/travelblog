@@ -4,9 +4,15 @@ const CopyPlugin = require("copy-webpack-plugin");
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: [
-      "prod-files-secure.s3.us-west-2.amazonaws.com",
-      "res.cloudinary.com",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "prod-files-secure.s3.us-west-2.amazonaws.com",
+      },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+      },
     ],
   },
   webpack: (config) => {

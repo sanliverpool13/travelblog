@@ -1,6 +1,7 @@
-import { useRouter } from 'next/router';
-import React from 'react';
-import { LogoContainer } from './style';
+"use client";
+import React from "react";
+import { useRouter } from "next/navigation";
+// import { LogoContainer } from "./style";
 
 interface Props {
   mobile?: boolean;
@@ -10,9 +11,14 @@ const Logo: React.FC<Props> = ({ mobile }) => {
   const router = useRouter();
 
   return (
-    <LogoContainer mobile={mobile} onClick={() => router.push('/')}>
-      Madison and Sanjar
-    </LogoContainer>
+    <div
+      className={`text-center font-bold font-logo flex items-center cursor-pointer ${
+        mobile ? "text-2xl" : "text-4xl md:text-3xl lg:text-4xl"
+      }`}
+      onClick={() => router.push("/")}
+    >
+      Jelet Adventures
+    </div>
   );
 };
 

@@ -1,6 +1,6 @@
-import { GetStaticPaths } from "next";
 import React from "react";
 import Post from "../../../components/Post/post";
+import PageLayout from "../../../components/pagelayout";
 import {
   convertContentToClient,
   getClientPage,
@@ -11,18 +11,8 @@ import {
   retrievePageContent,
 } from "../../../lib/blog";
 import { ContentBlocks } from "../../../types/blog.client_types";
-import { Post as PostType } from "../../../types/blog.types";
 
-interface Props {
-  post: Array<any>;
-  clientPage: PostType;
-}
-
-const BlogPost: React.FC<Props> = ({ post, clientPage }) => {
-  return <Post post={post} clientPage={clientPage} />;
-};
-
-export const getStaticPaths: GetStaticPaths = async () => {
+export const generateStaticParams = async () => {
   const posts = await queryBlogDatabase();
 
   const paths = posts.map((post) => ({
@@ -31,14 +21,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
     },
   }));
 
-  return {
-    paths,
-    fallback: false, // other routes will go to 404
-  };
+  return paths;
 };
 
-export const getStaticProps = async (context) => {
-  const { params } = context;
+const getPost = async (params: { id: string }) => {
   const page = await retrievePage(params.id);
   const clientPage = await getClientPage(page);
   const contentBlocks = await retrievePageContent(params.id);
@@ -54,8 +40,18 @@ export const getStaticProps = async (context) => {
   }, Promise.resolve());
 
   return {
-    props: { post: contentObject, clientPage },
+    post: contentObject,
+    clientPage,
   };
+};
+
+const BlogPost = async ({ params }: { params: { id: string } }) => {
+  const { post, clientPage } = await getPost(params);
+  return (
+    <PageLayout>
+      <Post post={post} clientPage={clientPage} />
+    </PageLayout>
+  );
 };
 
 export default BlogPost;

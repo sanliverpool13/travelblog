@@ -2,41 +2,41 @@ import React from "react";
 import Image from "next/image";
 import ViewFromCirquePeak from "../../public/images/HorViewCirquePeak.jpg";
 
-import {
-  BannerContainer,
-  TextOverlayContainer,
-  TextBlock,
-  Count,
-  Subject,
-  TextOverlayInnerContainer,
-} from "./style";
+// import {
+//   BannerContainer,
+//   TextOverlayContainer,
+//   TextBlock,
+//   Count,
+//   Subject,
+//   TextOverlayInnerContainer,
+// } from "./style";
 
 const Banner: React.FC = () => {
   return (
-    <BannerContainer>
+    <div className="relative w-full h-48 md:h-96">
       <TextOverlay />
       <Image
         src={ViewFromCirquePeak.src}
         alt="us"
         fill
-        style={{ objectFit: "cover" }}
+        className="object-cover"
         priority
       />
-    </BannerContainer>
+    </div>
   );
 };
 
 const TextOverlay: React.FC = () => {
   return (
-    <TextOverlayContainer>
-      <TextOverlayInnerContainer>
+    <div className="absolute inset-0 flex justify-center items-center z-10">
+      <div className="w-4/5 max-w-[var(--navbar-max-width)] flex justify-between items-center md:flex-col md:h-full md:py-4">
         <TextBlockComponent count="1" subject="NATIONAL PARKS" />
         <TextBlockComponent count="8" subject="STATES VISITED" />
         <TextBlockComponent count="2" subject="PROVINCES VISITED" />
         <TextBlockComponent count="5" subject="COUNTRIES TRAVELED" />
         <TextBlockComponent count="4" subject="YEARS TOGETHER" />
-      </TextOverlayInnerContainer>
-    </TextOverlayContainer>
+      </div>
+    </div>
   );
 };
 
@@ -47,10 +47,10 @@ interface BlockProps {
 
 const TextBlockComponent: React.FC<BlockProps> = ({ count, subject }) => {
   return (
-    <TextBlock>
-      <Count>{count}</Count>
-      <Subject>{subject}</Subject>
-    </TextBlock>
+    <div className="flex flex-col items-center justify-center text-gray-100">
+      <p className="font-bold text-3xl mb-2 md:text-2xl">{count}</p>
+      <p className="font-bold text-base">{subject}</p>
+    </div>
   );
 };
 

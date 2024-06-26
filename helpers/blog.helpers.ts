@@ -126,7 +126,6 @@ export const getParagraphText = (richTextArray: Array<RichText>) => {
 export const downloadImage = async (imageUrl: string) => {
   const imageAsset = await fetch(imageUrl);
   const imageBlob = await imageAsset.blob();
-  console.log("right here before window error");
   let urlCreator = window.URL || window.webkitURL;
   let imgUrlFromBlob = urlCreator.createObjectURL(imageBlob);
 };

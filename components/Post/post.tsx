@@ -12,21 +12,21 @@ import {
   Paragraph,
 } from "../../types/blog.client_types";
 import { Post as PostType } from "../../types/blog.types";
-import {
-  Column,
-  ColumnList,
-  ContentParagraph,
-  EmptyBlock,
-  Heading3,
-  ImageCaption,
-  PostArticle,
-  PostImageContainer,
-  PostSubHeader,
-  PostTitle,
-  ReturnButton,
-  SubheaderBlock,
-  SubHeaderItem,
-} from "./post.style";
+// import {
+//   Column,
+//   ColumnList,
+//   ContentParagraph,
+//   EmptyBlock,
+//   Heading3,
+//   ImageCaption,
+//   PostArticle,
+//   PostImageContainer,
+//   PostSubHeader,
+//   PostTitle,
+//   ReturnButton,
+//   SubheaderBlock,
+//   SubHeaderItem,
+// } from "./post.style";
 
 interface Props {
   post: ContentBlocks;
@@ -41,14 +41,24 @@ const Post: React.FC<Props> = ({ post, clientPage }) => {
     switch (block.type) {
       case "heading_3":
         let hBlock = block as Heading_3;
-        element = <Heading3 key={hBlock.id}>{hBlock.heading_3}</Heading3>;
+        // element = <Heading3 key={hBlock.id}>{hBlock.heading_3}</Heading3>;
+        element = (
+          <h3 key={hBlock.id} className="text-gray-800 text-2xl my-6">
+            {hBlock.heading_3}
+          </h3>
+        );
         break;
       case "paragraph":
         let pBlock = block as Paragraph;
+        // element = (
+        //   <ContentParagraph key={pBlock.id}>
+        //     {pBlock.paragraph}
+        //   </ContentParagraph>
+        // );
         element = (
-          <ContentParagraph key={pBlock.id}>
+          <p key={pBlock.id} className="text-gray-800 text-lg leading-8 mb-8">
             {pBlock.paragraph}
-          </ContentParagraph>
+          </p>
         );
         break;
       case "image":
@@ -57,12 +67,36 @@ const Post: React.FC<Props> = ({ post, clientPage }) => {
           ? imageBlock.image.imageType
           : null;
 
+        // element = (
+        //   <div key={imageBlock.id}>
+        //     <PostImageContainer
+        //       columnImage={imageBlock.image.column}
+        //       imageType={imageType}
+        //       hasCaption={!!imageBlock.image.caption}
+        //     >
+        //       <Image
+        //         src={imageBlock.image.imageUrl}
+        //         fill
+        //         style={{ objectFit: "cover" }}
+        //         alt="post img"
+        //         priority
+        //       />
+        //     </PostImageContainer>
+        //     {imageBlock.image.caption && (
+        //       <ImageCaption>{imageBlock.image.caption}</ImageCaption>
+        //     )}
+        //   </div>
+        // );
         element = (
-          <div key={imageBlock.id}>
-            <PostImageContainer
-              columnImage={imageBlock.image.column}
-              imageType={imageType}
-              hasCaption={!!imageBlock.image.caption}
+          <div key={imageBlock.id} className="mb-8">
+            <div
+              className={`relative w-full ${
+                imageBlock.image.imageType === "h"
+                  ? "h-80"
+                  : imageBlock.image.column
+                  ? "h-64"
+                  : "h-[800px]"
+              } ${imageBlock.image.caption ? "mb-0" : "mb-8"}`}
             >
               <Image
                 src={imageBlock.image.imageUrl}
@@ -70,16 +104,20 @@ const Post: React.FC<Props> = ({ post, clientPage }) => {
                 style={{ objectFit: "cover" }}
                 alt="post img"
                 priority
+                className="rounded-lg"
               />
-            </PostImageContainer>
+            </div>
             {imageBlock.image.caption && (
-              <ImageCaption>{imageBlock.image.caption}</ImageCaption>
+              <p className="text-center text-gray-800 text-sm py-4 mb-4">
+                {imageBlock.image.caption}
+              </p>
             )}
           </div>
         );
         break;
       case "empty_block":
-        element = <EmptyBlock key={block.id} />;
+        // element = <EmptyBlock key={block.id} />;
+        element = <div key={block.id} className="w-full h-8"></div>;
         break;
       case "column_list":
         // Let's test column width
@@ -88,17 +126,27 @@ const Post: React.FC<Props> = ({ post, clientPage }) => {
         let columnListElements = columnList.column_list.map((col) =>
           getElement(col)
         );
+        // element = (
+        //   <ColumnList key={columnList.id}>{columnListElements}</ColumnList>
+        // );
         element = (
-          <ColumnList key={columnList.id}>{columnListElements}</ColumnList>
+          <div key={columnList.id} className="grid grid-cols-2 gap-4">
+            {columnList.column_list.map((col) => getElement(col))}
+          </div>
         );
         break;
       case "column":
         let column = block as ColumnType;
         let columnElements = column.column.map((col) => getElement(col));
+        // element = (
+        //   <Column key={column.id} id="test">
+        //     {columnElements}
+        //   </Column>
+        // );
         element = (
-          <Column key={column.id} id="test">
-            {columnElements}
-          </Column>
+          <div key={column.id} className="w-full h-full text-left">
+            {column.column.map((col) => getElement(col))}
+          </div>
         );
         break;
       default:
@@ -111,24 +159,44 @@ const Post: React.FC<Props> = ({ post, clientPage }) => {
   const contentElements = post.length && post.map((block) => getElement(block));
 
   return (
-    <PostArticle>
-      <PostTitle>{title}</PostTitle>
-      <PostSubHeader>
-        <SubheaderBlock>
-          <SubHeaderItem>Last Updated {date}</SubHeaderItem>
-        </SubheaderBlock>
-        <SubheaderBlock>
-          <SubHeaderItem>&#9679;</SubHeaderItem>
-        </SubheaderBlock>
-        <SubheaderBlock>
-          <SubHeaderItem>{`${readTime} read`}</SubHeaderItem>
-        </SubheaderBlock>
-      </PostSubHeader>
+    // <PostArticle>
+    //   <PostTitle>{title}</PostTitle>
+    //   <PostSubHeader>
+    //     <SubheaderBlock>
+    //       <SubHeaderItem>Last Updated {date}</SubHeaderItem>
+    //     </SubheaderBlock>
+    //     <SubheaderBlock>
+    //       <SubHeaderItem>&#9679;</SubHeaderItem>
+    //     </SubheaderBlock>
+    //     <SubheaderBlock>
+    //       <SubHeaderItem>{`${readTime} read`}</SubHeaderItem>
+    //     </SubheaderBlock>
+    //   </PostSubHeader>
+    //   {contentElements}
+    //   <Link href="/blog" style={{ textDecoration: "none" }}>
+    //     <ReturnButton>Return To Blog</ReturnButton>
+    //   </Link>
+    // </PostArticle>
+    <article className="w-[90%] max-w-2xl mx-auto">
+      <h2 className="text-gray-800 text-3xl mb-4">{title}</h2>
+      <div className="flex items-center py-2 mb-8">
+        <div className="mr-2 flex items-center">
+          <span className="text-gray-800 text-sm">Last Updated {date}</span>
+        </div>
+        <div className="mr-2 flex items-center">
+          <span className="text-gray-800 text-sm">&#9679;</span>
+        </div>
+        <div className="flex items-center">
+          <span className="text-gray-800 text-sm">{`${readTime} read`}</span>
+        </div>
+      </div>
       {contentElements}
-      <Link href="/blog" style={{ textDecoration: "none" }}>
-        <ReturnButton>Return To Blog</ReturnButton>
+      <Link href="/blog">
+        <button className="bg-teal-300 text-gray-800 rounded-lg cursor-pointer flex justify-center items-center text-center w-36 h-12 px-1 text-lg border-none transition-all duration-200 ease-in mt-16 hover:shadow-md">
+          Return To Blog
+        </button>
       </Link>
-    </PostArticle>
+    </article>
   );
 };
 
