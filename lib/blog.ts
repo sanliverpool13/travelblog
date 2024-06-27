@@ -1,17 +1,20 @@
 import { Client } from "@notionhq/client";
 import { getClientPage } from "../helpers/blog.helpers";
+import { Post, Page, DatabaseQueryResponse } from "../types/blog.types";
 
 // Initializing a client
 const notion = new Client({
   auth: process.env.NOTION_TOKEN_BLOG,
 });
 
-export const queryBlogDatabase = async () => {
+export const queryBlogDatabase = async (): Promise<Post[]> => {
   try {
     let blog_database_query;
-    const mappedForClientPages = [];
+    const mappedForClientPages: Post[] = [];
     blog_database_query = await notion.databases.query({
-      database_id: process.env.BLOG_DATABASE_ID,
+      database_id: process.env.BLOG_DATABASE_ID
+        ? process.env.BLOG_DATABASE_ID
+        : "",
       filter: {
         property: "Status",
         select: {
@@ -21,9 +24,9 @@ export const queryBlogDatabase = async () => {
     });
 
     // map the results to client page objects - they have only the necessary components
-    await blog_database_query.results.reduce(async (promise, page) => {
+    await blog_database_query.results.reduce(async (promise, page: Page) => {
       await promise;
-      const clientPage = await getClientPage(page);
+      const clientPage: Post = await getClientPage(page);
       mappedForClientPages.push(clientPage);
     }, Promise.resolve());
 

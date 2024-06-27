@@ -1,18 +1,4 @@
 import React from "react";
-// import styled from "styled-components";
-
-// export const Section = styled.section`
-//   width: 100%;
-//   /* top | horizontal | bottom */
-//   padding: 0 0 4rem;
-//   min-height: calc(100vh - var(--height-navbar) - var(--height-footer));
-//   position: relative;
-// `;
-
-// export const SectionCenter = styled.section`
-//   width: 100%;
-//   padding-top: 4rem;
-// `;
 
 interface Props {
   children: React.ReactNode;

@@ -1,5 +1,4 @@
 import React from "react";
-// import { AsideContainer, AsideHeader } from "./style";
 
 const Aside: React.FC = () => {
   return (

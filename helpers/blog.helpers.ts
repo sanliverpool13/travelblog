@@ -38,7 +38,7 @@ export const convertContentToClient = async (
   column?: boolean
 ): Promise<ContentBlock> => {
   // create empty object first based on content
-  let mappedObject = {
+  let mappedObject: any = {
     id: content.id,
     lastEdited: content.last_edited_time,
     type: content.type,
@@ -62,7 +62,7 @@ export const convertContentToClient = async (
       const img64 = await downloadImageToBase64(content.image.file.url);
       const cldUrl = await uploadToCloudinary(img64);
 
-      let imgObject = {
+      let imgObject: any = {
         imageUrl:
           process.env.NODE_ENV === "development"
             ? content.image.file.url
@@ -86,7 +86,7 @@ export const convertContentToClient = async (
     case "column_list":
       // make another block retrieval
       let columnListContent = await retrievePageContent(content.id);
-      let columnListObject = [];
+      let columnListObject: ContentBlock[] = [];
 
       await columnListContent.reduce(async (promise, column) => {
         await promise;
@@ -98,7 +98,7 @@ export const convertContentToClient = async (
     case "column":
       // make another block retrieval
       let columnContent = await retrievePageContent(content.id);
-      let columnObject = [];
+      let columnObject: ContentBlock[] = [];
 
       await columnContent.reduce(async (promise, block) => {
         await promise;

@@ -1,5 +1,5 @@
 import React from "react";
-import { ErrorIconContainer, ErrorMessage, ErrorTextContainer } from "./style";
+// import { ErrorIconContainer, ErrorMessage, ErrorTextContainer } from "./style";
 
 import { BsExclamationCircle } from "react-icons/bs";
 
@@ -8,14 +8,14 @@ interface Props {
 }
 
 const FormErrorMessage: React.FC<Props> = ({ msg }) => {
-  return (
-    <ErrorMessage>
-      <ErrorIconContainer>
-        <BsExclamationCircle />
-      </ErrorIconContainer>
-      <ErrorTextContainer>{msg}</ErrorTextContainer>
-    </ErrorMessage>
-  );
+  return null;
+  // <ErrorMessage>
+  //   <ErrorIconContainer>
+  //     <BsExclamationCircle />
+  //   </ErrorIconContainer>
+  //   <ErrorTextContainer>{msg}</ErrorTextContainer>
+  // </ErrorMessage>
+  // );
 };
 
 export default FormErrorMessage;

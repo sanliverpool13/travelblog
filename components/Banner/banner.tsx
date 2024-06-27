@@ -2,15 +2,6 @@ import React from "react";
 import Image from "next/image";
 import ViewFromCirquePeak from "../../public/images/HorViewCirquePeak.jpg";
 
-// import {
-//   BannerContainer,
-//   TextOverlayContainer,
-//   TextBlock,
-//   Count,
-//   Subject,
-//   TextOverlayInnerContainer,
-// } from "./style";
-
 const Banner: React.FC = () => {
   return (
     <div className="relative w-full h-48 md:h-96">
