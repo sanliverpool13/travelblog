@@ -10,6 +10,7 @@ const tabTypes = [
   { name: "About", to: "/about" },
   { name: "Blog", to: "/blog" },
   { name: "Gallery", to: "/gallery" },
+  { name: "Plant Based", to: "/plant-based"},
   { name: "Contact", to: "/contact" },
 ];
 

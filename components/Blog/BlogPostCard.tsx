@@ -14,7 +14,7 @@ const Post: React.FC<Props> = ({ post }) => {
   const { id, title, date, readTime, intro, imageUrl, category, slug } = post;
 
   return (
-    <Link href={`/blog/${id}`} className="no-underline">
+    <Link href={`/blog/${slug}`} className="no-underline">
       <div className="relative mb-16 max-w-[800px] flex flex-col cursor-pointer">
         <motion.h2
           variants={itemVariants}

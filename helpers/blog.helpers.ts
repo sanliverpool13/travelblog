@@ -2,11 +2,16 @@ import { retrievePageContent } from "../lib/blog";
 import { ContentBlock } from "../types/blog.client_types";
 import { Page, Post, RichText } from "../types/blog.types";
 import { v2 as cloudinary } from "cloudinary";
+import crypto from "crypto";
+import redis from '../lib/redis'
+import { REDIS_TRAVEL_IMAGES_MAP, TRAVEL_SLUG_ID_MAP } from "../constants";
+
+
 
 cloudinary.config({
-  cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_SECRET,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
   secure: true,
 });
 
@@ -14,10 +19,15 @@ cloudinary.config({
 export const getClientPage = async (page: Page): Promise<Post> => {
   // Have to download image to base64, upload to cloudinary and update
   // data here.
-  const imgBase64 = await downloadImageToBase64(
-    page.properties.Thumbnail.files[0].file.url
-  );
-  const cldImgUrl = await uploadToCloudinary(imgBase64);
+  // const imgBase64 = await downloadImageToBase64(
+  //   page.properties.Thumbnail.files[0].file.url
+  // );
+  // console.log("imgBase64", imgBase64);
+  // const cldImgUrl = await uploadToCloudinary(imgBase64);
+  // console.log("cld image url", cldImgUrl);
+
+  const thumbnailUrl = page.properties.Thumbnail.files[0]?.file?.url ?? null;
+  const cloudinaryImgUrl = await getCloudinaryThumbnail(thumbnailUrl);
 
   return {
     id: page.id,
@@ -27,7 +37,7 @@ export const getClientPage = async (page: Page): Promise<Post> => {
     date: page.properties.Date.rich_text[0].plain_text,
     intro: page.properties.Intro.rich_text[0].plain_text,
     readTime: page.properties.ReadTime.rich_text[0].plain_text,
-    imageUrl: cldImgUrl,
+    imageUrl: cloudinaryImgUrl,
     slug: page.properties.Slug.rich_text[0].plain_text,
     status: page.properties.Status.select.name,
   };
@@ -58,15 +68,21 @@ export const convertContentToClient = async (
       }
       break;
     case "image":
-      // Testing fetching image and its readable stream
-      const img64 = await downloadImageToBase64(content.image.file.url);
-      const cldUrl = await uploadToCloudinary(img64);
+      // console.log("image here");
+      // // Testing fetching image and its readable stream
+      // const img64 = await downloadImageToBase64(content.image.file.url);
+      // const cldUrl = await uploadToCloudinary(img64);
+
+      const thumbnailUrl = content.image.file
+        ? content.image.file.url
+        : content.image.external.url;
+      let cloudinaryImgUrl = await getCloudinaryThumbnail(thumbnailUrl);
 
       let imgObject: any = {
         imageUrl:
           process.env.NODE_ENV === "development"
             ? content.image.file.url
-            : cldUrl,
+            : cloudinaryImgUrl,
       };
       if (column) {
         imgObject["column"] = true;
@@ -146,3 +162,104 @@ export const uploadToCloudinary = async (
 
   return imageExternalUrl ? imageExternalUrl : "";
 };
+
+
+export const readRedisCache = async() => {
+  const cache = await redis.get(REDIS_TRAVEL_IMAGES_MAP);
+  return cache || {};
+}
+
+export const updateRedisCache = async(key: string, value: string) => {
+  // Update the Redis cache with a new Cloudinary URL
+  await redis.hset(REDIS_TRAVEL_IMAGES_MAP, { [key]: value });
+}
+
+export const extractS3Key = (awsUrl: any): string => {
+  let url;
+  if (typeof awsUrl === "string") {
+    url = new URL(awsUrl);
+  } else {
+    url = new URL(awsUrl.url);
+  }
+  // Extract the path portion of the URL (everything after the bucket name)
+  return url.pathname;
+};
+
+export const getCloudinaryThumbnail = async (thumbnailUrl: string | null): Promise<string> => {
+  if(!thumbnailUrl) return '';
+
+  // Step 1: Extract the S3 Object key
+  const cacheKey = extractS3Key(thumbnailUrl);
+
+  let cloudinaryImgUrl = await redis.hget(REDIS_TRAVEL_IMAGES_MAP, cacheKey);
+
+
+  if(!cloudinaryImgUrl){
+    // Step 3: Download the image from AWS
+    const imageBuffer = await downloadImageFromAWS(thumbnailUrl);
+
+    // Step 4: Upload the buffer to Cloudinary
+    cloudinaryImgUrl = await uploadBufferToCloudinary(imageBuffer, "travelblog");
+
+    // Step 5: Update the Redis cache
+    await redis.hset(REDIS_TRAVEL_IMAGES_MAP, { [cacheKey]: cloudinaryImgUrl });
+  }
+  return `${cloudinaryImgUrl}`;
+}
+
+export const downloadImageFromAWS = async (awsUrl: string): Promise<Buffer> => {
+  const response = await fetch(awsUrl, {
+    cache: "no-store", // Disable caching
+  });
+  if (!response.ok) {
+    throw new Error(`Failed to fetch resource ${response.statusText}`);
+  }
+  const arrayBuffer = await response.arrayBuffer();
+  return Buffer.from(arrayBuffer);
+};
+
+export const uploadBufferToCloudinary = async (
+  imageBuffer: Buffer,
+  folderName: string
+): Promise<string> => {
+  return new Promise((resolve, reject) => {
+    const uploadStream = cloudinary.uploader.upload_stream(
+      { folder: folderName },
+      (error, result) => {
+        if (error) {
+          return reject(error);
+        }
+        resolve(result?.secure_url || "");
+      }
+    );
+    uploadStream.end(imageBuffer);
+  });
+};
+
+export const saveSlugToRedis = async (mappedContent: Post[]) => {
+  try {
+    // transform mapped content Post array to slug id map
+    const slugIdMap = mappedContent.reduce<Record<string, Post>>(
+      (acc, page) => {
+        acc[page.slug] = page;
+        return acc;
+      },
+      {}
+    );
+    // Save the map to Redis
+    await redis.set(TRAVEL_SLUG_ID_MAP, JSON.stringify(slugIdMap));
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export const getSlugIdMapFromRedis = async () => {
+  try {
+    const slugIdMap = await redis.get(TRAVEL_SLUG_ID_MAP);
+
+    return slugIdMap ? JSON.parse(JSON.stringify(slugIdMap) as string) : {};
+  } catch (error) {
+    console.log(error);
+  }
+}
+

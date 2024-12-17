@@ -1,6 +1,6 @@
 import { Client } from "@notionhq/client";
 import { getClientPage } from "../helpers/blog.helpers";
-import { Post, Page, DatabaseQueryResponse } from "../types/blog.types";
+import { Post, Page} from "../types/blog.types";
 
 // Initializing a client
 const notion = new Client({
@@ -29,6 +29,8 @@ export const queryBlogDatabase = async (): Promise<Post[]> => {
       const clientPage: Post = await getClientPage(page);
       mappedForClientPages.push(clientPage);
     }, Promise.resolve());
+
+    console.log(mappedForClientPages)
 
     return mappedForClientPages;
   } catch (error) {

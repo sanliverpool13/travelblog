@@ -4,9 +4,6 @@ import Post from "./BlogPostCard";
 import { motion } from "framer-motion";
 import { containerVariants } from "../../lib/framer-motion";
 
-// import Skeleton from "react-loading-skeleton";
-// import "react-loading-skeleton/dist/skeleton.css";
-
 interface Props {
   posts: string;
 }

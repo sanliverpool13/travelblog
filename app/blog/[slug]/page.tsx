@@ -4,6 +4,7 @@ import PageLayout from "../../../components/pagelayout";
 import {
   convertContentToClient,
   getClientPage,
+  getSlugIdMapFromRedis,
 } from "../../../helpers/blog.helpers";
 import {
   queryBlogDatabase,
@@ -13,21 +14,27 @@ import {
 import { ContentBlocks } from "../../../types/blog.client_types";
 
 export const generateStaticParams = async () => {
-  const posts = await queryBlogDatabase();
 
-  const paths = posts.map((post) => ({
-    params: {
-      id: post.id,
-    },
+  // Pre-populated static data from Redis
+  const slugIdMap = await getSlugIdMapFromRedis();
+
+  if (!slugIdMap) {
+    throw new Error("Redis is not pre-populated with slug data.");
+  }
+  return Object.keys(slugIdMap).map((slug) => ({
+    slug,
   }));
-
-  return paths;
 };
 
-const getPost = async (params: { id: string }) => {
-  const page = await retrievePage(params.id);
-  const clientPage = await getClientPage(page);
-  const contentBlocks = await retrievePageContent(params.id);
+const getPost = async (params: { slug: string }) => {
+  const SlugIdMap = await getSlugIdMapFromRedis();
+  const pageObject = SlugIdMap[params.slug];
+  const id = pageObject["id"];
+  // const page = await retrievePage(id);
+  // console.log("page", page);
+  // const clientPage = await getClientPage(page);
+  // console.log("client page", clientPage);
+  const contentBlocks = await retrievePageContent(id);
 
   // Array to house content blocks
   let contentObject: ContentBlocks = [];
@@ -39,13 +46,14 @@ const getPost = async (params: { id: string }) => {
     contentObject.push(cBlock);
   }, Promise.resolve());
 
+
   return {
     post: contentObject,
-    clientPage,
+    clientPage: pageObject,
   };
 };
 
-const BlogPost = async ({ params }: { params: { id: string } }) => {
+const BlogPost = async ({ params }: { params: { slug: string } }) => {
   const { post, clientPage } = await getPost(params);
   return (
     <PageLayout>
