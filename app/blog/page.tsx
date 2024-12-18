@@ -7,7 +7,7 @@ import { saveSlugToRedis } from "../../helpers/blog.helpers";
 
 const BlogPage = async () => {
   const posts = await queryBlogDatabase();
-  saveSlugToRedis(posts);
+  await saveSlugToRedis(posts);
   return (
     <PageLayout>
       <Blog posts={JSON.stringify(posts)} />

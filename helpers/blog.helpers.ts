@@ -2,11 +2,8 @@ import { retrievePageContent } from "../lib/blog";
 import { ContentBlock } from "../types/blog.client_types";
 import { Page, Post, RichText } from "../types/blog.types";
 import { v2 as cloudinary } from "cloudinary";
-import crypto from "crypto";
-import redis from '../lib/redis'
+import redis from "../lib/redis";
 import { REDIS_TRAVEL_IMAGES_MAP, TRAVEL_SLUG_ID_MAP } from "../constants";
-
-
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -45,7 +42,7 @@ export const getClientPage = async (page: Page): Promise<Post> => {
 
 export const convertContentToClient = async (
   content: any,
-  column?: boolean
+  column?: boolean,
 ): Promise<ContentBlock> => {
   // create empty object first based on content
   let mappedObject: any = {
@@ -154,25 +151,24 @@ export const downloadImageToBase64 = async (url: string): Promise<string> => {
 };
 
 export const uploadToCloudinary = async (
-  imgBase64: string
+  imgBase64: string,
 ): Promise<string> => {
   const { secure_url: imageExternalUrl } = await cloudinary.uploader.upload(
-    `data:image/jpeg;base64,${imgBase64}`
+    `data:image/jpeg;base64,${imgBase64}`,
   );
 
   return imageExternalUrl ? imageExternalUrl : "";
 };
 
-
-export const readRedisCache = async() => {
+export const readRedisCache = async () => {
   const cache = await redis.get(REDIS_TRAVEL_IMAGES_MAP);
   return cache || {};
-}
+};
 
-export const updateRedisCache = async(key: string, value: string) => {
+export const updateRedisCache = async (key: string, value: string) => {
   // Update the Redis cache with a new Cloudinary URL
   await redis.hset(REDIS_TRAVEL_IMAGES_MAP, { [key]: value });
-}
+};
 
 export const extractS3Key = (awsUrl: any): string => {
   let url;
@@ -185,27 +181,31 @@ export const extractS3Key = (awsUrl: any): string => {
   return url.pathname;
 };
 
-export const getCloudinaryThumbnail = async (thumbnailUrl: string | null): Promise<string> => {
-  if(!thumbnailUrl) return '';
+export const getCloudinaryThumbnail = async (
+  thumbnailUrl: string | null,
+): Promise<string> => {
+  if (!thumbnailUrl) return "";
 
   // Step 1: Extract the S3 Object key
   const cacheKey = extractS3Key(thumbnailUrl);
 
   let cloudinaryImgUrl = await redis.hget(REDIS_TRAVEL_IMAGES_MAP, cacheKey);
 
-
-  if(!cloudinaryImgUrl){
+  if (!cloudinaryImgUrl) {
     // Step 3: Download the image from AWS
     const imageBuffer = await downloadImageFromAWS(thumbnailUrl);
 
     // Step 4: Upload the buffer to Cloudinary
-    cloudinaryImgUrl = await uploadBufferToCloudinary(imageBuffer, "travelblog");
+    cloudinaryImgUrl = await uploadBufferToCloudinary(
+      imageBuffer,
+      "travelblog",
+    );
 
     // Step 5: Update the Redis cache
     await redis.hset(REDIS_TRAVEL_IMAGES_MAP, { [cacheKey]: cloudinaryImgUrl });
   }
   return `${cloudinaryImgUrl}`;
-}
+};
 
 export const downloadImageFromAWS = async (awsUrl: string): Promise<Buffer> => {
   const response = await fetch(awsUrl, {
@@ -220,7 +220,7 @@ export const downloadImageFromAWS = async (awsUrl: string): Promise<Buffer> => {
 
 export const uploadBufferToCloudinary = async (
   imageBuffer: Buffer,
-  folderName: string
+  folderName: string,
 ): Promise<string> => {
   return new Promise((resolve, reject) => {
     const uploadStream = cloudinary.uploader.upload_stream(
@@ -230,7 +230,7 @@ export const uploadBufferToCloudinary = async (
           return reject(error);
         }
         resolve(result?.secure_url || "");
-      }
+      },
     );
     uploadStream.end(imageBuffer);
   });
@@ -244,22 +244,22 @@ export const saveSlugToRedis = async (mappedContent: Post[]) => {
         acc[page.slug] = page;
         return acc;
       },
-      {}
+      {},
     );
     // Save the map to Redis
     await redis.set(TRAVEL_SLUG_ID_MAP, JSON.stringify(slugIdMap));
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 export const getSlugIdMapFromRedis = async () => {
   try {
     const slugIdMap = await redis.get(TRAVEL_SLUG_ID_MAP);
+    console.log("slug id map I get from redis try and catch", slugIdMap);
 
     return slugIdMap ? JSON.parse(JSON.stringify(slugIdMap) as string) : {};
   } catch (error) {
     console.log(error);
   }
-}
-
+};
