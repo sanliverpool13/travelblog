@@ -1,7 +1,7 @@
 // app/plant-based/recipes/[slug]/page.tsx
-import PageLayout from "@/components/pagelayout";
-import RecipeDetails from "@/components/Plants/recipe";
-import recipesData from "@/data/recipe.json";
+import PageLayout from "../../../../components/pagelayout";
+import RecipeDetails from "../../../../components/Plants/recipe";
+import recipesData from "../../../../data/recipe.json";
 
 interface RecipePageProps {
   params: {
