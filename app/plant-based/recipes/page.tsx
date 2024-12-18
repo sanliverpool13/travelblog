@@ -1,8 +1,10 @@
+// app/plant-based/recipes/page.tsx
+import PageLayout from "@/components/pagelayout";
+import Link from "next/link";
 import PlantBasedLayout from "@/components/Plants/layout";
-import PageLayout from "../../components/pagelayout";
 import Recipes from "@/components/Plants/recipes";
 
-const about: React.FC = () => {
+const RecipesPage = () => {
   return (
     <PageLayout>
       <PlantBasedLayout>
@@ -12,4 +14,4 @@ const about: React.FC = () => {
   );
 };
 
-export default about;
+export default RecipesPage;

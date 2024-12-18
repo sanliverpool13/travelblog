@@ -1,0 +1,113 @@
+{
+  "recipes": {
+    "georgian-lobio": {
+      "title": "Georgian Lobio",
+      "image": "/images/Receipes/lobio.jpeg",
+      "tags": [
+        "Georgian Cuisine",
+        "Vegan",
+        "Bean Dish",
+        "Comfort Food",
+        "Under 45 min"
+      ],
+      "description": "A hearty Georgian bean stew seasoned with traditional spices like coriander and blue fenugreek. This comforting dish is served warm with cornbread and pickled vegetables.",
+      "ingredients": [
+        {
+          "amount": 2,
+          "unit": "cups",
+          "item": "dried kidney beans, soaked overnight"
+        },
+        {
+          "amount": 1,
+          "unit": "medium",
+          "item": "onion, finely chopped"
+        },
+        {
+          "amount": 4,
+          "unit": "cloves",
+          "item": "garlic, minced"
+        },
+        {
+          "amount": 2,
+          "unit": "tbsp",
+          "item": "olive oil"
+        },
+        {
+          "amount": 1,
+          "unit": "tsp",
+          "item": "ground coriander"
+        },
+        {
+          "amount": 1,
+          "unit": "tsp",
+          "item": "blue fenugreek"
+        },
+        {
+          "amount": 1,
+          "unit": "handful",
+          "item": "fresh cilantro, chopped"
+        }
+      ],
+      "directions": [
+        "Drain the soaked beans and place in a large pot with fresh water. Bring to a boil and simmer for 30-40 minutes until tender.",
+        "In a large skillet, heat olive oil over medium heat. Add onions and cook until translucent, about 5 minutes.",
+        "Add garlic and spices to the skillet and cook for another 2 minutes until fragrant.",
+        "Drain the beans, reserving 1 cup of cooking liquid. Add beans to the skillet.",
+        "Mash some of the beans with a wooden spoon to create a creamy texture. Add reserved liquid as needed.",
+        "Stir in fresh cilantro and season with salt and pepper to taste.",
+        "Serve hot with cornbread and pickled vegetables."
+      ]
+    },
+    "tofu-sandwich": {
+      "title": "Tofu Sandwich",
+      "image": "/images/Receipes/tofusandwich.jpeg",
+      "tags": ["Lunch", "Vegan", "Quick Meal", "High Protein", "Under 15 min"],
+      "description": "A satisfying sandwich featuring crispy pan-fried tofu, fresh vegetables, and a zesty vegan mayo spread. Perfect for a quick lunch or light dinner.",
+      "ingredients": [
+        {
+          "amount": 1,
+          "unit": "block",
+          "item": "firm tofu, pressed and sliced"
+        },
+        {
+          "amount": 2,
+          "unit": "tbsp",
+          "item": "soy sauce"
+        },
+        {
+          "amount": 1,
+          "unit": "tbsp",
+          "item": "nutritional yeast"
+        },
+        {
+          "amount": 4,
+          "unit": "slices",
+          "item": "sourdough bread"
+        },
+        {
+          "amount": 1,
+          "item": "avocado, sliced"
+        },
+        {
+          "amount": 1,
+          "unit": "cup",
+          "item": "mixed salad greens"
+        },
+        {
+          "amount": 2,
+          "unit": "tbsp",
+          "item": "vegan mayo"
+        }
+      ],
+      "directions": [
+        "Press tofu for 15 minutes, then slice into 1/4 inch thick pieces.",
+        "Marinate tofu slices in soy sauce and nutritional yeast for 5 minutes.",
+        "Heat a non-stick pan over medium-high heat. Cook tofu slices for 3-4 minutes per side until golden brown.",
+        "Toast the bread slices until golden.",
+        "Spread vegan mayo on bread slices.",
+        "Layer with crispy tofu, avocado slices, and salad greens.",
+        "Close sandwiches and serve immediately."
+      ]
+    }
+  }
+}
