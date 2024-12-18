@@ -1,7 +1,7 @@
 // app/plant-based/recipes/page.tsx
 import Link from "next/link";
 
-const RecipesPage = () => {
+const Recipes = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
       <Link
@@ -22,4 +22,4 @@ const RecipesPage = () => {
   );
 };
 
-export default RecipesPage;
+export default Recipes;

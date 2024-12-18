@@ -1,6 +1,6 @@
 // app/plant-based/recipes/page.tsx
 
-const RecipesPage = () => {
+const Reviews = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
       Reviews Coming Soon
@@ -8,4 +8,4 @@ const RecipesPage = () => {
   );
 };
 
-export default RecipesPage;
+export default Reviews;

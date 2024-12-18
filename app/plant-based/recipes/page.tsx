@@ -1,6 +1,5 @@
 // app/plant-based/recipes/page.tsx
 import PageLayout from "@/components/pagelayout";
-import Link from "next/link";
 import PlantBasedLayout from "@/components/Plants/layout";
 import Recipes from "@/components/Plants/recipes";
 
