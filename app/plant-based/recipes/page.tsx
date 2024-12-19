@@ -2,13 +2,13 @@
 import PageLayout from "../../../components/pagelayout";
 import PlantBasedLayout from "../../../components/Plants/layout";
 import Recipes from "../../../components/Plants/recipes";
+import recipesData from "@/data/recipe.json";
 
 const RecipesPage = () => {
+  const recipes = Object.values(recipesData.recipes);
   return (
     <PageLayout>
-      <PlantBasedLayout>
-        <Recipes />
-      </PlantBasedLayout>
+      <Recipes recipes={recipes} />
     </PageLayout>
   );
 };

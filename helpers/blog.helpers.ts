@@ -256,7 +256,6 @@ export const saveSlugToRedis = async (mappedContent: Post[]) => {
 export const getSlugIdMapFromRedis = async () => {
   try {
     const slugIdMap = await redis.get(TRAVEL_SLUG_ID_MAP);
-    console.log("slug id map I get from redis try and catch", slugIdMap);
 
     return slugIdMap ? JSON.parse(JSON.stringify(slugIdMap) as string) : {};
   } catch (error) {

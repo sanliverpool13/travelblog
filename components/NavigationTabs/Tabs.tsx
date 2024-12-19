@@ -4,13 +4,14 @@ import Link from "next/link";
 // import { TabsUl } from "./tabs.style";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
+import DropDownTab from "./DropDownTab";
 
 const tabTypes = [
   { name: "Home", to: "/" },
   { name: "About", to: "/about" },
   { name: "Blog", to: "/blog" },
   { name: "Gallery", to: "/gallery" },
-  { name: "Plant Based", to: "/plant-based"},
+  { name: "Plant Based", to: "/plant-based" },
   { name: "Contact", to: "/contact" },
 ];
 
@@ -24,6 +25,20 @@ const Tabs: React.FC<Props> = ({ mobile, onClose, isHomeOrGallery }) => {
   const pathname = usePathname();
 
   const tabElements = tabTypes.map((tab, index) => {
+    if (tab.name === "Plant Based") {
+      return (
+        <DropDownTab
+          key={`${tab.name}-${index}`}
+          title={tab.name}
+          to={tab.to}
+          isActive={pathname === tab.to}
+          mobile={mobile}
+          onClose={onClose}
+          isHomeOrGallery={isHomeOrGallery}
+        />
+      );
+    }
+
     return (
       <Tab
         key={`${tab.name}-${index}`}
@@ -85,8 +100,8 @@ const Tab: React.FC<TabProps> = ({
                 ? "font-extrabold text-bg-clr-footer"
                 : "font-extrabold text-clr-trqse"
               : isHomeOrGallery
-              ? "text-white"
-              : "text-bg-clr-footer"
+                ? "text-white"
+                : "text-bg-clr-footer"
           }`}
           onClick={handleOnClose}
         >

@@ -6,9 +6,7 @@ import Reviews from "../../../components/Plants/reviews";
 const ReviewsPage = () => {
   return (
     <PageLayout>
-      <PlantBasedLayout>
-        <Reviews />
-      </PlantBasedLayout>
+      <Reviews />
     </PageLayout>
   );
 };

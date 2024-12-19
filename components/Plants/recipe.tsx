@@ -24,10 +24,9 @@ const RecipeDetails: React.FC<RecipeDetailsProps> = ({
   ingredients,
   directions,
 }) => {
-  console.log(image);
   return (
     <div className="w-full max-w-[1300px] mx-auto p-8">
-      <Link href="/plant-based" className="mb-8 inline-block">
+      <Link href="/plant-based/recipes" className="mb-8 inline-block">
         ← Back to All Recipes
       </Link>
 

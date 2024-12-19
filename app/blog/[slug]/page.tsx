@@ -26,9 +26,7 @@ export const generateStaticParams = async () => {
 };
 
 const getPost = async (params: { slug: string }) => {
-  console.log("get post with params", params);
   const SlugIdMap = await getSlugIdMapFromRedis();
-  console.log("slug id map", SlugIdMap);
   const pageObject = SlugIdMap[params.slug];
   const id = pageObject["id"];
   // const page = await retrievePage(id);
@@ -39,7 +37,6 @@ const getPost = async (params: { slug: string }) => {
 
   // Array to house content blocks
   let contentObject: ContentBlocks = [];
-  console.log("before error get post");
 
   // We convert each block to client shape
   await contentBlocks.reduce(async (promise, block) => {
@@ -48,8 +45,6 @@ const getPost = async (params: { slug: string }) => {
     contentObject.push(cBlock);
   }, Promise.resolve());
 
-  console.log("after error");
-
   return {
     post: contentObject,
     clientPage: pageObject,
@@ -57,7 +52,6 @@ const getPost = async (params: { slug: string }) => {
 };
 
 const BlogPost = async ({ params }: { params: { slug: string } }) => {
-  console.log("post params", params);
   const { post, clientPage } = await getPost(params);
   return (
     <PageLayout>
