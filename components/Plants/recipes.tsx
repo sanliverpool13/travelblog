@@ -23,7 +23,7 @@ const Recipes: React.FC<RecipesProps> = ({ recipes }) => {
   return (
     <div className="w-full flex flex-col items-center">
       <div className="w-[90%] max-w-[1300px] h-full flex flex-col gap-y-56 items-center">
-        <h2 className="text-5xl">Plant Based Recipes</h2>
+        <h2 className="text-5xl">Recipes</h2>
         <div className="grid grid-cols-4 md:grid-cols-12 gap-6 w-full">
           {recipes.map((recipe, index) => (
             <Link

@@ -10,9 +10,9 @@ const PageLayout: React.FC<{
 }> = ({ children, noPaddingTop = false }) => {
   return (
     <main
-      className={`w-full ${
+      className={`flex-grow w-full ${
         noPaddingTop ? "" : "pt-[192px]"
-      } pb-[400px] min-h-screen flex flex-col relative text-bg-clr-footer`}
+      } pb-[400px] flex flex-col relative text-bg-clr-footer `}
     >
       {children}
     </main>

@@ -5,6 +5,25 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+:root {
+  --navbar-height: 96px;
+}
+
 @media (min-width: 768px) {
   .md-grid-madison {
     display: grid;

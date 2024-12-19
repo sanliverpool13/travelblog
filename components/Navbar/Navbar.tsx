@@ -22,7 +22,7 @@ const Navbar: React.FC = () => {
     <>
       {!menuOpen && (
         <div
-          className={`absolute top-0 left-0 w-full h-[96px] flex items-center justify-center z-50 ${
+          className={`absolute top-0 left-0 w-full h-navbar-h flex items-center justify-center z-50 ${
             isHomeOrGallery ? "text-white" : "text-bg-clr-footer"
           }`}
         >

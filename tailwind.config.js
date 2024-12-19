@@ -12,6 +12,12 @@ module.exports = {
         "11xl": "12rem",
         "12xl": "14rem",
       },
+      height: {
+        "navbar-h": "var(--navbar-height)",
+      },
+      padding: {
+        navbar: "var(--navbar-height)",
+      },
     },
   },
   plugins: [],
