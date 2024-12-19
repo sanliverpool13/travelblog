@@ -5,7 +5,7 @@ import SocialLinks from "../SocialLinks/SocialLinks";
 
 const Footer: React.FC = () => {
   return (
-    <div className="w-full h-[var(--height-footer)] flex flex-col justify-center items-center p-2 bg-gray-800 text-gray-100">
+    <div className="w-full flex flex-col justify-center items-center p-2 bg-gray-800 text-gray-100">
       <p className="text-lg font-bold py-4">Connect With Us!</p>
       <SocialLinks isNavbar={false} />
       <span className="py-4">Designed & Built by Madison and Sanjar</span>
