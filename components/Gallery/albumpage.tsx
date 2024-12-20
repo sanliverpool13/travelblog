@@ -39,7 +39,7 @@ const AlbumPage: React.FC<AlbumPageComponentProps> = ({ album }) => {
 
   return (
     <div className="flex flex-col gap-y-16 items-center justify-center w-full py-12">
-      <h1 className="text-5xl font-bold">
+      <h1 className="text-3xl font-bold">
         {capitalizeWords(album.name?.toString().replace(/-/g, " "))}
       </h1>
       <div className="flex flex-col gap-y-16 items-center justify-center w-full py-12">

@@ -11,7 +11,7 @@ const PageLayout: React.FC<{
   return (
     <main
       className={`flex-grow w-full ${
-        noPaddingTop ? "" : "pt-[192px]"
+        noPaddingTop ? "" : "pt-[100px]"
       } pb-[400px] flex flex-col relative text-bg-clr-footer `}
     >
       {children}

@@ -16,7 +16,7 @@ const Blog: React.FC<Props> = ({ posts }) => {
   });
 
   return (
-    <div className="flex justify-center items-center w-full relative">
+    <div className="flex justify-center items-center w-full relative pt-20">
       <motion.div
         initial="hidden"
         whileInView="visible"
