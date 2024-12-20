@@ -22,7 +22,7 @@ interface RecipesProps {
 const Recipes: React.FC<RecipesProps> = ({ recipes }) => {
   return (
     <div className="w-full flex flex-col items-center">
-      <div className="w-[90%] max-w-[1300px] h-full flex flex-col gap-y-56 items-center">
+      <div className="w-[90%] max-w-[1300px] h-full flex flex-col gap-y-14 items-center">
         <h2 className="text-5xl">Recipes</h2>
         <div className="grid grid-cols-4 md:grid-cols-12 gap-6 w-full">
           {recipes.map((recipe, index) => (
@@ -31,7 +31,7 @@ const Recipes: React.FC<RecipesProps> = ({ recipes }) => {
               href={`/plant-based/recipes/${recipe.title.toLowerCase().replace(/ /g, "-")}`}
               className=" col-span-2 md:col-span-3"
             >
-              <div className="relative h-40 w-full mb-4">
+              <div className="relative h-80 w-full mb-4">
                 <Image
                   src={recipe.image}
                   alt={recipe.title}
@@ -41,7 +41,6 @@ const Recipes: React.FC<RecipesProps> = ({ recipes }) => {
                 />
               </div>
               <h2 className="font-semibold text-xl mb-2">{recipe.title}</h2>
-              <p className="text-gray-500">{recipe.description}</p>
             </Link>
           ))}
         </div>

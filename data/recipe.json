@@ -1,15 +1,9 @@
 {
   "recipes": {
-    "georgian-lobio": {
-      "title": "Georgian Lobio",
+    "georgian-lobio-beans": {
+      "title": "Georgian Lobio Beans",
       "image": "/images/Receipes/lobio-vertical.webp",
-      "tags": [
-        "Georgian Cuisine",
-        "Vegan",
-        "Bean Dish",
-        "Comfort Food",
-        "Under 45 min"
-      ],
+      "tags": ["Dinner", "Vegan", "Bean Dish", "Comfort Food", "Under 45 min"],
       "description": "A hearty Georgian bean stew seasoned with traditional spices like coriander and blue fenugreek. This comforting dish is served warm with cornbread and pickled vegetables.",
       "ingredients": [
         {
