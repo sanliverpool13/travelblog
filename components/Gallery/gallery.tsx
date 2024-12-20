@@ -59,7 +59,8 @@ const Gallery: React.FC<GalleryProps> = ({ albums }) => {
       >
         <section className="flex flex-col items-center gap-y-24 justify-center w-full">
           <h2 className="text-5xl font-bold">Adventure Albums</h2>
-          <div className="grid gap-16 md:gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {/* <div className="grid gap-16 md:gap-8 md:grid-cols-2 lg:grid-cols-3"> */}
+          <div className="columns-2 md:columns-3 gap-4">
             {albums &&
               albums.map((album, index) => (
                 <AlbumCard key={album.name} album={album} index={index} />

@@ -29,23 +29,4 @@ const Blog: React.FC<Props> = ({ posts }) => {
   );
 };
 
-// const PostSkeleton = () => {
-//   return (
-//     <SkeletonPostContainer>
-//       <div>
-//         <Skeleton />
-//       </div>
-//       <div>
-//         <Skeleton />
-//       </div>
-//       <div>
-//         <Skeleton height={310} width={"100%"} />
-//       </div>
-//       <div>
-//         <Skeleton count={5} />
-//       </div>
-//     </SkeletonPostContainer>
-//   );
-// };
-
 export default Blog;

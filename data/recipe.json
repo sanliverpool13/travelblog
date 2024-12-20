@@ -2,7 +2,7 @@
   "recipes": {
     "georgian-lobio-beans": {
       "title": "Georgian Lobio Beans",
-      "image": "/images/Receipes/lobio-vertical.webp",
+      "image": "/Receipes/lobio-vertical.webp",
       "tags": ["Dinner", "Vegan", "Bean Dish", "Comfort Food", "Under 45 min"],
       "description": "A hearty Georgian bean stew seasoned with traditional spices like coriander and blue fenugreek. This comforting dish is served warm with cornbread and pickled vegetables.",
       "ingredients": [
@@ -54,7 +54,7 @@
     },
     "tofu-sandwich": {
       "title": "Tofu Sandwich",
-      "image": "/images/Receipes/tofusandwich.jpeg",
+      "image": "/Receipes/tofusandwich.jpeg",
       "tags": ["Lunch", "Vegan", "Quick Meal", "High Protein", "Under 15 min"],
       "description": "A satisfying sandwich featuring crispy pan-fried tofu, fresh vegetables, and a zesty vegan mayo spread. Perfect for a quick lunch or light dinner.",
       "ingredients": [

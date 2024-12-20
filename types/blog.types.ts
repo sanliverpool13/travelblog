@@ -28,6 +28,10 @@ interface CreatedTime extends PageProperty {
   created_time: string;
 }
 
+interface LastEditedTime extends PageProperty {
+  last_edited_time: string;
+}
+
 interface File {
   name: string;
   type: string;
@@ -87,6 +91,7 @@ export interface Page {
     Name: TitleProperty;
     Slug: TextProperty;
     Status: Select;
+    Last_edited_time: LastEditedTime;
   };
   url: string;
 }
@@ -102,6 +107,7 @@ export interface Post {
   imageUrl: string;
   slug: string;
   status: string;
+  lastEdited: string;
 }
 
 export interface Block {

@@ -14,17 +14,17 @@ cloudinary.config({
 
 // Map property objects of notion blog page items for client side
 export const getClientPage = async (page: Page): Promise<Post> => {
-  // Have to download image to base64, upload to cloudinary and update
-  // data here.
-  // const imgBase64 = await downloadImageToBase64(
-  //   page.properties.Thumbnail.files[0].file.url
-  // );
-  // console.log("imgBase64", imgBase64);
-  // const cldImgUrl = await uploadToCloudinary(imgBase64);
-  // console.log("cld image url", cldImgUrl);
-
   const thumbnailUrl = page.properties.Thumbnail.files[0]?.file?.url ?? null;
   const cloudinaryImgUrl = await getCloudinaryThumbnail(thumbnailUrl);
+
+  const lastEditedDate = new Date(
+    page.properties["Last edited time"].last_edited_time,
+  );
+  const formattedLastEditedDate = new Intl.DateTimeFormat("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  }).format(lastEditedDate);
 
   return {
     id: page.id,
@@ -37,6 +37,7 @@ export const getClientPage = async (page: Page): Promise<Post> => {
     imageUrl: cloudinaryImgUrl,
     slug: page.properties.Slug.rich_text[0].plain_text,
     status: page.properties.Status.select.name,
+    lastEdited: formattedLastEditedDate,
   };
 };
 

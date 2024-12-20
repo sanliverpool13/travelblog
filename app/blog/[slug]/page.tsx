@@ -29,10 +29,6 @@ const getPost = async (params: { slug: string }) => {
   const SlugIdMap = await getSlugIdMapFromRedis();
   const pageObject = SlugIdMap[params.slug];
   const id = pageObject["id"];
-  // const page = await retrievePage(id);
-  // console.log("page", page);
-  // const clientPage = await getClientPage(page);
-  // console.log("client page", clientPage);
   const contentBlocks = await retrievePageContent(id);
 
   // Array to house content blocks

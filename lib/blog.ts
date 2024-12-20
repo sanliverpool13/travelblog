@@ -23,6 +23,8 @@ export const queryBlogDatabase = async (): Promise<Post[]> => {
       },
     });
 
+    console.log(blog_database_query.results[1].properties);
+
     // map the results to client page objects - they have only the necessary components
     await blog_database_query.results.reduce(async (promise, page: Page) => {
       await promise;

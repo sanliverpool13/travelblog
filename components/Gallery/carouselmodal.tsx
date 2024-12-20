@@ -29,7 +29,7 @@ const CarouselModal: React.FC<CarouselModalProps> = ({
 
   const handlePrev = () => {
     setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1,
     );
   };
 
@@ -48,12 +48,12 @@ const CarouselModal: React.FC<CarouselModalProps> = ({
         >
           &times;
         </button>
-        <button
+        {/* <button
           onClick={handlePrev}
           className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-3xl z-20"
         >
           &#10094;
-        </button>
+        </button> */}
         <div className="relative flex items-center justify-center">
           <Image
             src={images[currentImageIndex]}
@@ -63,13 +63,13 @@ const CarouselModal: React.FC<CarouselModalProps> = ({
             className="object-cover"
           />
         </div>
-        <button
+        {/* <button
           onClick={handleNext}
           className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-3xl z-20"
         >
           &#10095;
-        </button>
-        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
+        </button> */}
+        {/* <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
           {images.map((_, index) => (
             <span
               key={index}
@@ -80,7 +80,7 @@ const CarouselModal: React.FC<CarouselModalProps> = ({
               }`}
             ></span>
           ))}
-        </div>
+        </div> */}
       </div>
     </motion.div>
   );

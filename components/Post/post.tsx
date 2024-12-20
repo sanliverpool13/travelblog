@@ -19,7 +19,7 @@ interface Props {
 }
 
 const Post: React.FC<Props> = ({ post, clientPage }) => {
-  const { date, readTime, title } = clientPage;
+  const { date, readTime, title, lastEdited } = clientPage;
 
   const getElement = (block: ContentBlock): React.ReactNode => {
     let element: React.ReactNode = null;
@@ -27,7 +27,7 @@ const Post: React.FC<Props> = ({ post, clientPage }) => {
       case "heading_3":
         let hBlock = block as Heading_3;
         element = (
-          <h3 key={hBlock.id} className="text-gray-800 text-2xl my-6">
+          <h3 key={hBlock.id} className="text-gray-800 font-bold text-2xl mt-6">
             {hBlock.heading_3}
           </h3>
         );
@@ -35,7 +35,7 @@ const Post: React.FC<Props> = ({ post, clientPage }) => {
       case "paragraph":
         let pBlock = block as Paragraph;
         element = (
-          <p key={pBlock.id} className="text-gray-800 text-lg leading-8 mb-8">
+          <p key={pBlock.id} className="text-gray-800 text-lg leading-8">
             {pBlock.paragraph}
           </p>
         );
@@ -46,15 +46,15 @@ const Post: React.FC<Props> = ({ post, clientPage }) => {
           ? imageBlock.image.imageType
           : null;
         element = (
-          <div key={imageBlock.id} className="mb-8">
+          <div key={imageBlock.id} className="">
             <div
               className={`relative w-full ${
                 imageBlock.image.imageType === "h"
                   ? "h-80"
                   : imageBlock.image.column
-                  ? "h-64"
-                  : "h-[800px]"
-              } ${imageBlock.image.caption ? "mb-0" : "mb-8"}`}
+                    ? "h-64"
+                    : "h-[800px]"
+              } ${imageBlock.image.caption ? "mb-0" : "mb-0"}`}
             >
               <Image
                 src={imageBlock.image.imageUrl}
@@ -66,7 +66,7 @@ const Post: React.FC<Props> = ({ post, clientPage }) => {
               />
             </div>
             {imageBlock.image.caption && (
-              <p className="text-center text-gray-800 text-sm py-4 mb-4">
+              <p className="text-center text-gray-800 text-sm py-4 mb-0">
                 {imageBlock.image.caption}
               </p>
             )}
@@ -79,7 +79,7 @@ const Post: React.FC<Props> = ({ post, clientPage }) => {
       case "column_list":
         let columnList = block as ColumnListType;
         let columnListElements = columnList.column_list.map((col) =>
-          getElement(col)
+          getElement(col),
         );
         element = (
           <div key={columnList.id} className="grid grid-cols-2 gap-4">
@@ -106,26 +106,33 @@ const Post: React.FC<Props> = ({ post, clientPage }) => {
   const contentElements = post.length && post.map((block) => getElement(block));
 
   return (
-    <article className="w-[90%] max-w-2xl mx-auto">
-      <h2 className="text-gray-800 text-3xl mb-4">{title}</h2>
-      <div className="flex items-center py-2 mb-8">
-        <div className="mr-2 flex items-center">
-          <span className="text-gray-800 text-sm">Last Updated {date}</span>
-        </div>
-        <div className="mr-2 flex items-center">
-          <span className="text-gray-800 text-sm">&#9679;</span>
-        </div>
-        <div className="flex items-center">
-          <span className="text-gray-800 text-sm">{`${readTime} read`}</span>
-        </div>
+    <div className="w-[90%] max-w-2xl mx-auto pt-20">
+      {/* Back to All Posts */}
+      <div className="mb-12">
+        <Link
+          href="/blog"
+          className="text-gray-500 text-sm flex items-center gap-2"
+        >
+          <span>&larr;</span> Back to All Posts
+        </Link>
       </div>
-      {contentElements}
-      <Link href="/blog">
-        <button className="bg-teal-300 text-gray-800 rounded-lg cursor-pointer flex justify-center items-center text-center w-36 h-12 px-1 text-lg border-none transition-all duration-200 ease-in mt-16 hover:shadow-md">
-          Return To Blog
-        </button>
-      </Link>
-    </article>
+
+      <header className="flex flex-col gap-4 mb-16">
+        <h2 className="text-gray-800 text-5xl">{title}</h2>
+        <p className="text-gray-800 text-sm">
+          {`Published ${date} • Last Updated ${lastEdited} • ${readTime} read`}
+        </p>
+      </header>
+
+      <article className=" flex flex-col gap-6 mb-8">{contentElements}</article>
+
+      {/* <Link
+        href="/blog"
+        className="text-gray-800 cursor-pointer text-lg flex items-center gap-2"
+      >
+        <span>&larr;</span> Back to All Posts
+      </Link> */}
+    </div>
   );
 };
 
